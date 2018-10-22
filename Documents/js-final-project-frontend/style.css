@@ -4,9 +4,8 @@ body {
    background-repeat: no-repeat;
    background-color: white;
    height: 100%;
-
-
  }
+
 
  html{
    height: 100%
@@ -488,7 +487,7 @@ body {
   top: 44.89vw;
 }
 
-#suttland{
+#suitland{
   position: absolute;
   left: 53.45vw;
   top: 46.41vw;
