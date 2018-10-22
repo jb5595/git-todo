@@ -1,0 +1,456 @@
+body {
+   background-image: url("./dcmetro.jpg");
+   background-size: 70%;
+   background-repeat: no-repeat;
+   background-color: white;
+   height: 100%;
+
+
+ }
+
+ html{
+   height: 100%
+ }
+.stop{
+  background-color: yellow;
+  border-radius: 50%;
+  height: .9vw;
+  width: .9vw;
+
+}
+#shady-grove{
+  position: absolute;
+  left: 10.6vw;
+  top: 4.8vw;
+}
+#rockville{
+  position: absolute;
+  left: 12.4vw;
+  top: 6.6vw;
+}
+#twinbrook{
+  position: absolute;
+  left: 14.2vw;
+  top: 8.4vw;
+}
+#whiteflint{
+  position: absolute;
+  left: 16.0vw;
+  top: 10.2vw;
+}
+#grovesnor-strathmore{
+  position: absolute;
+  left: 17.8vw;
+  top: 11.9vw;
+}
+#medical-center{
+  position: absolute;
+  left: 19.6vw;
+  top: 13.8vw;
+}
+
+#bethesda{
+  position: absolute;
+  left: 21.4vw;
+  top: 15.5vw;
+}
+
+
+#friendship-heights{
+  position: absolute;
+  left: 23.1vw;
+  top: 17.2vw;
+}
+
+#tenleytown-au{
+  position: absolute;
+  left: 24.3vw;
+  top: 18.1vw;
+}
+
+#van-ness-udc{
+  position: absolute;
+  left: 25.9vw;
+  top: 18.3vw;
+}
+
+#cleveland-park{
+  position: absolute;
+  left: 26.9vw;
+  top: 19.4vw;
+}
+
+#woodley-park{
+  position: absolute;
+  left: 28.2vw;
+  top: 20.6vw;
+}
+
+#dupont-circle{
+  position: absolute;
+  left: 29.5vw;
+  top: 21.9vw;
+}
+
+#farragut-north{
+  position: absolute;
+  left: 30.5vw;
+  top: 23.5vw;
+
+}
+#metro-center{
+  position: absolute;
+  left: 34.0vw;
+  top: 29.0vw;
+
+}
+
+#gallery-place{
+  position: absolute;
+  left: 38.7vw;
+  top: 29.0vw;
+
+}
+
+#judiciary-square{
+  position: absolute;
+  left: 41.8vw;
+  top: 29.0vw;
+
+}
+
+#union-station{
+  position: absolute;
+  left: 45.1vw;
+  top: 27.7vw;
+
+}
+#noma-gallaudet-u{
+  position: absolute;
+  left: 45.1vw;
+  top: 25.5vw;
+
+}
+
+#rhode-island-ave{
+  position: absolute;
+  left: 45.1vw;
+  top: 23.5vw;
+}
+
+#brookland-cua{
+  position: absolute;
+  left: 45.1vw;
+  top: 21.5vw;
+
+}
+#fort-totten{
+  position: absolute;
+  left: 41.0vw;
+  top: 16.5vw;
+}
+
+#takoma{
+  position: absolute;
+  left: 36.4vw;
+  top: 11.9vw;
+
+}
+
+#silver-spring{
+  position: absolute;
+  left: 35.6vw;
+  top: 7.3vw;
+}
+#forest-glen{
+  position: absolute;
+  left: 35.6vw;
+  top: 5.3vw;
+}
+
+#wheaton{
+  position: absolute;
+  left: 35.6vw;
+  top: 3.3vw;
+}
+
+#glenmont{
+  position: absolute;
+  left: 35.6vw;
+  top: 1.4vw;
+}
+
+#vienna{
+  position: absolute;
+  left: 3.25vw;
+  top: 31.05vw;
+}
+
+#dunn-loring{
+  position: absolute;
+  left: 5.55vw;
+  top: 31.05vw;
+}
+#west-falls-church{
+  position: absolute;
+  left: 7.85vw;
+  top: 31.05vw;
+}
+#east-falls-church{
+  position: absolute;
+  left: 10.9vw;
+  top: 31.71vw;
+}
+#ballston-mu{
+  position: absolute;
+  left: 13.1vw;
+  top: 31.71vw;
+}
+#virgina-square-gmu{
+  position: absolute;
+  left: 14.77vw;
+  top: 31.71vw;
+
+}
+#clarendon{
+  position: absolute;
+  left: 16.5vw;
+  top: 31.71vw;
+
+}
+#court-house{
+  position: absolute;
+  left: 18.23vw;
+  top: 31.71vw;
+
+}
+
+#rosslyn{
+  position: absolute;
+  left: 20.78vw;
+  top: 29.11vw;
+}
+#foggy-bottom-gwu{
+  position: absolute;
+  left: 26.80vw;
+  top: 25.76vw;
+}
+
+#farragut-west{
+  position: absolute;
+  left: 28.65vw;
+  top: 25.76vw;
+
+}
+
+#mcpherson-sq{
+  position: absolute;
+  left: 31.99vw;
+  top: 25.76vw;
+
+}
+#federal-triangle{
+  position: absolute;
+  left: 33.97vw;
+  top: 31.50vw;
+
+}
+#smithsonian{
+  position: absolute;
+  left: 33.97vw;
+  top: 33.38vw;
+
+}
+
+#lenfant-plaza{
+  position: absolute;
+  left: 38.77vw;
+  top: 35.38vw;
+}
+
+#federal-center-sw{
+  position: absolute;
+  left: 41.57vw;
+  top: 35.38vw;
+
+}
+
+#capitol-south{
+  position: absolute;
+  left: 43.97vw;
+  top: 35.38vw;
+
+}
+
+#eastern-market{
+  position: absolute;
+  left: 46.2vw;
+  top: 34.78vw;
+}
+
+#potomac-ave{
+  position: absolute;
+  left: 47.52vw;
+  top: 33.47vw;
+}
+
+#stadium-armory{
+  position: absolute;
+  left: 50.22vw;
+  top: 32.99vw;
+}
+
+#minnesota-ave{
+  position: absolute;
+  left: 54.60vw;
+  top: 31.35vw;
+}
+
+#deanwood{
+  position: absolute;
+  left: 56.0vw;
+  top: 29.79vw;
+
+}
+
+#cheverly{
+  position: absolute;
+  left: 57.48vw;
+  top: 28.29vw;
+}
+
+#landover{
+  position: absolute;
+  left: 58.9vw;
+  top: 26.94vw;
+}
+#new-carrolton{
+  position: absolute;
+  left: 60.36vw;
+  top: 25.44vw;
+}
+
+#largo-town-center{
+  position: absolute;
+  left: 64.15vw;
+  top: 33.43vw;
+
+}
+#morgan-blvd{
+  position: absolute;
+  left: 62.42vw;
+  top: 33.43vw;
+
+}
+#addison-rd{
+  position: absolute;
+  left: 60.62vw;
+  top: 33.43vw;
+}
+
+#capitol-heights{
+  position: absolute;
+  left: 58.92vw;
+  top: 33.43vw;
+}
+
+#benning-rd{
+  position: absolute;
+  left: 57.12vw;
+  top: 33.43vw;
+}
+
+#mclean{
+  position: absolute;
+  left: 7.90vw;
+  top: 29.65vw;
+}
+
+#tysons-corner{
+  position: absolute;
+  left: 6.70vw;
+  top: 28.55vw;
+
+}
+#greensboro{
+  position: absolute;
+  left: 5.50vw;
+  top: 27.35vw;
+}
+
+#spring-hill{
+  position: absolute;
+  left: 4.35vw;
+  top: 26.20vw;
+}
+
+#wiehle-reston-east{
+  position: absolute;
+  left: 3.15vw;
+  top: 25.06vw;
+}
+
+#greenbelt{
+  position: absolute;
+  left: 47.8vw;
+  top: 9.55vw;
+
+}
+
+#college-park{
+  position: absolute;
+  left: 46.35vw;
+  top: 11.15vw;
+
+}
+
+#prince-georges-plaza{
+  position: absolute;
+  left: 44.94vw;
+  top: 12.62vw;
+}
+
+#west-hyattsville{
+  position: absolute;
+  left: 43.47vw;
+  top: 13.92vw;
+}
+
+#georgia-ave-petworth{
+  position: absolute;
+  left: 36.95vw;
+  top: 17.85vw;
+}
+
+#columbia-heights{
+
+}
+
+#u-st{
+
+}
+
+#shaw-howard-u{
+
+}
+
+#mt-vernon-sq{
+
+}
+
+#archives{
+
+}
+
+#waterfront{
+
+}
+
+#navy-yard-ballpark{
+
+
+}
+
+#anacostia{
+  
+}
