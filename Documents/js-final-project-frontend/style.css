@@ -521,7 +521,6 @@ body {
   position: absolute;
   left: 32.2vw;
   top: 52.2vw;
-  background-color: red;
 }
 
 
@@ -533,6 +532,42 @@ body {
 
 #crystal-city{
   position: absolute;
-  left: 32.2vw;
-  top: 52.2vw;
+  left: 29.6vw;
+  top: 48.8vw;
+}
+
+#pentagon-city{
+  position: absolute;
+  left: 28.2vw;
+  top: 46.1vw;
+}
+
+#pentagon{
+  position: absolute;
+  left: 28.2vw;
+  top: 43.0vw;
+}
+
+#pentagon{
+  position: absolute;
+  left: 28.2vw;
+  top: 43.0vw;
+}
+
+#arlington-cemetery{
+  position: absolute;
+  left: 24.8vw;
+  top: 38.3vw;
+}
+
+#van-dorn-st{
+  position: absolute;
+  left: 22.63vw;
+  top: 57.0vw;
+}
+
+#franconia-springfield{
+  position: absolute;
+  left: 19.60vw;
+  top: 60.8vw;
 }
