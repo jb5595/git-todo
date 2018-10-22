@@ -48,6 +48,12 @@ font-size: 2.5vw;
   width: .9vw;
 
 }
+
+#login-btn {
+  position: relative;
+  bottom: 2vw;
+}
+
 #shady-grove{
   position: absolute;
   left: 10.6vw;
