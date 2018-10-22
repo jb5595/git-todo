@@ -14,13 +14,15 @@ body {
     z-index: 1; /* Stay on top */
     top: 0; /* Stay at the top */
     right: 0;
-    background-image: url("capitol-picture.jpg");
-    /*
-    overflow-x: hidden; /* Disable horizontal scroll */
+    background-image:linear-gradient(rgba(0, 50, 204, 0.5), rgba(0, 50, 204, 0.5)), url("./Dc-capitol.jpeg");
+    background-size: 140%;
+    background-repeat: none;
+    /* overflow-x: hidden; /* Disable horizontal scroll */ */
     padding-top: 20px;
-    box-shadow: -2px 0px 1px 0px;
+    box-shadow: -1px 0px 1px 0px;
     z-index: 1;
 }
+
 .sidenav-header{
   width: 100%;
   margin: 0px;
@@ -32,11 +34,27 @@ body {
   border-bottom: .5px white solid;
 
 }
-.sidenav-header h2{
-position:relative;
-left: 10vw;
-font-size: 2.5vw;
-}
+  .sidenav-header h2{
+  position:relative;
+  left: 10vw;
+  font-size: 2.5vw;
+  }
+  .trip-form-container{
+    position: relative;
+    top: 20vw;
+    background-color: rgba(255,255,255,.5);
+    width: 80%;
+    left: 10%;
+    border-radius: 4px;
+  }
+
+  .form-label{
+    background-color: rgb(70,121,176);
+    color: white;
+    font-family: "Lato", sans-serif, Helvetica, Arial;
+    border-radius: 1px;
+
+  }
 
 
  html{
