@@ -31,9 +31,9 @@ class Controller {
       Adapter.getRoute({destination: storage.destination, origin: storage.origin})
       .then(function(data) {
         console.log(data)
-
+        storage.origin = null;
+        storage.destination = null;
       })
-
     }
   }
 
