@@ -14,11 +14,12 @@ body {
     z-index: 1; /* Stay on top */
     top: 0; /* Stay at the top */
     right: 0;
-    background: linear-gradient(rgba(0, 0, 255, 0.45),rgba(0, 0, 255, 0.45)), url("capitol-picture.jpg");
+    background-image: url("capitol-picture.jpg");
     /*
     overflow-x: hidden; /* Disable horizontal scroll */
     padding-top: 20px;
-    box-shadow: -2px 0px 1px 0px
+    box-shadow: -2px 0px 1px 0px;
+    z-index: 1;
 }
 .sidenav-header{
   width: 100%;
