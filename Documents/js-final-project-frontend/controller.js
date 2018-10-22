@@ -32,9 +32,21 @@ class Controller {
       Adapter.getRoute({destination: storage.destination, origin: storage.origin})
       .then(function(data) {
         console.log(data)
+
       })
 
     }
+  }
+
+  static handleTripCreation(e) {
+    // const origin = storage.origin
+    // const destination = storage.destination
+    // const user_id = (get the user id from somewhere)
+    Adapter.postTrip({origin: origin, destination: destinatino, user_id: user_id})
+      .then(
+        // alert the user that the trip has been created
+        // re-render their trips div?
+      )
   }
 
 }
