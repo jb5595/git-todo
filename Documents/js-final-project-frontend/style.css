@@ -20,7 +20,7 @@ body {
     /* overflow-x: hidden; /* Disable horizontal scroll */ */
     padding-top: 20px;
     box-shadow: -1px 0px 1px 0px;
-    z-index: 1;
+
 }
 
 .sidenav-header{
