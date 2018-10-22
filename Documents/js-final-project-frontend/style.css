@@ -423,34 +423,116 @@ body {
 }
 
 #columbia-heights{
-
+  position: absolute;
+  left: 35.0vw;
+  top: 19.69vw;
 }
 
 #u-st{
-
+  position: absolute;
+  left: 36.90vw;
+  top: 21.85vw;
 }
 
 #shaw-howard-u{
-
+  position: absolute;
+  left: 38.7vw;
+  top: 23.99vw;
 }
 
 #mt-vernon-sq{
-
+  position: absolute;
+  left: 38.7vw;
+  top: 26.38vw;
 }
 
 #archives{
-
+  position: absolute;
+  left: 38.7vw;
+  top: 31.41vw;
 }
 
 #waterfront{
-
+  position: absolute;
+  left: 41.3vw;
+  top: 41.81vw;
 }
 
 #navy-yard-ballpark{
-
-
+  position: absolute;
+  left: 43.18vw;
+  top: 41.81vw;
 }
 
 #anacostia{
-  
+  position: absolute;
+  left: 46.65vw;
+  top: 43.01vw;
+}
+#congress-heights{
+  position: absolute;
+  left: 47.78vw;
+  top: 44.36vw;
+
+}
+
+#southern-ave{
+  position: absolute;
+  left: 49.65vw;
+  top: 45.21vw;
+}
+
+#naylor-rd{
+  position: absolute;
+  left: 52.05vw;
+  top: 44.89vw;
+}
+
+#suttland{
+  position: absolute;
+  left: 53.45vw;
+  top: 46.41vw;
+}
+
+#branch-ave{
+  position: absolute;
+  left: 54.98vw;
+  top: 47.81vw;
+}
+
+#huntington{
+  position: absolute;
+  left: 32.7vw;
+  top: 60.7vw;
+}
+
+#eisenhower-ave{
+  position: absolute;
+  left: 32.7vw;
+  top: 57.9vw;
+}
+
+#king-st-old-town{
+  position: absolute;
+  left: 32.2vw;
+  top: 54.9vw;
+}
+#braddock-rd{
+  position: absolute;
+  left: 32.2vw;
+  top: 52.2vw;
+  background-color: red;
+}
+
+
+#ronald-reagan{
+  position: absolute;
+  left: 32.2vw;
+  top: 50.3vw;
+}
+
+#crystal-city{
+  position: absolute;
+  left: 32.2vw;
+  top: 52.2vw;
 }
