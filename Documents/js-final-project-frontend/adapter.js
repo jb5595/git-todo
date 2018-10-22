@@ -1,7 +1,7 @@
 const USERSURL = 'localhost:3000/users';
 const APIKEY = '066f898b49e149789dfae7ae404ed976';
 const ROUTEURL = 'https://api.wmata.com/Rail.svc/json/jSrcStationToDstStationInfo?';
-TRIPSURL = 'http://localhost:3000/api/v1/trips';
+const TRIPSURL = 'http://localhost:3000/api/v1/trips';
 
 class Adapter {
 
