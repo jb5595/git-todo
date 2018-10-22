@@ -19,7 +19,6 @@ class Controller {
 }
 
   static handleRouting(e) {
-    
     if(storage.origin === null) {
       // If no point has been selected
       storage.origin = e.currentTarget.dataset.id.split(" ")[0]
