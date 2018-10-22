@@ -1,6 +1,6 @@
 const USERSURL = 'localhost:3000/users'
 const APIKEY = '066f898b49e149789dfae7ae404ed976'
-const STATIONTOSTATIONURL = 'https://api.wmata.com/Rail.svc/json/jSrcStationToDstStationInfo?'
+const ROUTEURL = 'https://api.wmata.com/Rail.svc/json/jSrcStationToDstStationInfo?'
 
 class Adapter {
 
@@ -13,8 +13,8 @@ class Adapter {
     return fetch(url).then(res => res.json());
   }
 
-  static getRoute(origin, destination) {
-    const url = STATIONTOSTATIONURL + `FromStationCode=${origin}&ToStationCode=${destination}`
+  static getRoute({origin, destination}) {
+    const url = ROUTEURL + `FromStationCode=${origin}&ToStationCode=${destination}`
     return fetch(url, {headers: {api_key: APIKEY}})
     .then(res => res.json())
   }
