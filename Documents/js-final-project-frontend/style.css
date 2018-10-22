@@ -7,6 +7,35 @@ body {
 
  }
 
+ .sidenav {
+    height: 100%; /* Full-height: remove this if you want "auto" height */
+    width: 29vw; /* Set the width of the sidebar */
+    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    right: 0;
+    background-color: rgb(79,79,79);
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 20px;
+    box-shadow: -2px 0px 1px 0px
+}
+.sidenav-header{
+  width: 100%;
+  margin: 0px;
+  background-color: rgb(70,121,176);
+  top: 0;
+  position: fixed;
+  color: white;
+  border-radius: 4px;
+  border-bottom: .5px white solid;
+
+}
+.sidenav-header h2{
+position:relative;
+left: 10vw;
+font-size: 2.5vw;
+}
+
 
  html{
    height: 100%
