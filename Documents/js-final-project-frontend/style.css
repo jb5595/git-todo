@@ -46,7 +46,7 @@ body {
 
   .trip-form-container{
     position: relative;
-    top: 18vw;
+    top: 8vw;
     /* background-color: rgba(255,255,255,.5); */
     width: 95%;
     left: 2.5%;
@@ -72,13 +72,55 @@ body {
     padding-right: 2em;
   }
 
+  .trip-information-container{
+    position: relative;
+    top: 14vw;
+    height:2vw;
+    left: 9%;
+    height: 5.5vw;
+    background-color: white;
+    width: 82%;
+    border: 1px solid rgb(70,121,176);
+    border-radius: 4px;
+    overflow: hidden;
+
+  }
+
+  .trip-information-container ul{
+    padding-left: 1.4vw;
+    max-height: 4.7vw;
+    overflow: scroll;
+  }
+
+  .trip-information-container li{
+    border: .5px solid rgb(70,121,176);
+
+  }
+
+  .login-btn{
+    position: relative;
+    top: 45vw;
+    left: 19vw;
+    background-color: rgb(70,121,176);
+    color: white;
+
+  }
+
+
+
+
+
+
+
+
 .stop{
   background-color: yellow;
   border-radius: 50%;
   height: .9vw;
   width: .9vw;
-
 }
+
+
 #shady-grove{
   position: absolute;
   left: 10.6vw;
