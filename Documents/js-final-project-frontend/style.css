@@ -3,7 +3,7 @@
    height: 100%
  }
 body {
-   background-image: url("./dcmetro.jpg");
+   background-image: url("./images/dcmetro.jpg");
    background-size: 70%;
    background-repeat: no-repeat;
    background-color: white;
@@ -13,15 +13,12 @@ body {
 
  .sidenav {
     height: 100%; /* Full-height: remove this if you want "auto" height */
-    /* width: 29vw; /* Set the width of the sidebar */ 
     position: fixed; /* Fixed Sidebar (stay in place on scroll) */
-    z-index: 1; /* Stay on top */
+    z-index: 0; /* Stay on top */
     top: 0; /* Stay at the top */
-    right: 0;
-    background-image:linear-gradient(rgba(0, 50, 204, 0.5), rgba(0, 50, 204, 0.5)), url("./Dc-capitol.jpeg");
+    background-image:linear-gradient(rgba(0, 50, 204, 0.5), rgba(0, 50, 204, 0.5)), url("./images/Dc-capitol.jpeg");
     background-size: 140%;
     background-repeat: none;
-    /* overflow-x: hidden; /* Disable horizontal scroll */ */
     box-shadow: -1px 0px 1px 0px;
     padding-left: 0px;
 
@@ -68,13 +65,9 @@ body {
 
   .trip-information-container{
     position: relative;
-    top: 14vw;
-    height:2vw;
+    top: 12vw;
     left: 9%;
-    height: 5.5vw;
-    background-color: white;
     width: 82%;
-    border: 1px solid rgb(70,121,176);
     border-radius: 4px;
     overflow: hidden;
 
@@ -84,10 +77,15 @@ body {
     padding-left: 1.4vw;
     max-height: 4.7vw;
     overflow: scroll;
+    height: 5.5vw;
+  }
+
+  #save-route{
   }
 
   .trip-information-container li{
     border: .5px solid rgb(70,121,176);
+    background-color: rgba(255,255,255, 0.5);
 
   }
 

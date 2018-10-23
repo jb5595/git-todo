@@ -1,7 +1,7 @@
 .modal {
     display: hidden; /* Hidden by default */
     position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
+    z-index: .5; /* Sit on top */
     padding-top: 100px; /* Location of the box */
     left: 0;
     top: 0;
@@ -22,12 +22,7 @@
 }
 
 /* The Close Button */
-.close {
-    color: #aaaaaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
+
 .btn-primary{
   background-color: rgb(70,121,176);
   border: none;

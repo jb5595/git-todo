@@ -13,7 +13,7 @@ class Controller {
   static init() {
     console.log("Controller initialized")
     Controller.addStationListeners()
-    loginButton.addEventListener("click",ModalController.displayModal)
+    loginButton.addEventListener("click",SessionController.displayModal)
   }
 
     static addStationListeners() {
@@ -58,23 +58,31 @@ class Controller {
    div.innerHTML = `<ul class = "trip-information-list">
            <li class = "row trip-info-row">
              <div class=  "trip-info-header">Rail Time:</div>
-             <div id = 'railTime' class = "offset-4">${railTime} Mins.</div>
+             <div id = 'railTime' class = "offset-6">${railTime} Mins.</div>
            </li>
            <li class = "row trip-info-row">
              <div class=  "trip-info-header">Peak Time:</div>
-             <div id = 'PeakTime' class = "offset-5">$${peakFare}</div>
+             <div id = 'PeakTime' class = "offset-6">$${peakFare}</div>
            </li>
            <li class = "row trip-info-row">
              <div class=  "trip-info-header">Off Peak:</div>
-             <div id = 'OffPeak' class = "offset-5">$${offPeak}</div>
+             <div id = 'OffPeak' class = "offset-7">$${offPeak}</div>
            </li>
            <li class = "row trip-info-row">
-             <div class=  "trip-info-header">Senior<div>
-             <div id = 'Senior'class = "offset-4">$${seniorDisabled}</div>
+             <div class=  "trip-info-header">Senior/Disable</div>
+             <div id = 'Senior'class = "offset-5">$${seniorDisabled}</div>
            </li>
          </ul>`
-
-  tripInfoContainer.appendChild(div)
+   tripInfoContainer.appendChild(div)
+   // if there is a user currently logged in give option to save route
+   if (currentUser){
+     let btn = document.createElement("btn")
+     btn.classList = "btn btn-primary offset-4"
+     btn.innerText = 'Save Route'
+     btn.id = "save-route"
+     tripInfoContainer.appendChild(btn)
+     btn.addEventListener("click", Controller.handleTripCreation)
+   }
 
  }
 
@@ -89,9 +97,9 @@ class Controller {
   }
 
   static handleTripCreation(e) {
-    // const origin = storage.origin
-    // const destination = storage.destination
-    // const user_id = (get the user id from somewhere)
+    const origin = storage.origin
+    const destination = storage.destination
+    const user_id = currentUser.id
     Adapter.postTrip({origin: origin, destination: destinatino, user_id: user_id})
       .then(
         // alert the user that the trip has been created
