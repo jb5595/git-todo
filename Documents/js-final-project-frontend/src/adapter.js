@@ -1,4 +1,4 @@
-const USERSURL = 'http://localhost:3000/users';
+const USERSURL = 'http://localhost:3000/api/v1/users';
 const APIKEY = '066f898b49e149789dfae7ae404ed976';
 const ROUTEURL = 'https://api.wmata.com/Rail.svc/json/jSrcStationToDstStationInfo?';
 const TRIPSURL = 'http://localhost:3000/api/v1/trips';
@@ -30,12 +30,12 @@ class Adapter {
       headers: { 'Content-Type': 'application/json', Accept: 'application/json'},
       body: JSON.stringify(data)
     }
-    return fetch("http://localhost:3000/users", options).then(res => res.json())
+    return fetch(USERSURL, options).then(res => res.json())
 
   }
 
   static postTrip({name: name, origin: origin, originCode: originCode, destination: destination, destinationCode: destinationCode, user_id: user_id}) {
-
+// Need to update backend Schema to account for origin/ destination codes
     const data = {
       origin: origin,
       originCode: originCode,

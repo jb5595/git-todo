@@ -10,6 +10,11 @@ body {
    height: 100%;
 
  }
+ #clear-selection{
+   position: fixed;
+   right: 27vw;
+   bottom: 2vw;
+ }
 
  .sidenav {
     height: 100%; /* Full-height: remove this if you want "auto" height */
@@ -75,15 +80,16 @@ body {
 
   .trip-information-container ul{
     padding-left: 1.4vw;
-    max-height: 4.7vw;
+    max-height: 15vw;
     overflow: scroll;
-    height: 5.5vw;
+    height: 15vw;
+    border-radius: 10px 10px;
   }
 
 
   .trip-information-container li{
     border: .5px solid rgb(70,121,176);
-    background-color: rgba(255,255,255, 0.5);
+    background-color: rgba(255,255,255);
 
   }
 

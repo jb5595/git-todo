@@ -2,11 +2,11 @@ let storage = {
   origin: null,
   destination: null
 }
-
 const originInput = $("#origin-input")[0]
 const destinationInput =$("#destination-input")[0]
 const tripInfoContainer= $(".trip-information-container")[0]
 const loginButton = $("#login-button")[0]
+const clearSelectionButton = $("#clear-selection")[0]
 
 class Controller {
 
@@ -14,6 +14,7 @@ class Controller {
     console.log("Controller initialized")
     Controller.addStationListeners()
     loginButton.addEventListener("click",SessionController.displayModal)
+    clearSelectionButton.addEventListener("click", Controller.clearSelection)
   }
 
     static addStationListeners() {
@@ -141,6 +142,23 @@ class Controller {
         // alert the user that the trip has been created
         // re-render their trips div?
       )
+  }
+
+  static clearSelection(e){
+    let originId = originInput.value.split(" ").map(word=>word.toLowerCase()).join("-")
+    let destinationId = destinationInput.value.split(" ").map(word=>word.toLowerCase()).join("-")
+    originInput.value = ""
+    destinationInput.value = ""
+    storage.origin = null
+    storage.destination = null
+    $(`#${originId}`)[0].style.backgroundColor = 'yellow'
+    $(`#${originId}`)[0].style.height = "1.2vw"
+    $(`#${originId}`)[0].style.width = "1.2vw"
+    $(`#${destinationId}`)[0].style.backgroundColor = 'yellow'
+    $(`#${destinationId}`)[0].style.height = "1.2vw"
+    $(`#${destinationId}`)[0].style.width = "1.2vw"
+    clearElementChildren(tripInfoContainer)
+
   }
 
 }
