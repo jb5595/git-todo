@@ -34,18 +34,20 @@ class Adapter {
 
   }
 
-  static postTrip({user_id, origin, destination, name}) {
+  static postTrip({name: name, origin: origin, originCode: originCode, destination: destination, destinationCode: destinationCode, user_id: user_id}) {
 
     const data = {
       origin: origin,
+      originCode: originCode,
       destination: destination,
+      destinationCode: destinationCode,
       user_id: user_id,
       name: name
     }
 
     const options = {
       method: 'POST',
-      headers: {'Content-Type:': 'application/json'},
+      headers: {'Content-Type:': 'application/json',Accept: 'application/json'},
       body: JSON.stringify(data)
     }
 

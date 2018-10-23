@@ -29,14 +29,23 @@ class Controller {
       // If no point has been selected
       storage.origin = e.currentTarget.dataset.id.split(" ")[0]
       Controller.fillFormOrigin(e.currentTarget.id)
+      e.currentTarget.style.backgroundColor = 'red'
+      e.currentTarget.style.height = "1.5vw"
+      e.currentTarget.style.width = "1.5vw"
     } else if (storage.origin === e.currentTarget.dataset.id.split(" ")[0]){
       // If the same point is reselected
       originInput.value = ""
       storage.origin = null
+      e.currentTarget.style.backgroundColor = 'yellow'
+      e.currentTarget.style.height = "1.2vw"
+      e.currentTarget.style.width = "1.2vw"
     } else if(storage.origin) {
       // If a point has been selected and a second point is selected
       Controller.fillFormDestination(e.currentTarget.id)
       storage.destination = e.currentTarget.dataset.id.split(" ")[0]
+      e.currentTarget.style.backgroundColor = 'red'
+      e.currentTarget.style.height = "1.5vw"
+      e.currentTarget.style.width = "1.5vw"
       Adapter.getRoute({destination: storage.destination, origin: storage.origin})
       .then(function(data) {
         console.log(data)
@@ -53,7 +62,6 @@ class Controller {
    let peakFare = tripData.StationToStationInfos[0].RailFare.PeakTime;
    let offPeak =tripData.StationToStationInfos[0].RailFare.OffPeakTime;
    let seniorDisabled = tripData.StationToStationInfos[0].RailFare.SeniorDisabled;
-   debugger
    let div = document.createElement("div")
    div.innerHTML = `<ul class = "trip-information-list">
            <li class = "row trip-info-row">
@@ -81,9 +89,33 @@ class Controller {
      btn.innerText = 'Save Route'
      btn.id = "save-route"
      tripInfoContainer.appendChild(btn)
-     btn.addEventListener("click", Controller.handleTripCreation)
+     btn.addEventListener("click", Controller.displayCreateRouteForm)
    }
 
+ }
+
+ static displayCreateRouteForm(e){
+    let origin = $("#origin-input")[0].value
+    let destination =$("#destination-input")[0].value
+    clearElementChildren(loginModalContentDiv)
+     loginModal.style.display = "block"
+     let form = document.createElement("form")
+     form.innerHTML = `<div class="form-group">
+                         <label for="emails">Route Name</label>
+                         <input type="text" class="form-control" id = "new-route-name">
+                       </div>
+                          <div class="form-group">
+                         <label for="emails">Origin</label>
+                         <input type="text" class="form-control" value = "${origin}" id = "new-route-origin" readonly>
+                       </div>
+                       <div class="form-group">
+                           <label for="emails">Destination</label>
+                           <input type="text" class="form-control" value = "${destination}"  id = "new-route-destination" readonly>
+                       </div>
+                       <input type="submit" class="form-control btn btn-primary" value = "Create Route">`
+     loginModalContentDiv.appendChild(form)
+     form.addEventListener("submit", Controller.handleTripCreation)
+     document.addEventListener("click", closeModal)
  }
 
   static fillFormOrigin(stopId){
@@ -97,10 +129,14 @@ class Controller {
   }
 
   static handleTripCreation(e) {
-    const origin = storage.origin
-    const destination = storage.destination
+    e.preventDefault()
+    const name = $("#new-route-name")[0].value
+    const origin =$("#new-route-origin")[0].value
+    const originCode = storage.origin
+    const destination =$("#new-route-destination")[0].value
+    const destinationCode = storage.destination
     const user_id = currentUser.id
-    Adapter.postTrip({origin: origin, destination: destinatino, user_id: user_id})
+    Adapter.postTrip({name: name, origin: origin, originCode: originCode, destination: destination, destinationCode: destinationCode, user_id: user_id})
       .then(
         // alert the user that the trip has been created
         // re-render their trips div?

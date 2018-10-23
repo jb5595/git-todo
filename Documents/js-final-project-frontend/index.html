@@ -120,18 +120,18 @@
                     <label for="origin" id = 'origin-label' class = " sr-only "> Origin</label>
                     <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                       <div class="form-label" id = "origin-label">Origin</div>
-                      <input type="text" name="origin"  id = "origin-input" class = "form-control">
+                      <input type="text" name="origin"  id = "origin-input" class = "form-control" readonly>
                     </div>
                     <br><br>
                     <label for="destination" id = "destination-lavel" class = "sr-only">Destination</label>
                     <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                       <div class="form-label">Destination</div>
-                      <input type="text" name="destination" id = "destination-input" class= "form-control">
+                      <input type="text" name="destination" id = "destination-input" class= "form-control" readonly>
                     </div>
                   </form>
                 </div>
                 <div class="trip-information-container">
-                
+
                 </div>
               </div>
           </div>
@@ -167,6 +167,7 @@
 
 
   </body>
+  <script type="text/javascript" src="./src/models/trip.js"></script>
   <script type="text/javascript" src="./src/models/user.js"></script>
   <script type="text/javascript"src="./src/controllers/controller.js"></script>
   <script type="text/javascript"src="./src/controllers/session-controller.js"></script>

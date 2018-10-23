@@ -17,7 +17,7 @@ class SessionController{
                     <h6>New User?</h6>
                     <button type="button" class = "btn btn-primary" id = "create-user-button-on-modal" name="button">Create User</button>`
     loginModalContentDiv.appendChild(div)
-    document.addEventListener("click", SessionController.closeModal)
+    document.addEventListener("click", closeModal)
 
     $("#login-button-on-modal")[0].addEventListener("click",SessionController.displayLoginForm)
     $("#create-user-button-on-modal")[0].addEventListener("click",SessionController.displayCreateUserForm)
@@ -68,12 +68,6 @@ class SessionController{
     })
   }
 
-
-  static closeModal(e){
-      if (e.target == loginModal) {
-          loginModal.style.display = "none";
-      }
-  }
 
 
 }

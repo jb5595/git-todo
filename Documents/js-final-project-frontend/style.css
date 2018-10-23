@@ -80,8 +80,6 @@ body {
     height: 5.5vw;
   }
 
-  #save-route{
-  }
 
   .trip-information-container li{
     border: .5px solid rgb(70,121,176);
@@ -99,16 +97,12 @@ body {
 
 
 
-
-
-
-
-
 .stop{
   background-color: yellow;
   border-radius: 50%;
-  height: .9vw;
-  width: .9vw;
+  border: black solid 1px;
+  height: 1.2vw;
+  width: 1.2vw;
 }
 
 
@@ -292,8 +286,8 @@ body {
 }
 #east-falls-church{
   position: absolute;
-  left: 10.9vw;
-  top: 31.71vw;
+  left: 10.75vw;
+  top: 31.55vw;
 }
 #ballston-mu{
   position: absolute;
