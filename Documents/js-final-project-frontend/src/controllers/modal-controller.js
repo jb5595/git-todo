@@ -2,6 +2,7 @@ const createUserButtonOnModal = $("create-user-button-on-modal")[0]
 const loginModal = $("#login-modal")[0]
 const loginModalContentDiv = $(".login-modal-content")[0]
 const closeButton = $(".close")[0]
+let currentUser;
 
 
 class ModalController{
@@ -31,10 +32,6 @@ class ModalController{
                         <label for="emails">Email address</label>
                         <input type="email" class="form-control" id="login-email" placeholder="Enter email">
                       </div>
-                      <div class="form-group">
-                        <label for="password">Password</label>
-                        <input type="password" class="form-control" id="login-password" placeholder="Password">
-                      </div>
                       <input type="submit" class= "btn btn-primary" name="" value="Login">`
     loginModalContentDiv.appendChild(form)
     form.addEventListener("submit", ModalController.login)
@@ -43,8 +40,10 @@ class ModalController{
   static login(e){
     e.preventDefault()
     let email = $('#login-email')[0].value
-    let password = $('#login-password')[0].value
-    debugger
+    Adapter.getUser(email)
+    .then(function(userData){
+      currentUser = allUsers.find(user=> user.email == userData.email)
+    })
   }
 
   static displayCreateUserForm(e){
@@ -54,10 +53,6 @@ class ModalController{
                         <label for="emails">Email address</label>
                         <input type="email" class="form-control" id="create-user-email" placeholder="Enter email">
                       </div>
-                      <div class="form-group">
-                        <label for="password">Password</label>
-                        <input type="password" class="form-control" id="create-user-password" placeholder="Password">
-                      </div>
                       <input type="submit" class= "btn btn-primary" name="" value="Create User">`
     loginModalContentDiv.appendChild(form)
     form.addEventListener("submit", ModalController.createUser)
@@ -66,8 +61,10 @@ class ModalController{
   static createUser(e){
     e.preventDefault()
     let email = $('#create-user-email')[0].value
-    let password = $('#create-user-password')[0].value
-    debugger
+    Adapter.postUser(email).then(function(userData){
+      debugger
+      currentUser = new User(userData)
+    })
   }
 
 

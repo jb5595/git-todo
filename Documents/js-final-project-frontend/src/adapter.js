@@ -1,4 +1,4 @@
-const USERSURL = 'localhost:3000/users';
+const USERSURL = 'http://localhost:3000/users';
 const APIKEY = '066f898b49e149789dfae7ae404ed976';
 const ROUTEURL = 'https://api.wmata.com/Rail.svc/json/jSrcStationToDstStationInfo?';
 const TRIPSURL = 'http://localhost:3000/api/v1/trips';
@@ -18,6 +18,20 @@ class Adapter {
     const url = ROUTEURL + `FromStationCode=${origin}&ToStationCode=${destination}`
     return fetch(url, {headers: {api_key: APIKEY}})
     .then(res => res.json())
+  }
+
+  static postUser(emailInput){
+    debugger
+    const data = {
+      email:emailInput
+    }
+    const options = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json'},
+      body: JSON.stringify(data)
+    }
+    return fetch("http://localhost:3000/users", options).then(res => res.json())
+
   }
 
   static postTrip({user_id, origin, destination, name}) {
