@@ -54,4 +54,20 @@ class Adapter {
     return fetch(TRIPSURL, options).then(res => res.json())
   }
 
+  static postUser({email}) {
+    
+    const data = {
+      email: email
+    }
+
+    const options = {
+      method: 'POST',
+      headers: {'Content-Type:': 'application/json'},
+      body: JSON.stringify(data)
+    }
+
+    return fetch(USERSURL, options).then(res => res.json())
+
+  }
+
 }

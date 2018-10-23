@@ -112,6 +112,11 @@ body {
 }
 
 
+#login-btn {
+  position: relative;
+  bottom: 2vw;
+}
+
 #shady-grove{
   position: absolute;
   left: 10.6vw;
