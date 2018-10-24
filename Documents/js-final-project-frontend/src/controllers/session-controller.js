@@ -49,7 +49,7 @@ class SessionController{
 
   static successfulLogin(userData) {
     loginModalContentDiv.innerHTML = "";
-    TripController.displayMyRoutesButton
+    TripController.displayMyRoutesButton()
     currentUser = new User(userData);
     const textDiv = document.createElement('div')
     textDiv.innerText = "Welcome to MetroRider. You are now logged in.";

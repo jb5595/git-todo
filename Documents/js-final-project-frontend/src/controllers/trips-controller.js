@@ -49,6 +49,7 @@ class TripController{
     const user_id = currentUser.id
     Adapter.postTrip({name: name, origin: origin, originCode: originCode, destination: destination, destinationCode: destinationCode, user_id: user_id})
       .then(
+
         // alert the user that the trip has been created
         // re-render their trips div?
       )
@@ -58,14 +59,11 @@ class TripController{
     tripInfoModal.style.display = "block"
     document.addEventListener("click",TripController.closeModal)
     // For Each User Trip Display Trip Information
-    TripController.displayTrip()
+    currentUser.trips.forEach(trip => TripController.displayTrip(trip))
   }
 
-  static displayTrip(){
-    let trip = {}
-    trip.destination= "Destination1"
-    trip.origin = "Origin1"
-    trip.name = "commute-trip"
+  static displayTrip(trip){
+    debugger
     let parentNode = $(".route-info-modal-body")[0]
     let tripDiv = document.createElement("div")
     tripDiv.classList = "route-info"
@@ -80,32 +78,31 @@ class TripController{
                           Destination: ${trip.destination}
                         </div>
                       </div>
-      <div class="row display-info-container" id = "${trip.name}-base-info">
-        <div class="incoming-train-info col-8">
-          <h4>Incoming trains</h4>
-          <div class="incoming-train-table">
-            <table class = "table">
-              <thead>
-                <tr>
-                  <th scope="col">Line</th><th scope="col">Minutes</th><th scope="col">Cars</th>
-                </tr>
-              </thead>
-              <tbody class = "train-table-body" id = "${trip.name}-table">
-              </tbody>
-            </table>
-          </div>
-          <br>
-          <button type="button" class = "btn btn-warning" name="button">Edit</button>
-          <button type="button" class = "btn btn-danger" name="button">Delete</button>
-        </div>
-      </div>`
+                      <div class="row display-info-container" id = "${trip.name}-base-info">
+                        <div class="incoming-train-info col-8">
+                          <h4>Incoming trains</h4>
+                          <div class="incoming-train-table">
+                            <table class = "table">
+                              <thead>
+                                <tr>
+                                  <th scope="col">Line</th><th scope="col">Minutes</th><th scope="col">Cars</th>
+                                </tr>
+                              </thead>
+                              <tbody class = "train-table-body" id = "${trip.name}-table">
+                              </tbody>
+                            </table>
+                          </div>
+                          <br>
+                          <button type="button" class = "btn btn-warning" id = "${trip.name}-edit" name="button">Edit</button>
+                          <button type="button" class = "btn btn-danger" id = "${trip.name}-delete" name="button">Delete</button>
+                        </div>
+                      </div>`
       parentNode.appendChild(tripDiv)
       TripController.displayBaseTripInformation(trip)
-      // TripController.displayIncomingTrainInformation(trip)
+      TripController.displayIncomingTrainInformation(trip)
   }
 
   static displayBaseTripInformation(trip){
-    debugger
     let parentNode = $(`#${trip.name}-base-info`)[0]
     let infoDiv = document.createElement("div")
     infoDiv.classList = "base-info col-4"
@@ -117,14 +114,13 @@ class TripController{
   }
 
   static displayIncomingTrainInformation(trip){
-  `  <tr>
-      <th scope="row" class = "train-line SV">&bull;</th><td>Red</td><td>6</td>
-    </tr>
-    <tr>
-      <th scope="row" class = "train-line OR">&bull;</th><td>Red</td><td>6</td>
-    </tr>
-    <tr>
-      <th scope="row" class = "train-line GR">&bull;</th><td>Red</td><td>6</td>
-    </tr>`
+    let parentNode = $(`#${trip.name}-table`)[0]
+    Adapter.getIncomingTrainTimes(trip.origin)
+    .then(dataArray => dataArray.Trains.forEach(function(train){
+      let tr = document.createElement("tr")
+      tr.innerHTML = `<th scope="row" class = "train-line ${train.Line}">&bull;</th><td>${train.Min}</td><td>${train.Car}</td>`
+      parentNode.appendChild(tr)
+    }))
   }
+
 }

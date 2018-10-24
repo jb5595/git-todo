@@ -1,3 +1,4 @@
+
 class Trip{
   constructor({origin, originCode, destination, destinationCode, name, user_id}){
     this.origin = origin
