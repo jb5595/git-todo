@@ -41,10 +41,13 @@ class SessionController{
     e.preventDefault()
     let email = $('#login-email')[0].value
     Adapter.getUser(email)
-    .then(function(userData){
-      currentUser = new User(userData)
-      loginModal.style.display = "none";
-    })
+      .then(function(userData){
+        if(userData) {
+          currentUser = new User(userData)
+          loginModalContentDiv.innerText = "You are now logged in.";
+        }
+      }
+    )
   }
 
   static displayCreateUserForm(e){
