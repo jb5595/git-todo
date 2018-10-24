@@ -48,11 +48,19 @@ class TripController{
     const destinationCode = storage.destination
     const user_id = currentUser.id
     Adapter.postTrip({name: name, origin: origin, originCode: originCode, destination: destination, destinationCode: destinationCode, user_id: user_id})
-      .then(
+      .then(function(res){
+        let trip = new Trip(res)
+        currentUser.addTrip(trip)
+        TripController.creationSuccess()
+      })
+  }
 
-        // alert the user that the trip has been created
-        // re-render their trips div?
-      )
+  static creationSuccess(){
+    loginModalContentDiv.innerHTML = "";
+    const textDiv = document.createElement('div')
+    textDiv.innerText = "Route Successfully Create!";
+    loginModalContentDiv.append(textDiv)
+
   }
 
   static displayTrips(e){
@@ -78,7 +86,7 @@ class TripController{
                           Destination: ${trip.destination}
                         </div>
                       </div>
-                      <div class="row display-info-container" id = "${trip.name}-base-info">
+                      <div class="row display-info-container" id = "${trip.id}-base-info">
                         <div class="incoming-train-info col-8">
                           <h4>Incoming trains</h4>
                           <div class="incoming-train-table">
@@ -88,13 +96,13 @@ class TripController{
                                   <th scope="col">Line</th><th scope="col">Minutes</th><th scope="col">Cars</th>
                                 </tr>
                               </thead>
-                              <tbody class = "train-table-body" id = "${trip.name}-table">
+                              <tbody class = "train-table-body" id = "${trip.id}-table">
                               </tbody>
                             </table>
                           </div>
                           <br>
-                          <button type="button" class = "btn btn-warning" id = "${trip.name}-edit" name="button">Edit</button>
-                          <button type="button" class = "btn btn-danger" id = "${trip.name}-delete" name="button">Delete</button>
+                          <button type="button" class = "btn btn-warning" id = "${trip.id}-edit" name="button">Edit</button>
+                          <button type="button" class = "btn btn-danger" id = "${trip.id}-delete" name="button">Delete</button>
                         </div>
                       </div>`
       parentNode.appendChild(tripDiv)
@@ -103,7 +111,7 @@ class TripController{
   }
 
   static displayBaseTripInformation(trip){
-    let parentNode = $(`#${trip.name}-base-info`)[0]
+    let parentNode = $(`#${trip.id}-base-info`)[0]
     let infoDiv = document.createElement("div")
     infoDiv.classList = "base-info col-4"
     infoDiv.innerHTML = `<p>Rail Time:</p>
@@ -114,7 +122,7 @@ class TripController{
   }
 
   static displayIncomingTrainInformation(trip){
-    let parentNode = $(`#${trip.name}-table`)[0]
+    let parentNode = $(`#${trip.id}-table`)[0]
     Adapter.getIncomingTrainTimes(trip.origin)
     .then(dataArray => dataArray.Trains.forEach(function(train){
       let tr = document.createElement("tr")
