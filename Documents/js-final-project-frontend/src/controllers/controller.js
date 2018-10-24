@@ -36,13 +36,22 @@ class Controller {
       e.currentTarget.style.height = "1.5vw"
       e.currentTarget.style.width = "1.5vw"
     } else if (storage.origin === e.currentTarget.dataset.id.split(" ")[0]){
-      // If the same point is reselected
+      // If the origin point is reselected
       originInput.value = ""
       storage.origin = null
       e.currentTarget.style.backgroundColor = 'white'
       e.currentTarget.style.height = "1.2vw"
       e.currentTarget.style.width = "1.2vw"
-    } else if(storage.origin) {
+    } else if (storage.destination === e.currentTarget.dataset.id.split(" ")[0]){
+      // If the destination is reselected
+      destinationInput.value = ""
+      storage.destination = null
+      e.currentTarget.style.backgroundColor = 'white'
+      e.currentTarget.style.height = "1.2vw"
+      e.currentTarget.style.width = "1.2vw"
+    } else if(storage.origin && storage.destination) {
+      // If both points have already been selected, do nothing for a third point
+    } else if(storage.origin){
       // If a point has been selected and a second point is selected
       Controller.fillFormDestination(e.currentTarget.id)
       storage.destination = e.currentTarget.dataset.id.split(" ")[0]
@@ -53,9 +62,7 @@ class Controller {
       .then(function(data) {
         console.log(data)
         Controller.displayTripInformation(data)
-
       })
-
     }
   }
 

@@ -48,9 +48,9 @@ class Adapter {
 
     const data = {
       origin: origin,
-      origin_code: originCode,
+      origin_code: origin_code,
       destination: destination,
-      destination_code: destinationCode,
+      destination_code: destination_code,
       user_id: user_id,
       name: name
     }
