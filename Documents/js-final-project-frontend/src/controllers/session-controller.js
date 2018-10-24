@@ -4,7 +4,6 @@ const loginModalContentDiv = $(".login-modal-content")[0]
 const closeButton = $(".close")[0]
 let currentUser = null;
 
-
 class SessionController{
   static displayModal(e){
     clearElementChildren(loginModalContentDiv)
@@ -24,7 +23,6 @@ class SessionController{
 
   }
 
-
   static displayLoginForm(e){
     clearElementChildren(loginModalContentDiv)
     let form = document.createElement("form")
@@ -43,11 +41,33 @@ class SessionController{
     Adapter.getUser(email)
       .then(function(userData){
         if(userData) {
-          currentUser = new User(userData)
-          loginModalContentDiv.innerText = "You are now logged in.";
+          SessionController.successfulLogin(userData)
         }
       }
     )
+  }
+
+  static successfulLogin(userData) {
+    currentUser = new User(userData);
+    loginModalContentDiv.innerText = "Welcome to MetroRider. You are now logged in.";
+    const continueButton = document.createElement('button');
+    continueButton.innerText = "Continue";
+    continueButton.classList.add('btn');
+    continueButton.addEventListener('click', SessionController.handleContinue);
+    loginModalContentDiv.append(continueButton);
+    loginButton.innerText = "Logout";
+    loginButton.removeEventListener('click', SessionController.displayModal)
+    loginButton.addEventListener('click', SessionController.handleLogout);
+  }
+
+  static handleLogout(e) {
+    currentUser = null;
+    loginButton.innerText = "Login";
+    loginButton.addEventListener('click', SessionController.displayModal)
+  }
+
+  static handleContinue(e) {
+    loginModal.style.display = "none";
   }
 
   static displayCreateUserForm(e){
@@ -70,7 +90,5 @@ class SessionController{
       loginModal.style.display = "none";
     })
   }
-
-
 
 }
