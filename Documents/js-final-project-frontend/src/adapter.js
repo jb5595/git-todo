@@ -48,7 +48,7 @@ class Adapter {
 
     const data = {
       origin: origin,
-      origin_code: originCode
+      origin_code: originCode,
       destination: destination,
       destination_code: destinationCode,
       user_id: user_id,
@@ -68,13 +68,15 @@ class Adapter {
     return fetch(TRIPSURL).then(res => res.json())
   }
 
-  static patchTrip({id, origin, destination, name}) {
+  static patchTrip({id, origin, origin_code, destination_code, destination, name}) {
 
     const url = TRIPSURL + '/' + id;
 
     const data = {}
     if(origin) {data.origin = origin};
+    if(origin_code) {data.origin_code = origin_code}
     if(destination) {data.destination = destination}
+    if(destination_code) {data.destination_code = destination_code}
     if(name) {data.name = name}
 
     const options = {
