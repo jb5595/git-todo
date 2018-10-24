@@ -7,10 +7,6 @@ class TripController{
     $("#trip-info-button")[0].style.display = "block"
 
   }
-  static displayTrips(e){
-    tripInfoModal.style.display = "block"
-    document.addEventListener("click",TripController.closeModal)
-  }
 
   static closeModal(e){
       if (e.target == tripInfoModal) {
@@ -56,5 +52,79 @@ class TripController{
         // alert the user that the trip has been created
         // re-render their trips div?
       )
+  }
+
+  static displayTrips(e){
+    tripInfoModal.style.display = "block"
+    document.addEventListener("click",TripController.closeModal)
+    // For Each User Trip Display Trip Information
+    TripController.displayTrip()
+  }
+
+  static displayTrip(){
+    let trip = {}
+    trip.destination= "Destination1"
+    trip.origin = "Origin1"
+    trip.name = "commute-trip"
+    let parentNode = $(".route-info-modal-body")[0]
+    let tripDiv = document.createElement("div")
+    tripDiv.classList = "route-info"
+    tripDiv.innerHTML =`<div class="route-info-header row">
+                        <div class="col-4">
+                          <h5>${trip.name}</h5>
+                        </div>
+                        <div class="col-4">
+                          Origin: ${trip.origin}
+                        </div>
+                        <div class="col-4">
+                          Destination: ${trip.destination}
+                        </div>
+                      </div>
+      <div class="row display-info-container" id = "${trip.name}-base-info">
+        <div class="incoming-train-info col-8">
+          <h4>Incoming trains</h4>
+          <div class="incoming-train-table">
+            <table class = "table">
+              <thead>
+                <tr>
+                  <th scope="col">Line</th><th scope="col">Minutes</th><th scope="col">Cars</th>
+                </tr>
+              </thead>
+              <tbody class = "train-table-body" id = "${trip.name}-table">
+              </tbody>
+            </table>
+          </div>
+          <br>
+          <button type="button" class = "btn btn-warning" name="button">Edit</button>
+          <button type="button" class = "btn btn-danger" name="button">Delete</button>
+        </div>
+      </div>`
+      parentNode.appendChild(tripDiv)
+      TripController.displayBaseTripInformation(trip)
+      // TripController.displayIncomingTrainInformation(trip)
+  }
+
+  static displayBaseTripInformation(trip){
+    debugger
+    let parentNode = $(`#${trip.name}-base-info`)[0]
+    let infoDiv = document.createElement("div")
+    infoDiv.classList = "base-info col-4"
+    infoDiv.innerHTML = `<p>Rail Time:</p>
+                         <p>Peak Time:</p>
+                         <p>Off Peak:</p>
+                         <p>Senior:</p>`
+   parentNode.insertBefore(infoDiv,parentNode.firstChild)
+  }
+
+  static displayIncomingTrainInformation(trip){
+  `  <tr>
+      <th scope="row" class = "train-line SV">&bull;</th><td>Red</td><td>6</td>
+    </tr>
+    <tr>
+      <th scope="row" class = "train-line OR">&bull;</th><td>Red</td><td>6</td>
+    </tr>
+    <tr>
+      <th scope="row" class = "train-line GR">&bull;</th><td>Red</td><td>6</td>
+    </tr>`
   }
 }

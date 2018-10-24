@@ -92,10 +92,9 @@ class SessionController{
     e.preventDefault()
     let email = $('#create-user-email')[0].value
     Adapter.postUser(email).then(function(userData){
-      currentUser = new User(userData)
-      loginModal.style.display = "none";
-      TripController.displayMyRoutesButton
-
+      if(userData) {
+        SessionController.successfulLogin(userData)
+      }
     })
   }
 
