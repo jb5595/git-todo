@@ -13,6 +13,7 @@
   </head>
   <body>
     <div class="container-fluid">
+      <div class="main">
         <div class="map-container">
           <button type="button" name="button" class = "btn btn-warning" id = "clear-selection"> Clear Selection</button>
           <div id = 'shady-grove' class = "stop red-line" data-id = "A15"> </div>
@@ -107,9 +108,10 @@
           <div id = 'van-dorn-st' class = "stop yellow-line blue-line" data-id = "J02"></div>
           <div id = 'franconia-springfield' class = "stop yellow-line blue-line" data-id = "J03"></div>
         </div>
+      </div>
+
         <div class="sidenav offset-9 col-3">
             <button id = "login-button" name="button" class = "btn login-btn offset-9">Login</button>
-            <button id = "my-routes-button" name="button" class = "btn login-btn offset-1">My Routes</button>
             <div class="sidenav-header  col-12">
               <h2 class = "">Your Trip</h1>
             </div>
@@ -133,27 +135,38 @@
                 </div>
             </div>
         </div>
+
           <!--LOGIN MODAL  -->
         <div id="login-modal" class="modal">
           <div class="login-modal-content">
           </div>
         </div>
-        <div id="myModal" class="modal">
-          <div class="modal-content">
-              <div class="modal-header">
-                <span class="close">&times;</span>
-                <h2>Modal Header</h2>
-              </div>
-              <div class="modal-body">
-                <p>Some text in the Modal Body</p>
-                <p>Some other text...</p>
-              </div>
-              <div class="modal-footer">
-                <h3>Modal Footer</h3>
-              </div>
-            </div>
 
+        <div class="route-info-modal-content" id ="trip-info-button">
+          <div class="route-info-modal-header">
+            <span class="close">&#8679;</span>
+            <h2>My Routes</h2>
+          </div>
         </div>
+        <!-- The Modal -->
+        <div id="tripInfoModal" class="route-info-modal">
+          <!-- Modal content -->
+          <div class="route-info-modal-content">
+            <div class="route-info-modal-header">
+              <h2>My Routes</h2>
+            </div>
+            <div class="route-info-modal-body route-info-container">
+              <div class="route-info">
+                <h5>Route Name</h5>
+                <p>Rail Time: 2min</p>
+                <p>Some other text...</p>
+
+              </div>
+
+            </div>
+        </div>
+      </div>
+
     </div>
 
   </body>
@@ -161,6 +174,7 @@
   <script type="text/javascript" src="./src/models/user.js"></script>
   <script type="text/javascript"src="./src/controllers/controller.js"></script>
   <script type="text/javascript"src="./src/controllers/session-controller.js"></script>
+  <script type="text/javascript"src="./src/controllers/trips-controller.js"></script>
   <script type="text/javascript"src="./src/index.js"></script>
   <script type="text/javascript"src="./src/adapter.js"></script>
 </html>

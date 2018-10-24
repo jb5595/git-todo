@@ -44,6 +44,7 @@ class SessionController{
     .then(function(userData){
       currentUser = allUsers.find(user=> user.email == userData.email)
       loginModal.style.display = "none";
+      TripController.displayMyRoutesButton
     })
   }
 
@@ -65,6 +66,8 @@ class SessionController{
     Adapter.postUser(email).then(function(userData){
       currentUser = new User(userData)
       loginModal.style.display = "none";
+      TripController.displayMyRoutesButton
+
     })
   }
 
