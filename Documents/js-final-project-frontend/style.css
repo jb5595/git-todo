@@ -3,7 +3,7 @@
    height: 100%
  }
 body {
-   background-image: url("./images/dcmetro.jpg");
+   background-image: url("./images/high-res-metro-map.png");
    background-size: 70%;
    background-repeat: no-repeat;
    background-color: white;
@@ -111,12 +111,17 @@ body {
 
   }
 
+  .continue-btn {
+    background-color: rgb(70,121,176);
+    color: white;
+  }
+
 
 
 .stop{
-  background-color: yellow;
+  background-color: white;
   border-radius: 50%;
-  border: black solid 1px;
+  border: black solid 4px;
   height: 1.2vw;
   width: 1.2vw;
 }
@@ -134,549 +139,538 @@ body {
 }
 #rockville{
   position: absolute;
-  left: 12.4vw;
-  top: 6.6vw;
+  left: 12.2vw;
+  top: 6.4vw;
 }
 #twinbrook{
   position: absolute;
-  left: 14.2vw;
-  top: 8.4vw;
+  left: 14.1vw;
+  top: 8.2vw;
 }
 #whiteflint{
   position: absolute;
-  left: 16.0vw;
-  top: 10.2vw;
+  left: 15.8vw;
+  top: 10vw;
 }
 #grovesnor-strathmore{
   position: absolute;
-  left: 17.8vw;
-  top: 11.9vw;
+  left: 17.6vw;
+  top: 11.8vw;
 }
 #medical-center{
   position: absolute;
-  left: 19.6vw;
-  top: 13.8vw;
+  left: 19.4vw;
+  top: 13.6vw;
 }
 
 #bethesda{
   position: absolute;
-  left: 21.4vw;
-  top: 15.5vw;
+  left: 21.1vw;
+  top: 15.3vw;
 }
 
 
 #friendship-heights{
   position: absolute;
-  left: 23.1vw;
-  top: 17.2vw;
+  left: 22.7vw;
+  top: 16.9vw;
 }
 
 #tenleytown-au{
   position: absolute;
-  left: 24.3vw;
-  top: 18.1vw;
+  left: 24vw;
+  top: 17.8vw;
 }
 
 #van-ness-udc{
   position: absolute;
-  left: 25.9vw;
-  top: 18.3vw;
+  left: 25.6vw;
+  top: 18vw;
 }
 
 #cleveland-park{
   position: absolute;
-  left: 26.9vw;
-  top: 19.4vw;
+  left: 26.7vw;
+  top: 19.2vw;
 }
 
 #woodley-park{
   position: absolute;
-  left: 28.2vw;
-  top: 20.6vw;
+  left: 28vw;
+  top: 20.4vw;
 }
 
 #dupont-circle{
   position: absolute;
-  left: 29.5vw;
-  top: 21.9vw;
+  left: 29.2vw;
+  top: 21.6vw;
 }
 
 #farragut-north{
   position: absolute;
-  left: 30.5vw;
-  top: 23.5vw;
+  left: 30.2vw;
+  top: 23.2vw;
 
 }
 #metro-center{
   position: absolute;
-  left: 34.0vw;
-  top: 29.0vw;
-
+  left: 33.5vw;
+  top: 28.6vw;
 }
 
 #gallery-place{
   position: absolute;
-  left: 38.7vw;
-  top: 29.0vw;
+  left: 38.28vw;
+  top: 28.6vw;
 
 }
 
 #judiciary-square{
   position: absolute;
-  left: 41.8vw;
-  top: 29.0vw;
+  left: 41.3vw;
+  top: 28.7vw;
 
 }
 
 #union-station{
   position: absolute;
-  left: 45.1vw;
-  top: 27.7vw;
+  left: 44.6vw;
+  top: 27.3vw;
 
 }
 #noma-gallaudet-u{
   position: absolute;
-  left: 45.1vw;
-  top: 25.5vw;
+  left: 44.6vw;
+  top: 25.3vw;
 
 }
 
 #rhode-island-ave{
   position: absolute;
-  left: 45.1vw;
-  top: 23.5vw;
+  left: 44.6vw;
+  top: 23.2vw;
 }
 
 #brookland-cua{
   position: absolute;
-  left: 45.1vw;
-  top: 21.5vw;
+  left: 44.6vw;
+  top: 21.2vw;
 
 }
 #fort-totten{
   position: absolute;
-  left: 41.0vw;
-  top: 16.5vw;
+  left: 40.5vw;
+  top: 16.3vw;
 }
 
 #takoma{
   position: absolute;
-  left: 36.4vw;
+  left: 36vw;
   top: 11.9vw;
 
 }
 
 #silver-spring{
   position: absolute;
-  left: 35.6vw;
-  top: 7.3vw;
+  left: 35.2vw;
+  top: 7.2vw;
 }
 #forest-glen{
   position: absolute;
-  left: 35.6vw;
-  top: 5.3vw;
+  left: 35.2vw;
+  top: 5.2vw;
 }
 
 #wheaton{
   position: absolute;
-  left: 35.6vw;
+  left: 35.2vw;
   top: 3.3vw;
 }
 
 #glenmont{
   position: absolute;
-  left: 35.6vw;
+  left: 35.2vw;
   top: 1.4vw;
 }
 
 #vienna{
   position: absolute;
   left: 3.25vw;
-  top: 31.05vw;
+  top: 30.7vw;
 }
 
 #dunn-loring{
   position: absolute;
   left: 5.55vw;
-  top: 31.05vw;
+  top: 30.7vw;
 }
 #west-falls-church{
   position: absolute;
   left: 7.85vw;
-  top: 31.05vw;
+  top: 30.7vw;
 }
 #east-falls-church{
   position: absolute;
   left: 10.75vw;
-  top: 31.55vw;
+  top: 31.28vw;
 }
 #ballston-mu{
   position: absolute;
-  left: 13.1vw;
-  top: 31.71vw;
+  left: 13vw;
+  top: 31.28vw;
 }
 #virgina-square-gmu{
   position: absolute;
-  left: 14.77vw;
-  top: 31.71vw;
+  left: 14.67vw;
+  top: 31.28vw;
 
 }
 #clarendon{
   position: absolute;
-  left: 16.5vw;
-  top: 31.71vw;
+  left: 16.4vw;
+  top: 31.28vw;
 
 }
 #court-house{
   position: absolute;
-  left: 18.23vw;
-  top: 31.71vw;
+  left: 18.13vw;
+  top: 31.28vw;
 
 }
 
 #rosslyn{
   position: absolute;
-  left: 20.78vw;
-  top: 29.11vw;
+  left: 20.5vw;
+  top: 28.8vw;
 }
 #foggy-bottom-gwu{
   position: absolute;
-  left: 26.80vw;
-  top: 25.76vw;
+  left: 26.40vw;
+  top: 25.5vw;
 }
 
 #farragut-west{
   position: absolute;
-  left: 28.65vw;
-  top: 25.76vw;
-
+  left: 28.25vw;
+  top: 25.5vw;
 }
 
 #mcpherson-sq{
   position: absolute;
-  left: 31.99vw;
-  top: 25.76vw;
-
+  left: 31.6vw;
+  top: 25.5vw;
 }
+
 #federal-triangle{
   position: absolute;
-  left: 33.97vw;
-  top: 31.50vw;
-
+  left: 33.5vw;
+  top: 31.1vw;
 }
+
 #smithsonian{
   position: absolute;
-  left: 33.97vw;
-  top: 33.38vw;
-
+  left: 33.5vw;
+  top: 33vw;
 }
 
 #lenfant-plaza{
   position: absolute;
-  left: 38.77vw;
-  top: 35.38vw;
+  left: 38.28vw;
+  top: 34.85vw;
 }
 
 #federal-center-sw{
   position: absolute;
-  left: 41.57vw;
-  top: 35.38vw;
+  left: 41.1vw;
+  top: 34.9vw;
 
 }
 
 #capitol-south{
   position: absolute;
-  left: 43.97vw;
-  top: 35.38vw;
-
+  left: 43.5vw;
+  top: 34.9vw;
 }
 
 #eastern-market{
   position: absolute;
-  left: 46.2vw;
-  top: 34.78vw;
+  left: 45.7vw;
+  top: 34.5vw;
 }
 
 #potomac-ave{
   position: absolute;
-  left: 47.52vw;
-  top: 33.47vw;
+  left: 47vw;
+  top: 33.17vw;
 }
 
 #stadium-armory{
   position: absolute;
-  left: 50.22vw;
-  top: 32.99vw;
+  left: 49.6vw;
+  top: 32.55vw;
 }
 
 #minnesota-ave{
   position: absolute;
-  left: 54.60vw;
-  top: 31.35vw;
+  left: 53.9vw;
+  top: 31vw;
 }
 
 #deanwood{
   position: absolute;
-  left: 56.0vw;
-  top: 29.79vw;
+  left: 55.4vw;
+  top: 29.49vw;
 
 }
 
 #cheverly{
   position: absolute;
-  left: 57.48vw;
-  top: 28.29vw;
+  left: 56.8vw;
+  top: 28.1vw;
 }
 
 #landover{
   position: absolute;
-  left: 58.9vw;
-  top: 26.94vw;
+  left: 58.2vw;
+  top: 26.6vw;
 }
 #new-carrolton{
   position: absolute;
-  left: 60.36vw;
-  top: 25.44vw;
+  left: 59.6vw;
+  top: 25.2vw;
 }
 
 #largo-town-center{
   position: absolute;
-  left: 64.15vw;
-  top: 33.43vw;
-
+  left: 63.4vw;
+  top: 33.20vw;
 }
+
 #morgan-blvd{
   position: absolute;
-  left: 62.42vw;
-  top: 33.43vw;
-
+  left: 61.7vw;
+  top: 33.20vw;
 }
+
 #addison-rd{
   position: absolute;
-  left: 60.62vw;
-  top: 33.43vw;
+  left: 59.9vw;
+  top: 33.20vw;
 }
 
 #capitol-heights{
   position: absolute;
-  left: 58.92vw;
-  top: 33.43vw;
+  left: 58.22vw;
+  top: 33.20vw;
 }
 
 #benning-rd{
   position: absolute;
-  left: 57.12vw;
-  top: 33.43vw;
+  left: 56.4vw;
+  top: 33.20vw;
 }
 
 #mclean{
   position: absolute;
   left: 7.90vw;
-  top: 29.65vw;
+  top: 29.4vw;
 }
 
 #tysons-corner{
   position: absolute;
   left: 6.70vw;
-  top: 28.55vw;
+  top: 28.2vw;
 
 }
 #greensboro{
   position: absolute;
   left: 5.50vw;
-  top: 27.35vw;
+  top: 27.1vw;
 }
 
 #spring-hill{
   position: absolute;
   left: 4.35vw;
-  top: 26.20vw;
+  top: 25.9vw;
 }
 
 #wiehle-reston-east{
   position: absolute;
   left: 3.15vw;
-  top: 25.06vw;
+  top: 24.8vw;
 }
 
 #greenbelt{
   position: absolute;
-  left: 47.8vw;
+  left: 47.1vw;
   top: 9.55vw;
 
 }
 
 #college-park{
   position: absolute;
-  left: 46.35vw;
-  top: 11.15vw;
+  left: 45.8vw;
+  top: 11vw;
 
 }
 
 #prince-georges-plaza{
   position: absolute;
-  left: 44.94vw;
-  top: 12.62vw;
+  left: 44.4vw;
+  top: 12.4vw;
 }
 
 #west-hyattsville{
   position: absolute;
-  left: 43.47vw;
-  top: 13.92vw;
+  left: 43vw;
+  top: 13.8vw;
 }
 
 #georgia-ave-petworth{
   position: absolute;
-  left: 36.95vw;
-  top: 17.85vw;
+  left: 36.5vw;
+  top: 17.6vw;
 }
 
 #columbia-heights{
   position: absolute;
-  left: 35.0vw;
-  top: 19.69vw;
+  left: 34.6vw;
+  top: 19.4vw;
 }
 
 #u-st{
   position: absolute;
-  left: 36.90vw;
-  top: 21.85vw;
+  left: 36.5vw;
+  top: 21.5vw;
 }
 
 #shaw-howard-u{
   position: absolute;
-  left: 38.7vw;
-  top: 23.99vw;
+  left: 38.31vw;
+  top: 23.7vw;
 }
 
 #mt-vernon-sq{
   position: absolute;
-  left: 38.7vw;
-  top: 26.38vw;
+  left: 38.31vw;
+  top: 26.1vw;
 }
 
 #archives{
   position: absolute;
-  left: 38.7vw;
-  top: 31.41vw;
+  left: 38.31vw;
+  top: 31.2vw;
 }
 
 #waterfront{
   position: absolute;
-  left: 41.3vw;
-  top: 41.81vw;
+  left: 40.9vw;
+  top: 41.21vw;
 }
 
 #navy-yard-ballpark{
   position: absolute;
-  left: 43.18vw;
-  top: 41.81vw;
+  left: 42.8vw;
+  top: 41.21vw;
 }
 
 #anacostia{
   position: absolute;
-  left: 46.65vw;
-  top: 43.01vw;
+  left: 46.05vw;
+  top: 42.6vw;
 }
 #congress-heights{
   position: absolute;
-  left: 47.78vw;
-  top: 44.36vw;
-
+  left: 47.28vw;
+  top: 43.8vw;
 }
 
 #southern-ave{
   position: absolute;
-  left: 49.65vw;
-  top: 45.21vw;
+  left: 49.05vw;
+  top: 44.8vw;
 }
 
 #naylor-rd{
   position: absolute;
-  left: 52.05vw;
-  top: 44.89vw;
+  left: 51.3vw;
+  top: 44.5vw;
 }
 
 #suitland{
   position: absolute;
-  left: 53.45vw;
-  top: 46.41vw;
+  left: 52.9vw;
+  top: 45.9vw;
 }
 
 #branch-ave{
   position: absolute;
-  left: 54.98vw;
-  top: 47.81vw;
+  left: 54.2vw;
+  top: 47.31vw;
 }
 
 #huntington{
   position: absolute;
-  left: 32.7vw;
-  top: 60.7vw;
+  left: 32.3vw;
+  top: 60.1vw;
 }
 
 #eisenhower-ave{
   position: absolute;
-  left: 32.7vw;
-  top: 57.9vw;
+  left: 32.3vw;
+  top: 57.2vw;
 }
 
 #king-st-old-town{
   position: absolute;
-  left: 32.2vw;
-  top: 54.9vw;
-}
-#braddock-rd{
-  position: absolute;
-  left: 32.2vw;
-  top: 52.2vw;
+  left: 31.8vw;
+  top: 54.2vw;
 }
 
+#braddock-rd{
+  position: absolute;
+  left: 31.8vw;
+  top: 51.7vw;
+}
 
 #ronald-reagan{
   position: absolute;
-  left: 32.2vw;
-  top: 50.3vw;
+  left: 31.8vw;
+  top: 49.8vw;
 }
 
 #crystal-city{
   position: absolute;
-  left: 29.6vw;
-  top: 48.8vw;
+  left: 29.3vw;
+  top: 48.2vw;
 }
 
 #pentagon-city{
   position: absolute;
-  left: 28.2vw;
-  top: 46.1vw;
+  left: 27.9vw;
+  top: 45.6vw;
 }
 
 #pentagon{
   position: absolute;
-  left: 28.2vw;
-  top: 43.0vw;
-}
-
-#pentagon{
-  position: absolute;
-  left: 28.2vw;
-  top: 43.0vw;
+  left: 27.9vw;
+  top: 42.5vw;
 }
 
 #arlington-cemetery{
   position: absolute;
-  left: 24.8vw;
-  top: 38.3vw;
+  left: 24.5vw;
+  top: 37.9vw;
 }
 
 #van-dorn-st{
   position: absolute;
-  left: 22.63vw;
-  top: 57.0vw;
+  left: 22.33vw;
+  top: 56.4vw;
 }
 
 #franconia-springfield{
   position: absolute;
-  left: 19.60vw;
-  top: 60.8vw;
+  left: 19.36vw;
+  top: 60.1vw;
 }
