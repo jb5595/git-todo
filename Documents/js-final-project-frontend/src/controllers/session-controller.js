@@ -42,7 +42,7 @@ class SessionController{
     let email = $('#login-email')[0].value
     Adapter.getUser(email)
     .then(function(userData){
-      currentUser = allUsers.find(user=> user.email == userData.email)
+      currentUser = new User(userData)
       loginModal.style.display = "none";
     })
   }
