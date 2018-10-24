@@ -84,21 +84,21 @@ body {
     width: 82%;
     border-radius: 4px;
     overflow: hidden;
-
+    background-color: rgba(255,255,255, .75);
   }
 
   .trip-information-container ul{
     padding-left: 1.4vw;
     max-height: 15vw;
-    overflow: scroll;
+    /* overflow: scroll; */
     height: 15vw;
     border-radius: 10px 10px;
   }
 
 
   .trip-information-container li{
-    border: .5px solid rgb(70,121,176);
-    background-color: rgba(255,255,255);
+    /* border: .5px solid rgb(70,121,176); */
+    /* background-color: rgba(255,255,255); */
 
   }
 
