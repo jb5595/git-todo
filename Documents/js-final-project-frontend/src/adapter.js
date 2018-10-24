@@ -5,6 +5,16 @@ const TRIPSURL = 'http://localhost:3000/api/v1/trips';
 
 class Adapter {
 
+  // INTERACTING WITH WMATA API
+
+  static getRoute({origin, destination}) {
+    const url = ROUTEURL + `FromStationCode=${origin}&ToStationCode=${destination}`
+    return fetch(url, {headers: {api_key: APIKEY}})
+    .then(res => res.json())
+  }
+
+  // USERS
+
   static getUsers() {
     return fetch(USERSURL).then(res => res.json());
   }
@@ -16,12 +26,6 @@ class Adapter {
       return fetch(url).then(res => res.json());
       }
     )
-  }
-
-  static getRoute({origin, destination}) {
-    const url = ROUTEURL + `FromStationCode=${origin}&ToStationCode=${destination}`
-    return fetch(url, {headers: {api_key: APIKEY}})
-    .then(res => res.json())
   }
 
   static postUser(emailInput){
@@ -38,24 +42,60 @@ class Adapter {
 
   }
 
-  static postTrip({name: name, origin: origin, originCode: originCode, destination: destination, destinationCode: destinationCode, user_id: user_id}) {
-// Need to update backend Schema to account for origin/ destination codes
+  // TRIPS
+
+  static postTrip({name: name, origin: originCode, destination, destinationCode, user_id: user_id}) {
+
     const data = {
-      origin: origin,
-      originCode: originCode,
-      destination: destination,
-      destinationCode: destinationCode,
+      origin: originCode,
+      destination: destinationCode,
       user_id: user_id,
       name: name
     }
 
     const options = {
       method: 'POST',
-      headers: {'Content-Type:': 'application/json',Accept: 'application/json'},
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json'},
       body: JSON.stringify(data)
     }
 
     return fetch(TRIPSURL, options).then(res => res.json())
+  }
+
+  static getTrips() {
+    return fetch(TRIPSURL).then(res => res.json())
+  }
+
+  static patchTrip({id, origin, destination, name}) {
+
+    const url = TRIPSURL + '/' + id;
+
+    const data = {}
+    if(origin) {data.origin = origin};
+    if(destination) {data.destination = destination}
+    if(name) {data.name = name}
+
+    const options = {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json'},
+      body: JSON.stringify(data)
+    }
+
+    return fetch(url, options).then(res => res.json());
+
+  }
+
+  static deleteTrip(id) {
+
+    const url = TRIPSURL + '/' + id;
+
+    const options = {
+      method: 'DELETE',
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json'},
+    }
+
+    return fetch(url, options).then(res => res.json());
+
   }
 
 }
