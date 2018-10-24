@@ -13,7 +13,6 @@
   </head>
   <body>
     <div class="container-fluid">
-
         <div class="map-container">
           <button type="button" name="button" class = "btn btn-warning" id = "clear-selection"> Clear Selection</button>
           <div id = 'shady-grove' class = "stop red-line" data-id = "A15"> </div>
@@ -108,46 +107,39 @@
           <div id = 'van-dorn-st' class = "stop yellow-line blue-line" data-id = "J02"></div>
           <div id = 'franconia-springfield' class = "stop yellow-line blue-line" data-id = "J03"></div>
         </div>
-          <div class="sidenav offset-9 col-3">
+        <div class="sidenav offset-9 col-3">
             <button id = "login-button" name="button" class = "btn login-btn offset-9">Login</button>
             <button id = "my-routes-button" name="button" class = "btn login-btn offset-1">My Routes</button>
-
-              <div class="sidenav-header  col-12">
-                <h2 class = "">Your Trip</h1>
-              </div>
-              <div class="sidenav-body">
-                <div class = "trip-form-container col-12">
-                  <form class="form-inline" action="index.html" method="post">
-                    <label for="origin" id = 'origin-label' class = " sr-only "> Origin</label>
-                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-                      <div class="form-label" id = "origin-label">Origin</div>
-                      <input type="text" name="origin"  id = "origin-input" class = "form-control" readonly>
-                    </div>
-                    <br><br>
-                    <label for="destination" id = "destination-lavel" class = "sr-only">Destination</label>
-                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-                      <div class="form-label">Destination</div>
-                      <input type="text" name="destination" id = "destination-input" class= "form-control" readonly>
-                    </div>
-                  </form>
-                </div>
-                <div class="trip-information-container">
-
-                </div>
-              </div>
-          </div>
-          <!-- MODALS -->
-          <!--LOGIN MODAL  -->
-          <div id="login-modal" class="modal">
-            <div class="login-modal-content">
+            <div class="sidenav-header  col-12">
+              <h2 class = "">Your Trip</h1>
             </div>
+            <div class="sidenav-body">
+              <div class = "trip-form-container col-12">
+                <form class="form-inline" action="index.html" method="post">
+                  <label for="origin" id = 'origin-label' class = " sr-only "> Origin</label>
+                  <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                    <div class="form-label" id = "origin-label">Origin</div>
+                    <input type="text" name="origin"  id = "origin-input" class = "form-control" readonly>
+                  </div>
+                  <br><br>
+                  <label for="destination" id = "destination-lavel" class = "sr-only">Destination</label>
+                  <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                    <div class="form-label">Destination</div>
+                    <input type="text" name="destination" id = "destination-input" class= "form-control" readonly>
+                  </div>
+                </form>
+              </div>
+                <div class="trip-information-container">
+                </div>
+            </div>
+        </div>
+          <!--LOGIN MODAL  -->
+        <div id="login-modal" class="modal">
+          <div class="login-modal-content">
           </div>
-          <!-- ROUTES Info -->
-
-          <div id="myModal" class="modal">
-
-            <!-- Modal content -->
-            <div class="modal-content">
+        </div>
+        <div id="myModal" class="modal">
+          <div class="modal-content">
               <div class="modal-header">
                 <span class="close">&times;</span>
                 <h2>Modal Header</h2>
@@ -161,31 +153,8 @@
               </div>
             </div>
 
-      </div>
-
-
-      <div id = 'franconia-springfield' class = "stop yellow-line blue-line" data-id = "J03"></div>
-    </div>
-    <div class="sidenav">
-        <div class="sidenav-header">
-          <h2>Your Trip</h1>
         </div>
-        <div class = "trip-form-container">
-          <form class="" action="index.html" method="post">
-            <label for="origin" id = 'origin-label' class = "form-label input-group-addon"> Origin</label>
-            <input type="text" name="origin" value="" id = "origin-input" class = "form-input">
-            <label for="destination" id = "destination-lavel" class = "form-label">Destination</label>
-            <input type="text" name="destination" value="" class= "form-input">
-          </form>
-        </div>
-      </div>
-      <div class="login-button">
-        <button id="login-btn">Login</button>
-      </div>
-
     </div>
-
-
 
   </body>
   <script type="text/javascript" src="./src/models/trip.js"></script>
