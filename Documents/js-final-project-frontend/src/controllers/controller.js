@@ -37,7 +37,7 @@ class Controller {
       // If the same point is reselected
       originInput.value = ""
       storage.origin = null
-      e.currentTarget.style.backgroundColor = 'yellow'
+      e.currentTarget.style.backgroundColor = 'white'
       e.currentTarget.style.height = "1.2vw"
       e.currentTarget.style.width = "1.2vw"
     } else if(storage.origin) {
@@ -151,10 +151,10 @@ class Controller {
     destinationInput.value = ""
     storage.origin = null
     storage.destination = null
-    $(`#${originId}`)[0].style.backgroundColor = 'yellow'
+    $(`#${originId}`)[0].style.backgroundColor = 'white'
     $(`#${originId}`)[0].style.height = "1.2vw"
     $(`#${originId}`)[0].style.width = "1.2vw"
-    $(`#${destinationId}`)[0].style.backgroundColor = 'yellow'
+    $(`#${destinationId}`)[0].style.backgroundColor = 'white'
     $(`#${destinationId}`)[0].style.height = "1.2vw"
     $(`#${destinationId}`)[0].style.width = "1.2vw"
     clearElementChildren(tripInfoContainer)

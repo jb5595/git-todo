@@ -48,13 +48,18 @@ class SessionController{
   }
 
   static successfulLogin(userData) {
+    loginModalContentDiv.innerHTML = "";
     currentUser = new User(userData);
-    loginModalContentDiv.innerText = "Welcome to MetroRider. You are now logged in.";
+    const textDiv = document.createElement('div')
+    textDiv.innerText = "Welcome to MetroRider. You are now logged in.";
+    loginModalContentDiv.append(textDiv)
+
     const continueButton = document.createElement('button');
     continueButton.innerText = "Continue";
-    continueButton.classList.add('btn');
+    continueButton.classList.add('continue-btn');
     continueButton.addEventListener('click', SessionController.handleContinue);
     loginModalContentDiv.append(continueButton);
+
     loginButton.innerText = "Logout";
     loginButton.removeEventListener('click', SessionController.displayModal)
     loginButton.addEventListener('click', SessionController.handleLogout);
