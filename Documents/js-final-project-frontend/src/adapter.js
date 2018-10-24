@@ -6,12 +6,16 @@ const TRIPSURL = 'http://localhost:3000/api/v1/trips';
 class Adapter {
 
   static getUsers() {
-    fetch(USERSURL).then(res => res.json());
+    return fetch(USERSURL).then(res => res.json());
   }
 
-  static getUser(id) {
-    const url = USERSURL + '/' + id;
-    return fetch(url).then(res => res.json());
+  static getUser(email) {
+    return Adapter.getUsers().then(function(data) {
+      const id = data.find(user => user.email === email).id
+      const url = USERSURL + '/' + id;
+      return fetch(url).then(res => res.json());
+      }
+    )
   }
 
   static getRoute({origin, destination}) {
