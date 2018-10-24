@@ -12,7 +12,13 @@ class Adapter {
     return fetch(url, {headers: {api_key: APIKEY}})
     .then(res => res.json())
   }
+  // Get Incoming Train Data for station
 
+  static getIncomingTrainTimes(stationCode){
+    const url = "https://api.wmata.com/StationPrediction.svc/json/GetPrediction"+ "/" + stationCode
+    return fetch(url, {headers: {api_key: APIKEY}})
+    .then(res => res.json())
+   }
   // USERS
 
   static getUsers() {
@@ -48,9 +54,9 @@ class Adapter {
 
     const data = {
       origin: origin,
-      origin_code: originCode,
+      origin_code: origin_code,
       destination: destination,
-      destination_code: destinationCode,
+      destination_code: destination_code,
       user_id: user_id,
       name: name
     }
