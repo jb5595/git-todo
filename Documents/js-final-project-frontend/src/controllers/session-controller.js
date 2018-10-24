@@ -48,7 +48,7 @@ class SessionController{
   }
 
   static successfulLogin(userData) {
-    TripController.displayMyRoutesButton
+    TripController.displayMyRoutesButton()
     currentUser = new User(userData);
     loginModalContentDiv.innerText = "Welcome to MetroRider. You are now logged in.";
     const continueButton = document.createElement('button');
@@ -69,7 +69,6 @@ class SessionController{
 
   static handleContinue(e) {
     loginModal.style.display = "none";
->>>>>>> cf50b9c09238877c90a111e848813fc611bf8be9
   }
 
   static displayCreateUserForm(e){
@@ -88,10 +87,9 @@ class SessionController{
     e.preventDefault()
     let email = $('#create-user-email')[0].value
     Adapter.postUser(email).then(function(userData){
-      currentUser = new User(userData)
-      loginModal.style.display = "none";
-      TripController.displayMyRoutesButton
-
+      if(userData) {
+        SessionController.successfulLogin(userData)
+      }
     })
   }
 
