@@ -29,12 +29,19 @@ class Controller {
 
   static handleRouting(e) {
     if(storage.origin === null) {
-      // If no point has been selected
+      // If no origin point has been selected
       storage.origin = e.currentTarget.dataset.id.split(" ")[0]
       Controller.fillFormOrigin(e.currentTarget.id)
       e.currentTarget.style.backgroundColor = 'red'
       e.currentTarget.style.height = "1.5vw"
       e.currentTarget.style.width = "1.5vw"
+      if(storage.destination) {
+        Adapter.getRoute({destination: storage.destination, origin: storage.origin})
+        .then(function(data) {
+          console.log(data)
+          Controller.displayTripInformation(data)
+        })
+      }
     } else if (storage.origin === e.currentTarget.dataset.id.split(" ")[0]){
       // If the origin point is reselected
       originInput.value = ""
@@ -42,6 +49,7 @@ class Controller {
       e.currentTarget.style.backgroundColor = 'white'
       e.currentTarget.style.height = "1.2vw"
       e.currentTarget.style.width = "1.2vw"
+      tripInfoContainer.style.display = 'none';
     } else if (storage.destination === e.currentTarget.dataset.id.split(" ")[0]){
       // If the destination is reselected
       destinationInput.value = ""
@@ -49,6 +57,7 @@ class Controller {
       e.currentTarget.style.backgroundColor = 'white'
       e.currentTarget.style.height = "1.2vw"
       e.currentTarget.style.width = "1.2vw"
+      tripInfoContainer.style.display = 'none';
     } else if(storage.origin && storage.destination) {
       // If both points have already been selected, do nothing for a third point
     } else if(storage.origin){
@@ -68,6 +77,7 @@ class Controller {
 
  static displayTripInformation(tripData){
    clearElementChildren(tripInfoContainer)
+   tripInfoContainer.style.display = 'block';
    let railTime = tripData.StationToStationInfos[0].RailTime;
    let peakFare = tripData.StationToStationInfos[0].RailFare.PeakTime;
    let offPeak =tripData.StationToStationInfos[0].RailFare.OffPeakTime;
@@ -104,8 +114,6 @@ class Controller {
 
  }
 
-
-
   static fillFormOrigin(stopId){
     let stopName = stopId.split("-").map(word=>capitalize(word)).join(" ")
     originInput.value = stopName;
@@ -115,8 +123,6 @@ class Controller {
     let stopName = stopId.split("-").map(word=>capitalize(word)).join(" ")
     destinationInput.value = stopName;
   }
-
-
 
   static clearSelection(e){
     let originId = originInput.value.split(" ").map(word=>word.toLowerCase()).join("-")
