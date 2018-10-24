@@ -6,4 +6,8 @@ class User {
     this.trips = trips
     allUsers.push(this)
   }
+
+  addTrip(tripData) {
+    this.trips.push(tripData)
+  }
 }
