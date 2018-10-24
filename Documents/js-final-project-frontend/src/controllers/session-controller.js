@@ -49,6 +49,7 @@ class SessionController{
 
   static successfulLogin(userData) {
     loginModalContentDiv.innerHTML = "";
+    TripController.displayMyRoutesButton
     currentUser = new User(userData);
     const textDiv = document.createElement('div')
     textDiv.innerText = "Welcome to MetroRider. You are now logged in.";
@@ -93,6 +94,8 @@ class SessionController{
     Adapter.postUser(email).then(function(userData){
       currentUser = new User(userData)
       loginModal.style.display = "none";
+      TripController.displayMyRoutesButton
+
     })
   }
 

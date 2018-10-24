@@ -11,7 +11,6 @@ function clearElementChildren(element){
     element.firstChild.remove()
   }
 }
-
 function closeModal(e){
     if (e.target == loginModal) {
         loginModal.style.display = "none";

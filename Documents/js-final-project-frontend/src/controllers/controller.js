@@ -7,6 +7,7 @@ const destinationInput =$("#destination-input")[0]
 const tripInfoContainer= $(".trip-information-container")[0]
 const loginButton = $("#login-button")[0]
 const clearSelectionButton = $("#clear-selection")[0]
+const tripInfoButton = $("#trip-info-button")[0]
 
 class Controller {
 
@@ -15,6 +16,7 @@ class Controller {
     Controller.addStationListeners()
     loginButton.addEventListener("click",SessionController.displayModal)
     clearSelectionButton.addEventListener("click", Controller.clearSelection)
+    tripInfoButton.addEventListener("click", TripController.displayTrips)
   }
 
     static addStationListeners() {
@@ -90,34 +92,12 @@ class Controller {
      btn.innerText = 'Save Route'
      btn.id = "save-route"
      tripInfoContainer.appendChild(btn)
-     btn.addEventListener("click", Controller.displayCreateRouteForm)
+     btn.addEventListener("click", TripController.displayCreateTripForm)
    }
 
  }
 
- static displayCreateRouteForm(e){
-    let origin = $("#origin-input")[0].value
-    let destination =$("#destination-input")[0].value
-    clearElementChildren(loginModalContentDiv)
-     loginModal.style.display = "block"
-     let form = document.createElement("form")
-     form.innerHTML = `<div class="form-group">
-                         <label for="emails">Route Name</label>
-                         <input type="text" class="form-control" id = "new-route-name">
-                       </div>
-                          <div class="form-group">
-                         <label for="emails">Origin</label>
-                         <input type="text" class="form-control" value = "${origin}" id = "new-route-origin" readonly>
-                       </div>
-                       <div class="form-group">
-                           <label for="emails">Destination</label>
-                           <input type="text" class="form-control" value = "${destination}"  id = "new-route-destination" readonly>
-                       </div>
-                       <input type="submit" class="form-control btn btn-primary" value = "Create Route">`
-     loginModalContentDiv.appendChild(form)
-     form.addEventListener("submit", Controller.handleTripCreation)
-     document.addEventListener("click", closeModal)
- }
+
 
   static fillFormOrigin(stopId){
     let stopName = stopId.split("-").map(word=>capitalize(word)).join(" ")
@@ -129,20 +109,7 @@ class Controller {
     destinationInput.value = stopName;
   }
 
-  static handleTripCreation(e) {
-    e.preventDefault()
-    const name = $("#new-route-name")[0].value
-    const origin =$("#new-route-origin")[0].value
-    const originCode = storage.origin
-    const destination =$("#new-route-destination")[0].value
-    const destinationCode = storage.destination
-    const user_id = currentUser.id
-    Adapter.postTrip({name: name, origin: origin, originCode: originCode, destination: destination, destinationCode: destinationCode, user_id: user_id})
-      .then(
-        // alert the user that the trip has been created
-        // re-render their trips div?
-      )
-  }
+
 
   static clearSelection(e){
     let originId = originInput.value.split(" ").map(word=>word.toLowerCase()).join("-")
