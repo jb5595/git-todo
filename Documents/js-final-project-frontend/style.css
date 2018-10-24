@@ -8,12 +8,22 @@ body {
    background-repeat: no-repeat;
    background-color: white;
    height: 100%;
-
+ }
+.main{
+  height: 100%;
+}
+.container-fluid{
+  height: 100%;
+}
+ .map-container{
+   height: 100%;
+   overflow: scroll;
+   width: 75%;
  }
  #clear-selection{
    position: fixed;
    right: 27vw;
-   bottom: 2vw;
+   top: 2vw;
  }
 
  .sidenav {
