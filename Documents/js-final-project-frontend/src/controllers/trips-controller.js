@@ -1,5 +1,6 @@
 const tripInfoModal =  $("#tripInfoModal")[0]
 const closeModalButton = $("#close-route-modal")[0]
+const timeOuts = [];
 
 // Array Remove - By John Resig (MIT Licensed)
 Array.prototype.remove = function(from, to) {
@@ -19,6 +20,8 @@ class TripController{
     if (e.target == tripInfoModal || e.target == closeModalButton ) {
       tripInfoModal.style.display = "none";
       $("#trip-info-button")[0].style.display = "block"
+      timeOuts.forEach(timeout => clearTimeout(timeout))
+      $(".map-container")[0].style.marginBottom =  "0%";
 
     }
   }
@@ -109,24 +112,26 @@ class TripController{
           let tr = document.createElement("tr")
           tr.innerHTML = `<th scope="row" class = "train-line ${train.Line}">&bull;</th><td>${train.Min}</td><td>${train.Destination}</td>`
           parentNode.appendChild(tr)
-          TripController.scrollTrainInfo(trip)
         })
+        TripController.scrollTrainInfo(trip,dataArray.Trains.length )
+
       })
   }
 
-  static scrollTrainInfo(trip){
+  static scrollTrainInfo(trip, numOfTrain){
   let scrollCount = 0;
+  let scale =1;
   (function pageScroll () {
       $(`#train-table-${trip.id}`)[0].scrollBy(0,1);
   		scrollCount+= 1;
-  		if (scrollCount>$(`#train-table-${trip.id}`)[0].scrollHeight*.655){
-  			$(`#train-table-${trip.id}`)[0].scrollTo(0, 0);
+  		if (scrollCount>$(`#train-table-${trip.id}`)[0].scrollHeight){
+  			 $(`#train-table-${trip.id}`)[0].scrollTo(0, 0);
   			scrollCount = 0;
-      }
-    	let scrolldelay = setTimeout(pageScroll,60);
-      scrolldelay;
-  })();
-
+          }
+      	let scrolldelay = setTimeout(pageScroll,20);
+        scrolldelay;
+        timeOuts.push(scrolldelay)
+      })();
 
     }
   static handleEdit() {
