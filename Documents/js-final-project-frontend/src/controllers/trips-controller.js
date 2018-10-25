@@ -1,12 +1,18 @@
 const tripInfoModal =  $("#tripInfoModal")[0]
 const closeModalButton = $("#close-route-modal")[0]
 
+// Array Remove - By John Resig (MIT Licensed)
+Array.prototype.remove = function(from, to) {
+  var rest = this.slice((to || from) + 1 || this.length);
+  this.length = from < 0 ? this.length + from : from;
+  return this.push.apply(this, rest);
+};
+
 class TripController{
 
   static displayMyRoutesButton(){
     $(".map-container")[0].style.marginBottom =  "18.5%";
     $("#trip-info-button")[0].style.display = "block"
-
   }
 
   static closeModal(e){
@@ -69,13 +75,15 @@ class TripController{
     let tripDiv = document.createElement("div")
     tripDiv.classList = "route-info"
     tripDiv.innerHTML = trip.info();
-      parentNode.appendChild(tripDiv)
-      TripController.displayBaseTripInformation(trip)
-      TripController.displayIncomingTrainInformation(trip)
+    parentNode.appendChild(tripDiv)
+    let incomingTrainsDiv = document.querySelector(`#incoming-trains-${trip.id}`)
+    incomingTrainsDiv.append(trip.buttons())
+    TripController.displayBaseTripInformation(trip)
+    TripController.displayIncomingTrainInformation(trip)
   }
 
   static displayBaseTripInformation(trip){
-    let parentNode = $(`#${trip.id}-base-info`)[0]
+    let parentNode = $(`#base-info-${trip.id}`)[0]
     Adapter.getRoute({destination: trip.destination_code, origin: trip.origin_code })
     .then(function(data) {
       let infoDiv = document.createElement("div")
@@ -90,7 +98,6 @@ class TripController{
   }
 
   static displayIncomingTrainInformation(trip){
-    console.log(trip)
     let parentNode = $(`#${trip.id}-table`)[0]
     Adapter.getIncomingTrainTimes(trip.origin_code)
       .then(function(dataArray) {
@@ -100,6 +107,25 @@ class TripController{
           parentNode.appendChild(tr)
         })
       })
+  }
+
+  static handleEdit() {
+    const id = this.dataset.id;
+    console.log(`${this.dataset.id}`);
+  }
+
+  static handleDelete() {
+    const id = this.dataset.id;
+
+    currentUser.trips.find(function(trip, index) {
+      if(trip && (trip.id === parseInt(id))) {
+        currentUser.trips.remove(index);
+      }
+    })
+
+    console.log(currentUser.trips)
+
+    Adapter.deleteTrip(id).then(TripController.displayTrips);
   }
 
 }
