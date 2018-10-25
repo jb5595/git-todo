@@ -35,7 +35,6 @@ class Adapter {
   }
 
   static postUser(emailInput){
-    debugger
     const data = {
       email:emailInput
     }

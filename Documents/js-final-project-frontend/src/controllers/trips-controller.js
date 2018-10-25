@@ -115,6 +115,7 @@ class TripController{
 
   static displayBaseTripInformation(trip){
     let parentNode = $(`#${trip.id}-base-info`)[0]
+    debugger
     Adapter.getRoute({destination: trip.destination_code, origin: trip.origin_code })
     .then(function(data) {
       let infoDiv = document.createElement("div")
@@ -125,7 +126,6 @@ class TripController{
                            <p>Senior/Disabled: ${data.StationToStationInfos[0].RailFare.SeniorDisabled}</p>`
      parentNode.insertBefore(infoDiv,parentNode.firstChild)
     })
-    debugger
 
 
   }
@@ -134,7 +134,6 @@ class TripController{
     let parentNode = $(`#${trip.id}-table`)[0]
     Adapter.getIncomingTrainTimes(trip.origin_code)
     .then(dataArray => dataArray.Trains.forEach(function(train){
-      debugger
       let tr = document.createElement("tr")
       tr.innerHTML = `<th scope="row" class = "train-line ${train.Line}">&bull;</th><td>${train.Min}</td><td>${train.Destination}</td>`
       parentNode.appendChild(tr)
