@@ -52,7 +52,7 @@ body {
   top: 0;
   color: white;
   border-radius: 4px;
-  border-bottom: .5px white solid;
+  border-bottom: 1px solid rgba(0,0,0,.15);
 }
   .sidenav-header h2{
     position: relative;
@@ -104,15 +104,14 @@ body {
 
   .trip-info-datapoint{
     position: absolute;
-    right: 0;
+    right: 1rem;
   }
 
-
-  .trip-information-container li{
-    /* border: .5px solid rgb(70,121,176); */
-    /* background-color: rgba(255,255,255); */
-
+  .trip-information-list {
+    margin-top: .5rem;
+    margin-bottom: .5rem;
   }
+
 
   .login-btn{
     position: absolute;
@@ -120,7 +119,7 @@ body {
     right: 12%;
     background-color: rgb(70,121,176);
     color: white;
-
+    border: 1px solid rgba(0,0,0,.15);
   }
 
   .continue-btn {
@@ -128,7 +127,9 @@ body {
     color: white;
   }
 
-
+  .trip-info-header {
+    margin-left: .5rem;
+  }
 
 .stop{
   background-color: white;
