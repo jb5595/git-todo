@@ -65,6 +65,15 @@ class SessionController{
     loginButton.innerText = "Logout";
     loginButton.removeEventListener('click', SessionController.displayModal)
     loginButton.addEventListener('click', SessionController.handleLogout);
+
+    if(storage.destination && storage.origin) {
+      Adapter.getRoute({destination: storage.destination, origin: storage.origin})
+      .then(function(data) {
+        console.log(data)
+        Controller.displayTripInformation(data)
+      })
+    }
+
   }
 
   static handleLogout(e) {

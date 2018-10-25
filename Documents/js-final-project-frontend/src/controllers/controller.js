@@ -29,7 +29,7 @@ class Controller {
   }
 
   static handleRouting(e) {
-    if(storage.origin === null) {
+    if(storage.origin === null && (e.currentTarget.dataset.id.split(" ")[0] != storage.destination)) {
       // If no origin point has been selected
       storage.origin = e.currentTarget.dataset.id.split(" ")[0]
       Controller.fillFormOrigin(e.currentTarget.id)
@@ -39,7 +39,6 @@ class Controller {
       if(storage.destination) {
         Adapter.getRoute({destination: storage.destination, origin: storage.origin})
         .then(function(data) {
-          console.log(data)
           Controller.displayTripInformation(data)
         })
       }
@@ -70,7 +69,6 @@ class Controller {
       e.currentTarget.style.width = "1.5vw"
       Adapter.getRoute({destination: storage.destination, origin: storage.origin})
       .then(function(data) {
-        console.log(data)
         Controller.displayTripInformation(data)
       })
     }
@@ -90,16 +88,16 @@ class Controller {
              <div id = 'railTime' class = "trip-info-datapoint">${railTime} Mins</div>
            </li>
            <li class = "row trip-info-row">
-             <div class=  "trip-info-header">Peak Time:</div>
-             <div id = 'PeakTime' class = "trip-info-datapoint">$${peakFare}</div>
+             <div class=  "trip-info-header">Peak Fare:</div>
+             <div id = 'PeakTime' class = "trip-info-datapoint">$${formatPrice(peakFare)}</div>
            </li>
            <li class = "row trip-info-row">
-             <div class=  "trip-info-header">Off Peak:</div>
-             <div id = 'OffPeak' class = "trip-info-datapoint">$${offPeak}</div>
+             <div class=  "trip-info-header">Off Peak Fare:</div>
+             <div id = 'OffPeak' class = "trip-info-datapoint">$${formatPrice(offPeak)}</div>
            </li>
            <li class = "row trip-info-row">
-             <div class=  "trip-info-header">Senior/Disable</div>
-             <div id = 'Senior'class = "trip-info-datapoint">$${seniorDisabled}</div>
+             <div class=  "trip-info-header">Senior/Disabled</div>
+             <div id = 'Senior'class = "trip-info-datapoint">$${formatPrice(seniorDisabled)}</div>
            </li>
          </ul>`
    tripInfoContainer.appendChild(div)
