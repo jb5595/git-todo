@@ -29,7 +29,7 @@ class Controller {
   }
 
   static handleRouting(e) {
-    if(storage.origin === null) {
+    if(storage.origin === null && (e.currentTarget.dataset.id.split(" ")[0] != storage.destination)) {
       // If no origin point has been selected
       storage.origin = e.currentTarget.dataset.id.split(" ")[0]
       Controller.fillFormOrigin(e.currentTarget.id)

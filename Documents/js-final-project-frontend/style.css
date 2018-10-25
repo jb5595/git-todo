@@ -33,6 +33,10 @@ body {
    border-radius: .25rem;
  }
 
+ #save-route {
+   margin-bottom: .5rem;
+ }
+
  .sidenav {
     height: 100%; /* Full-height: remove this if you want "auto" height */
     position: fixed; /* Fixed Sidebar (stay in place on scroll) */
