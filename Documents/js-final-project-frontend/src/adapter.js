@@ -12,7 +12,13 @@ class Adapter {
     return fetch(url, {headers: {api_key: APIKEY}})
     .then(res => res.json())
   }
+  // Get Incoming Train Data for station
 
+  static getIncomingTrainTimes(stationCode){
+    const url = "https://api.wmata.com/StationPrediction.svc/json/GetPrediction"+ "/" + stationCode
+    return fetch(url, {headers: {api_key: APIKEY}})
+    .then(res => res.json())
+   }
   // USERS
 
   static getUsers() {
@@ -44,11 +50,13 @@ class Adapter {
 
   // TRIPS
 
-  static postTrip({name: name, origin: originCode, destination, destinationCode, user_id: user_id}) {
+  static postTrip({name, origin, origin_code, destination, destination_code, user_id}) {
 
     const data = {
-      origin: originCode,
-      destination: destinationCode,
+      origin: origin,
+      origin_code: origin_code,
+      destination: destination,
+      destination_code: destination_code,
       user_id: user_id,
       name: name
     }
@@ -66,13 +74,15 @@ class Adapter {
     return fetch(TRIPSURL).then(res => res.json())
   }
 
-  static patchTrip({id, origin, destination, name}) {
+  static patchTrip({id, origin, origin_code, destination_code, destination, name}) {
 
     const url = TRIPSURL + '/' + id;
 
     const data = {}
     if(origin) {data.origin = origin};
+    if(origin_code) {data.origin_code = origin_code}
     if(destination) {data.destination = destination}
+    if(destination_code) {data.destination_code = destination_code}
     if(name) {data.name = name}
 
     const options = {
