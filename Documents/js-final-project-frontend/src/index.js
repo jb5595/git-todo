@@ -36,4 +36,20 @@ function repositionElements(){
     $(".trip-information-container")[0].style.top = `${200}px`
 
   }
+
+}
+
+function formatPrice(price) {
+  let array = price.toString().split('.');
+  if(array[1]) {
+    while(array[1].length < 2) {
+      array[1] += '0';
+    }
+    array = array.join('.');
+  } else {
+    array[1] = '00'
+    array = array.join('.');
+  }
+
+  return array;
 }
