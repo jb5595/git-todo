@@ -18,6 +18,8 @@ class TripController{
   static closeModal(e){
     if (e.target == tripInfoModal || e.target == closeModalButton ) {
       tripInfoModal.style.display = "none";
+      $("#trip-info-button")[0].style.display = "block"
+
     }
   }
 
@@ -54,12 +56,14 @@ class TripController{
   static creationSuccess(){
     loginModalContentDiv.innerHTML = "";
     const textDiv = document.createElement('div');
+    textDiv.classList = "center-text"
     textDiv.innerText = "Route Successfully Created!";
     loginModalContentDiv.append(textDiv);
 
   }
 
   static displayTrips(e){
+    $("#trip-info-button")[0].style.display = "none"
     tripInfoModal.style.display = "block";
     clearElementChildren($(".route-info-modal-body")[0]);
     document.addEventListener("click",TripController.closeModal)
@@ -105,10 +109,28 @@ class TripController{
           let tr = document.createElement("tr")
           tr.innerHTML = `<th scope="row" class = "train-line ${train.Line}">&bull;</th><td>${train.Min}</td><td>${train.Destination}</td>`
           parentNode.appendChild(tr)
+          TripController.scrollTrainInfo(trip)
         })
       })
   }
 
+  static scrollTrainInfo(trip){
+  let scrollCount = 0;
+  (function pageScroll () {
+       $(`#train-table-${trip.id}`)[0].scrollBy(0,1);
+  		scrollCount+= 1;
+  		if (scrollCount>$(`#train-table-${trip.id}`)[0].scrollHeight*.655){
+  			 $(`#train-table-${trip.id}`)[0].scrollTo(0, 0);
+  			scrollCount = 0;
+          }
+      	let scrolldelay = setTimeout(pageScroll,40);
+        scrolldelay;
+
+
+  })();
+
+
+    }
   static handleEdit() {
     const id = this.dataset.id;
     console.log(`${this.dataset.id}`);

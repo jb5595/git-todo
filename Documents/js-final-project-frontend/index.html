@@ -116,7 +116,7 @@
               <h2 class = "">Your Trip</h1>
             </div>
             <div class="sidenav-body">
-              <div class = "trip-form-container col-12">
+              <div class = "trip-form-container col-12 ">
                 <form class="form-inline" action="index.html" method="post">
                   <label for="origin" id = 'origin-label' class = " sr-only "> Origin</label>
                   <div class="input-group mb-2 mr-sm-2 mb-sm-0">
@@ -125,13 +125,14 @@
                   </div>
                   <br><br>
                   <label for="destination" id = "destination-lavel" class = "sr-only">Destination</label>
-                  <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                  <div class="input-group mb-2 mr-sm-2 mb-sm-0 ">
                     <div class="form-label">Destination</div>
                     <input type="text" name="destination" id = "destination-input" class= "form-control" readonly>
                   </div>
                 </form>
               </div>
                 <div class="trip-information-container">
+
                 </div>
             </div>
         </div>
@@ -141,7 +142,7 @@
           <div class="login-modal-content">
           </div>
         </div>
-
+        <!--My Routes button  -->
         <div class="route-info-modal-content" id ="trip-info-button">
           <div class="route-info-modal-header">
             <span class="close">&#8679;</span>
@@ -152,8 +153,8 @@
         <div id="tripInfoModal" class="route-info-modal">
           <!-- Modal content -->
 
-          <div class="route-info-modal-content">
-            <div class="route-info-modal-header">
+          <div class="route-info-modal-content full-height">
+            <div class="route-info-modal-header modal-topbar">
               <span class="close" id = "close-route-modal">&times;</span>
 
               <h2>My Routes</h2>
@@ -164,6 +165,9 @@
       </div>
 
     </div>
+
+
+
 
   </body>
   <script type="text/javascript" src="./src/models/trip.js"></script>

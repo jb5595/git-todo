@@ -40,7 +40,7 @@ class Trip{
             <div class="row display-info-container" id = "base-info-${this.id}">
               <div class="incoming-train-info col-8" id = "incoming-trains-${this.id}">
                 <h4>Incoming trains</h4>
-                <div class="incoming-train-table">
+                <div class="incoming-train-table" id = "train-table-${this.id}">
                   <table class = "table">
                     <thead>
                       <tr>
