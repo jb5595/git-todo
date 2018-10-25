@@ -1,6 +1,13 @@
 const tripInfoModal =  $("#tripInfoModal")[0]
 const closeModalButton = $("#close-route-modal")[0]
 
+// Array Remove - By John Resig (MIT Licensed)
+Array.prototype.remove = function(from, to) {
+  var rest = this.slice((to || from) + 1 || this.length);
+  this.length = from < 0 ? this.length + from : from;
+  return this.push.apply(this, rest);
+};
+
 class TripController{
 
   static displayMyRoutesButton(){
@@ -109,7 +116,15 @@ class TripController{
 
   static handleDelete() {
     const id = this.dataset.id;
-    currentUser.trips = currentUser.trips.splice[(id-1), id]
+
+    currentUser.trips.find(function(trip, index) {
+      if(trip && (trip.id === parseInt(id))) {
+        currentUser.trips.remove(index);
+      }
+    })
+
+    console.log(currentUser.trips)
+
     Adapter.deleteTrip(id).then(TripController.displayTrips);
   }
 

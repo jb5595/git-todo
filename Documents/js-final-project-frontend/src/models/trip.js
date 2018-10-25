@@ -60,14 +60,14 @@ class Trip{
 
     const buttonsDiv = document.createElement('div')
 
-    const editButton = document.createElement('button');
-    editButton.classList.add('btn');
-    editButton.classList.add('btn-warning');
-    editButton.id = `${this.id}-edit`
-    editButton.dataset.id = this.id;
-    editButton.name = "button";
-    editButton.innerText = "Edit";
-    editButton.addEventListener('click', TripController.handleEdit);
+    // const editButton = document.createElement('button');
+    // editButton.classList.add('btn');
+    // editButton.classList.add('btn-warning');
+    // editButton.id = `${this.id}-edit`
+    // editButton.dataset.id = this.id;
+    // editButton.name = "button";
+    // editButton.innerText = "Edit";
+    // editButton.addEventListener('click', TripController.handleEdit);
 
     const deleteButton = document.createElement('button');
     deleteButton.classList.add('btn');
@@ -78,7 +78,7 @@ class Trip{
     deleteButton.addEventListener('click', TripController.handleDelete);
 
     buttonsDiv.append(deleteButton)
-    buttonsDiv.append(editButton)
+    // buttonsDiv.append(editButton)
 
     return buttonsDiv
   }
