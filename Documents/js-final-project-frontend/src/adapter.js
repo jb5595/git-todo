@@ -19,6 +19,7 @@ class Adapter {
     return fetch(url, {headers: {api_key: APIKEY}})
     .then(res => res.json())
    }
+   
   // USERS
 
   static getUsers() {
