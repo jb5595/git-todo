@@ -17,6 +17,7 @@ class Controller {
     loginButton.addEventListener("click",SessionController.displayModal)
     clearSelectionButton.addEventListener("click", Controller.clearSelection)
     tripInfoButton.addEventListener("click", TripController.displayTrips)
+    $(window).resize(repositionElements)
   }
 
     static addStationListeners() {
@@ -86,19 +87,19 @@ class Controller {
    div.innerHTML = `<ul class = "trip-information-list">
            <li class = "row trip-info-row">
              <div class=  "trip-info-header">Rail Time:</div>
-             <div id = 'railTime' class = "offset-6">${railTime} Mins.</div>
+             <div id = 'railTime' class = "trip-info-datapoint">${railTime} Mins</div>
            </li>
            <li class = "row trip-info-row">
              <div class=  "trip-info-header">Peak Time:</div>
-             <div id = 'PeakTime' class = "offset-6">$${peakFare}</div>
+             <div id = 'PeakTime' class = "trip-info-datapoint">$${peakFare}</div>
            </li>
            <li class = "row trip-info-row">
              <div class=  "trip-info-header">Off Peak:</div>
-             <div id = 'OffPeak' class = "offset-7">$${offPeak}</div>
+             <div id = 'OffPeak' class = "trip-info-datapoint">$${offPeak}</div>
            </li>
            <li class = "row trip-info-row">
              <div class=  "trip-info-header">Senior/Disable</div>
-             <div id = 'Senior'class = "offset-5">$${seniorDisabled}</div>
+             <div id = 'Senior'class = "trip-info-datapoint">$${seniorDisabled}</div>
            </li>
          </ul>`
    tripInfoContainer.appendChild(div)

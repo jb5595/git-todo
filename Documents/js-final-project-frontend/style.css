@@ -1,28 +1,36 @@
-
- html{
-   height: 100%
- }
+html{
+  height: 100%;
+}
 body {
+  height: 100%;
+  position: relative;
+}
+
+.main{
+   height: 130%;
    background-image: url("./images/high-res-metro-map.png");
    background-size: 70%;
    background-repeat: no-repeat;
    background-color: white;
-   height: 100%;
- }
-.main{
-  height: 100%;
 }
 .container-fluid{
-  height: 100%;
+ height: 100%;
+ padding-left: 0px;
+ padding-right: 0px;
 }
- .map-container{
-   height: 100%;
-   width: 75%;
- }
+.map-container{
+  height: 100%;
+  width: 75%;
+}
+
  #clear-selection{
    position: fixed;
    right: 27vw;
-   top: 2vw;
+   margin-top: 15px;
+   padding: .4vw .8vw;
+   font-size: 1.5vw;
+   line-height: 1.5;
+   border-radius: .25rem;
  }
 
  .sidenav {
@@ -55,7 +63,8 @@ body {
 
   .trip-form-container{
     position: relative;
-    top: 8vw;
+    /* top: 8vw; */
+    top: 145px;
   }
 
   .form-label{
@@ -79,7 +88,7 @@ body {
 
   .trip-information-container{
     position: relative;
-    top: 12vw;
+    top: 200px;
     left: 9%;
     width: 82%;
     border-radius: 4px;
@@ -89,10 +98,13 @@ body {
 
   .trip-information-container ul{
     padding-left: 1.4vw;
-    max-height: 15vw;
     /* overflow: scroll; */
-    height: 15vw;
     border-radius: 10px 10px;
+  }
+
+  .trip-info-datapoint{
+    position: absolute;
+    right: 0;
   }
 
 
@@ -103,8 +115,9 @@ body {
   }
 
   .login-btn{
-    position: relative;
-    top: 43vw;
+    position: absolute;
+    bottom: 4vw;
+    right: 12%;
     background-color: rgb(70,121,176);
     color: white;
 
@@ -126,10 +139,6 @@ body {
 }
 
 
-#login-btn {
-  position: relative;
-  bottom: 2vw;
-}
 
 #shady-grove{
   position: absolute;
