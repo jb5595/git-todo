@@ -19,7 +19,7 @@
 /* Modal Content */
 .route-info-modal-content {
     position: fixed;
-    overflow: scroll;
+    overflow: auto;
     bottom: 0;
     background-color: #fefefe;
     width: 75%;

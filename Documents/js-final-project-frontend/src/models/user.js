@@ -1,13 +1,12 @@
 allUsers = []
 class User {
   constructor({email, id, trips}) {
+    this.trips = [];
     this.email = email;
     this.id = id;
-    this.trips = trips
-    allUsers.push(this)
-  }
-
-  addTrip(tripData) {
-    this.trips.push(tripData)
+    trips.forEach(function(trip) {
+      let newTrip = new Trip(trip);
+      this.trips.push(newTrip);
+    }.bind(this))
   }
 }

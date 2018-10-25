@@ -10,9 +10,9 @@ class TripController{
   }
 
   static closeModal(e){
-      if (e.target == tripInfoModal || e.target == closeModalButton ) {
-          tripInfoModal.style.display = "none";
-      }
+    if (e.target == tripInfoModal || e.target == closeModalButton ) {
+      tripInfoModal.style.display = "none";
+    }
   }
 
   static displayCreateTripForm(e){
@@ -21,19 +21,7 @@ class TripController{
      clearElementChildren(loginModalContentDiv)
       loginModal.style.display = "block"
       let form = document.createElement("form")
-      form.innerHTML = `<div class="form-group">
-                          <label for="emails">Route Name</label>
-                          <input type="text" class="form-control" id = "new-route-name">
-                        </div>
-                           <div class="form-group">
-                          <label for="emails">Origin</label>
-                          <input type="text" class="form-control" value = "${origin}" id = "new-route-origin" readonly>
-                        </div>
-                        <div class="form-group">
-                            <label for="emails">Destination</label>
-                            <input type="text" class="form-control" value = "${destination}"  id = "new-route-destination" readonly>
-                        </div>
-                        <input type="submit" class="form-control btn btn-primary" value = "Create Route">`
+      form.innerHTML = Trip.form({origin: origin, destination: destination})
       loginModalContentDiv.appendChild(form)
       form.addEventListener("submit", TripController.handleTripCreation)
       document.addEventListener("click", closeModal)
@@ -51,26 +39,28 @@ class TripController{
 
     Adapter.postTrip({name: name, origin: origin, origin_code: originCode, destination: destination, destination_code: destinationCode, user_id: user_id})
       .then(function(res){
-        let trip = new Trip(res)
-        currentUser.addTrip(trip)
-        TripController.creationSuccess()
+        let trip = new Trip(res);
+        currentUser.trips.push(trip);
+        TripController.creationSuccess();
       })
   }
 
   static creationSuccess(){
     loginModalContentDiv.innerHTML = "";
-    const textDiv = document.createElement('div')
+    const textDiv = document.createElement('div');
     textDiv.innerText = "Route Successfully Created!";
-    loginModalContentDiv.append(textDiv)
+    loginModalContentDiv.append(textDiv);
 
   }
 
   static displayTrips(e){
-    tripInfoModal.style.display = "block"
-    clearElementChildren($(".route-info-modal-body")[0])
+    tripInfoModal.style.display = "block";
+    clearElementChildren($(".route-info-modal-body")[0]);
     document.addEventListener("click",TripController.closeModal)
     // For Each User Trip Display Trip Information
-    currentUser.trips.forEach(trip => TripController.displayTrip(trip))
+    currentUser.trips.forEach(function(trip) {
+      TripController.displayTrip(trip)
+    })
     closeModalButton.addEventListener("click", TripController.closeModal)
   }
 
@@ -78,36 +68,7 @@ class TripController{
     let parentNode = $(".route-info-modal-body")[0]
     let tripDiv = document.createElement("div")
     tripDiv.classList = "route-info"
-    tripDiv.innerHTML =`<div class="route-info-header row">
-                        <div class="col-4">
-                          <h5>${trip.name}</h5>
-                        </div>
-                        <div class="col-4">
-                          Origin: ${trip.origin}
-                        </div>
-                        <div class="col-4">
-                          Destination: ${trip.destination}
-                        </div>
-                      </div>
-                      <div class="row display-info-container" id = "${trip.id}-base-info">
-                        <div class="incoming-train-info col-8">
-                          <h4>Incoming trains</h4>
-                          <div class="incoming-train-table">
-                            <table class = "table">
-                              <thead>
-                                <tr>
-                                  <th scope="col">Line</th><th scope="col">Minutes</th><th scope="col">Destination</th>
-                                </tr>
-                              </thead>
-                              <tbody class = "train-table-body" id = "${trip.id}-table">
-                              </tbody>
-                            </table>
-                          </div>
-                          <br>
-                          <button type="button" class = "btn btn-warning" id = "${trip.id}-edit" name="button">Edit</button>
-                          <button type="button" class = "btn btn-danger" id = "${trip.id}-delete" name="button">Delete</button>
-                        </div>
-                      </div>`
+    tripDiv.innerHTML = trip.info();
       parentNode.appendChild(tripDiv)
       TripController.displayBaseTripInformation(trip)
       TripController.displayIncomingTrainInformation(trip)
@@ -115,7 +76,6 @@ class TripController{
 
   static displayBaseTripInformation(trip){
     let parentNode = $(`#${trip.id}-base-info`)[0]
-    debugger
     Adapter.getRoute({destination: trip.destination_code, origin: trip.origin_code })
     .then(function(data) {
       let infoDiv = document.createElement("div")
@@ -127,17 +87,19 @@ class TripController{
      parentNode.insertBefore(infoDiv,parentNode.firstChild)
     })
 
-
   }
 
   static displayIncomingTrainInformation(trip){
+    console.log(trip)
     let parentNode = $(`#${trip.id}-table`)[0]
     Adapter.getIncomingTrainTimes(trip.origin_code)
-    .then(dataArray => dataArray.Trains.forEach(function(train){
-      let tr = document.createElement("tr")
-      tr.innerHTML = `<th scope="row" class = "train-line ${train.Line}">&bull;</th><td>${train.Min}</td><td>${train.Destination}</td>`
-      parentNode.appendChild(tr)
-    }))
+      .then(function(dataArray) {
+        dataArray.Trains.forEach(function(train){
+          let tr = document.createElement("tr")
+          tr.innerHTML = `<th scope="row" class = "train-line ${train.Line}">&bull;</th><td>${train.Min}</td><td>${train.Destination}</td>`
+          parentNode.appendChild(tr)
+        })
+      })
   }
 
 }
