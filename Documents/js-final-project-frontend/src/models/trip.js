@@ -1,5 +1,6 @@
 class Trip{
-  constructor({origin, origin_code, destination, destination_code, name, user_id}){
+  constructor({origin, id, origin_code, destination, destination_code, name, user_id}){
+    this.id = id;
     this.origin = origin
     this.origin_code = origin_code
     this.destination = destination
@@ -36,8 +37,8 @@ class Trip{
                 Destination: ${this.destination}
               </div>
             </div>
-            <div class="row display-info-container" id = "${this.id}-base-info">
-              <div class="incoming-train-info col-8">
+            <div class="row display-info-container" id = "base-info-${this.id}">
+              <div class="incoming-train-info col-8" id = "incoming-trains-${this.id}">
                 <h4>Incoming trains</h4>
                 <div class="incoming-train-table">
                   <table class = "table">
@@ -51,10 +52,35 @@ class Trip{
                   </table>
                 </div>
                 <br>
-                <button type="button" class = "btn btn-warning" id = "${this.id}-edit" name="button">Edit</button>
-                <button type="button" class = "btn btn-danger" id = "${this.id}-delete" name="button">Delete</button>
               </div>
           </div>`
+  }
+
+  buttons() {
+
+    const buttonsDiv = document.createElement('div')
+
+    const editButton = document.createElement('button');
+    editButton.classList.add('btn');
+    editButton.classList.add('btn-warning');
+    editButton.id = `${this.id}-edit`
+    editButton.dataset.id = this.id;
+    editButton.name = "button";
+    editButton.innerText = "Edit";
+    editButton.addEventListener('click', TripController.handleEdit);
+
+    const deleteButton = document.createElement('button');
+    deleteButton.classList.add('btn');
+    deleteButton.classList.add('btn-danger');
+    deleteButton.id = `${this.id}-delete`
+    deleteButton.dataset.id = this.id;
+    deleteButton.innerText = "Delete";
+    deleteButton.addEventListener('click', TripController.handleDelete);
+
+    buttonsDiv.append(deleteButton)
+    buttonsDiv.append(editButton)
+
+    return buttonsDiv
   }
 
 }
