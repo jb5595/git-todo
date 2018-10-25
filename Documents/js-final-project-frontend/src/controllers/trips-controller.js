@@ -92,10 +92,10 @@ class TripController{
     .then(function(data) {
       let infoDiv = document.createElement("div")
       infoDiv.classList = "base-info col-4"
-      infoDiv.innerHTML = `<p>Rail Time: ${data.StationToStationInfos[0].RailTime}Mins.</p>
-                           <p>Peak Time: ${data.StationToStationInfos[0].RailFare.PeakTime}</p>
-                           <p>Off Peak: ${data.StationToStationInfos[0].RailFare.OffPeakTime}</p>
-                           <p>Senior/Disabled: ${data.StationToStationInfos[0].RailFare.SeniorDisabled}</p>`
+      infoDiv.innerHTML = `<p>Rail Time: ${data.StationToStationInfos[0].RailTime} mins.</p>
+                           <p>Peak Fare: $${formatPrice(data.StationToStationInfos[0].RailFare.PeakTime)}</p>
+                           <p>Off Peak Fare: $${formatPrice(data.StationToStationInfos[0].RailFare.OffPeakTime)}</p>
+                           <p>Senior/Disabled: $${formatPrice(data.StationToStationInfos[0].RailFare.SeniorDisabled)}</p>`
      parentNode.insertBefore(infoDiv,parentNode.firstChild)
     })
 
@@ -117,16 +117,14 @@ class TripController{
   static scrollTrainInfo(trip){
   let scrollCount = 0;
   (function pageScroll () {
-       $(`#train-table-${trip.id}`)[0].scrollBy(0,1);
+      $(`#train-table-${trip.id}`)[0].scrollBy(0,1);
   		scrollCount+= 1;
   		if (scrollCount>$(`#train-table-${trip.id}`)[0].scrollHeight*.655){
-  			 $(`#train-table-${trip.id}`)[0].scrollTo(0, 0);
+  			$(`#train-table-${trip.id}`)[0].scrollTo(0, 0);
   			scrollCount = 0;
-          }
-      	let scrolldelay = setTimeout(pageScroll,40);
-        scrolldelay;
-
-
+      }
+    	let scrolldelay = setTimeout(pageScroll,60);
+      scrolldelay;
   })();
 
 
