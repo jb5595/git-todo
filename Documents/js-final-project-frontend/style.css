@@ -57,6 +57,7 @@ body {
   color: white;
   border-radius: 4px;
   border-bottom: 1px solid rgba(0,0,0,.15);
+  padding-top: .5rem;
 }
   .sidenav-header h2{
     position: relative;
@@ -121,9 +122,12 @@ body {
     position: absolute;
     bottom: 4vw;
     right: 12%;
+    font-size: 1.25rem;
+    font-weight: 400;
     background-color: rgb(70,121,176);
     color: white;
     border: 1px solid rgba(0,0,0,.15);
+    border-radius: .25rem;
   }
 
   .continue-btn {
