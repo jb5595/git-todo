@@ -20,7 +20,6 @@ class TripController{
     if (e.target == tripInfoModal || e.target == closeModalButton ) {
       tripInfoModal.style.display = "none";
       $("#trip-info-button")[0].style.display = "block"
-      timeOuts.forEach(timeout => clearTimeout(timeout))
       $(".map-container")[0].style.marginBottom =  "0%";
 
     }
@@ -67,6 +66,7 @@ class TripController{
 
   static displayTrips(e){
     $("#trip-info-button")[0].style.display = "none"
+    timeOuts.forEach(timeout => clearTimeout(timeout))
     tripInfoModal.style.display = "block";
     clearElementChildren($(".route-info-modal-body")[0]);
     document.addEventListener("click",TripController.closeModal)
