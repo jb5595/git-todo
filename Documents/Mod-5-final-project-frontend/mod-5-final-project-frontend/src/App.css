@@ -1,3 +1,7 @@
+body, html, .App, #root{
+  min-height: 100%;
+}
+
 .App {
   text-align: center;
 }
@@ -103,6 +107,33 @@
   line-height: .5;
   border-radius: 15px;
   margin-right: 4px;
+}
+.loading-spinner{
+  margin-top: 15%;
+}
+.profile-subinfo{
+  margin-top: 20px;
+}
+.work-experience-container{
+  text-align: left;
+}
+.work-experience-container .job-title{
+  margin-top: 14px;
+  margin-bottom: 2px;
+}
+.work-experience-container .company{
+  font-weight: bold;
+}
+.work-experience-container .work-dates{
+  font-style: italic;
+  color: grey;
+}
+.work-experience-container .location{
+  font-style: italic;
+  color: grey;
+}
+.work-experience-container .description{
+
 }
 @keyframes App-logo-spin {
   from {

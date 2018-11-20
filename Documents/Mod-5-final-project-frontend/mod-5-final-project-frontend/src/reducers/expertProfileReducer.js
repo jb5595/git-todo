@@ -1,10 +1,9 @@
 export default function manageExpertProfileVisit(state = { profileLoading: false, expertObject: {} }, action) {
   switch (action.type) {
-    case "LOAD_PROFILE":
+    case "LOADING_PROFILE":
     return {...state, profileLoading:true }
     case "FETCH_PROFILE":
-    debugger
-    return {...state, profileLoading:false, expertObject: action.payload}
+    return {...state, profileLoading:false, expertObject: action.expertObject}
     default:
     return state
   }

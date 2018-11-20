@@ -10,19 +10,19 @@ const ContactInfo = (props) =>{
             Website
           </div>
           <div className = "contact-info">
-            www.website.com
+            {props.website}
           </div>
           <div className = "contact-header">
             Phone
           </div>
           <div className = "contact-info">
-            555-555-5555
+            {props.phone}
           </div>
           <div className = "contact-header">
             Email
           </div>
           <div className = "contact-info">
-            email@gmail.com
+            {props.email}
           </div>
         </div>
         <div className = "col-4">
@@ -30,13 +30,13 @@ const ContactInfo = (props) =>{
             Address
           </div>
           <div className = "contact-info">
-            1235 streetname
+            {props.address}
           </div>
           <div className = "contact-info">
-            Washington, DC
+            {props.city}, {props.state}
           </div>
           <div className = "contact-info">
-            22222
+            {props.zipcode}
           </div>
           <div className = "contact-info">
             United States

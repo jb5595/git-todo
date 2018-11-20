@@ -16,14 +16,20 @@ const ProfileTopInfo = (props) =>{
         </div>
         <div className = "row">
           <div className = "profile-name" >
-            <h4>Full Name</h4>
+            <h4>{props.fullName}</h4>
           </div>
         </div>
         <div className = "row">
           <div className = "profile-subtitle">
-            Position @ Company
+            {props.jobTitle} @ {props.company}
           </div>
         </div>
+      </div>
+
+    </div>
+    <div className = "row center-text">
+      <div className = "offset-2 col-7">
+        {props.about}
       </div>
     </div>
 
