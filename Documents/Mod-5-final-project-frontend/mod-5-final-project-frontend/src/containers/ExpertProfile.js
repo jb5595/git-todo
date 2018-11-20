@@ -6,11 +6,16 @@ import ExpertiseInfo from "../components/ProfileComponents/expertiseInfo"
 import ExpertProfileAbout from "../components/ProfileComponents/ExpertProfileAbout"
 import ExpertProfileQA from "../components/ProfileComponents/ExpertProfileQ&A"
 import ExpertProfileReviews from "../components/ProfileComponents/ExpertProfileReviews"
+import { connect } from "react-redux"
+import * as actions from "../actions/expertProfileActions"
 
 class ExpertProfile extends React.Component{
   constructor(){
     super()
     this.state = {selectedSubPage: "About"}
+  }
+  componentDidMount(){
+    this.props.loadProfile()
   }
   menuSelector = (e) =>{
     this.setState({
@@ -28,13 +33,13 @@ class ExpertProfile extends React.Component{
         <AccountAnalyticsOverview/>
         <ExpertiseInfo/>
         <div className = "row profile-info-menu">
-            <div onClick = {this.menuSelector} className = "profile-menu-option">
+            <div onClick = {this.menuSelector} className = {this.state.selectedSubPage === "About" ? "profile-menu-option active-menu-option":"profile-menu-option"}>
               About
             </div>
-            <div onClick = {this.menuSelector} className = "profile-menu-option">
+            <div onClick = {this.menuSelector} className = {this.state.selectedSubPage === "Reviews" ? "profile-menu-option active-menu-option":"profile-menu-option"}>
               Reviews
             </div>
-            <div onClick = {this.menuSelector} className = "profile-menu-option">
+            <div onClick = {this.menuSelector} className = {this.state.selectedSubPage === "Q&A" ? "profile-menu-option active-menu-option":"profile-menu-option"}>
               Q&A
             </div>
         </div>
@@ -55,5 +60,11 @@ class ExpertProfile extends React.Component{
     }
   }
 }
+const mapStateToProps = (state) =>{
+  return {
+          expertProfile: state.expertProfile.expertObject,
+          profileLoading: state.expertProfile.profileLoading
+        }
+}
 
-export default ExpertProfile
+export default connect(mapStateToProps, actions)(ExpertProfile)
