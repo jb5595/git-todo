@@ -1,0 +1,110 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 40vmin;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+.navbar-icon{
+  font-size:30px;
+}
+.banner-photo{
+  width: 100%;
+  height: 23vw;
+  min-height: 150px;
+}
+.profile-picture{
+  margin-top: -6vw;
+  width: 14vw;
+  height: 14vw;
+  min-width: 100px;
+  min-height: 100px;
+  -webkit-border-radius: 50% !important;
+  -moz-border-radius: 50% !important;
+  border-radius: 50% !important;
+  border: 4px solid #FFFFFF;
+}
+
+.profile-header-info{
+  margin-left: 15px;
+}
+.rating{
+  float: left;
+  font-size: 20px;
+}
+.profile-name{
+  float:left;
+  margin-bottom: -7px;
+}
+
+.profile-menu-option{
+  margin:auto;
+}
+.profile-info-menu{
+  margin-top: 15px;
+  margin-right: 15vw;
+  margin-left: 15vw;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+}
+.profile-section-header{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.contact-info-container{
+  text-align: left;
+}
+.contact-header{
+  font-weight: bold;
+}
+.bizhub-overview-header{
+  font-weight: bold;
+}
+.expertise-tag-container{
+  text-align: left;
+}
+
+.expertise-tag{
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff;
+  display: inline-block;
+  font-weight: 400;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border: 1px solid transparent;
+  padding: 0.475rem 0.3rem;
+  font-size: 1rem;
+  line-height: .5;
+  border-radius: 15px;
+  margin-right: 4px;
+}
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
