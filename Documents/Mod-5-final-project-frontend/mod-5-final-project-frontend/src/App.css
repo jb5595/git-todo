@@ -45,6 +45,7 @@ body, html, .App, #root{
   border: 4px solid #FFFFFF;
 }
 
+
 .profile-header-info{
   margin-left: 15px;
 }
@@ -156,6 +157,47 @@ body, html, .App, #root{
 .user-profile-top-info-container{
   margin-top: 4vw;
 }
+.question-preview{
+  text-align: left;
+  margin-bottom: 37px;
+  margin-top: 25px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid black;
+
+}
+.question-preview, p {
+  margin-bottom: 4px;
+}
+.question-preview-header:hover{
+  border-bottom: 1px solid #007bff;
+  color: #007bff;
+}
+
+.vote-container{
+  font-size: 3.5vw;
+  margin: auto;
+}
+.vote-score{
+  margin-left: 4px;
+}
+.upvote-icon{
+  color:#007bff;
+}
+.expert-preview-details{
+  margin-left: 16px;
+}
+.expert-preview-details, p{
+  margin-bottom: 0px;
+}
+.profile-picture-thumbnail{
+  width: 5vw;
+  height: 5vw;
+  margin-top: 5px;
+  -webkit-border-radius: 50% !important;
+  -moz-border-radius: 50% !important;
+  border-radius: 50% !important;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

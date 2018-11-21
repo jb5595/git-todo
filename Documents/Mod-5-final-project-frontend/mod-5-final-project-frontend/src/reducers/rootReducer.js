@@ -1,10 +1,12 @@
 import { combineReducers } from "redux"
 import manageExpertProfileVisit from "./expertProfileReducer"
-import userReducer from "./userReducer"
+import userProfileReducer from "./userProfileReducer"
+import questionShowPageReducer from "./questionShowPageReducer"
 
 const rootReducer = combineReducers({
   expertProfile: manageExpertProfileVisit,
-  userProfile: userReducer
+  userProfile: userProfileReducer,
+  questionShow: questionShowPageReducer
 })
 
 export default rootReducer

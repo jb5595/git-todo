@@ -16,8 +16,7 @@ class ExpertProfile extends React.Component{
     this.state = {selectedSubPage: "About"}
   }
   componentDidMount(){
-    let id = 7;
-    this.props.loadProfile(id)
+    this.props.loadProfile(this.props.id)
   }
   menuSelector = (e) =>{
     this.setState({
