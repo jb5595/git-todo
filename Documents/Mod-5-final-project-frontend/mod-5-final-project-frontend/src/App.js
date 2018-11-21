@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ExpertProfile from "./containers/ExpertProfile"
+import UserProfile from "./containers/UserProfile"
 import NavBar from "./components/NavBar"
 import './App.css';
 
@@ -8,9 +9,21 @@ class App extends Component {
     return (
       <div className="App">
         <NavBar/>
-        <ExpertProfile/>
+        {this.renderComponent()}
       </div>
     );
+  }
+  renderComponent(){
+    if (true){
+      return(
+        <UserProfile/>
+      )
+    }
+    else{
+      return(
+        <ExpertProfile/>
+      )
+    }
   }
 }
 

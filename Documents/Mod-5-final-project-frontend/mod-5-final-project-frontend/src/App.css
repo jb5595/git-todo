@@ -135,6 +135,27 @@ body, html, .App, #root{
 .work-experience-container .description{
 
 }
+.user-profile-picture{
+  width: 14vw;
+  height: 14vw;
+  min-width: 100px;
+  min-height: 100px;
+  -webkit-border-radius: 50% !important;
+  -moz-border-radius: 50% !important;
+  border-radius: 50% !important;
+  border: 4px solid #FFFFFF;
+}
+.user-profile-header-info{
+  margin-top: 1.6vw;
+  margin-left: 20px;
+}
+.questions-container{
+  margin-top: 20px;
+}
+
+.user-profile-top-info-container{
+  margin-top: 4vw;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
