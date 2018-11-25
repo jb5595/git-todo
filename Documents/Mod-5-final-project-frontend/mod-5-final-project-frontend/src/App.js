@@ -5,6 +5,7 @@ import UserProfile from "./containers/UserProfile"
 import NavBar from "./components/NavBar"
 import QuestionShowPage from "./containers/questionShowPage"
 import CreateUserPage from "./containers/CreateUserPage"
+import LoginPage from "./containers/LoginPage"
 import { connect } from "react-redux"
 import * as actions from "./actions/BrowserPropsActions"
 
@@ -33,6 +34,9 @@ class App extends Component {
           }}/>
           <Route path = "/create_user" render = {(props) =>{
             return <CreateUserPage {...props} />
+          }}/>
+          <Route path = "/login" render = {(props) =>{
+            return <LoginPage {...props} />
           }}/>
         </div>
       </Router>

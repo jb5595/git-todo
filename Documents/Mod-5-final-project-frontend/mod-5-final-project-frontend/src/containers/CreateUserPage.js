@@ -1,5 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+import { connect } from "react-redux"
+import * as actions from "../actions/CurrentUserActions"
 
 class CreateUserPage extends React.Component{
   constructor(){
@@ -87,7 +89,7 @@ class CreateUserPage extends React.Component{
   }
   handleSubmit = (e) => {
     e.preventDefault()
-    let body = {user: this.state}
+    let body = {user: this.state.user}
     fetch("http://localhost:3000/users/", {
       method: "POST",
       headers: {
@@ -102,11 +104,14 @@ class CreateUserPage extends React.Component{
           errors: data.error
         })
       }
-      console.log(data)
+      else{
+        this.props.SetCurrentUser(data.user, data.jwt)
+        this.props.history.push("/")
+      }
     }
   )
   }
 
 
 }
-export default CreateUserPage
+export default connect(null, actions)(CreateUserPage)
