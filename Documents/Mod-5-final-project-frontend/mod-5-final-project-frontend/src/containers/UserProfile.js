@@ -7,8 +7,7 @@ import * as actions from "../actions/userActions"
 class UserProfile extends React.Component{
 
   componentDidMount(){
-    let id = 2;
-    this.props.loadUserProfile(id)
+    this.props.loadUserProfile(this.props.id)
   }
   render(){
 

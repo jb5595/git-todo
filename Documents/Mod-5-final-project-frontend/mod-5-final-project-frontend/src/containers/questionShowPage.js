@@ -1,9 +1,8 @@
 import React from "react"
 import QuestionDisplay from "../components/QuestionDisplay"
-import AnswerDisplay from "../components/AnswerDisplay"
 import * as actions from "../actions/questionShowPageActions"
 import { connect } from "react-redux"
-import {IoMdArrowDropdownCircle, IoMdArrowDropupCircle } from "react-icons/io"
+import AnswerContainer from "./AnswerContainer"
 
 class QuestionShowPage extends React.Component{
 
@@ -17,10 +16,10 @@ class QuestionShowPage extends React.Component{
         id = {this.props.question.id}
         question = {this.props.question.question}
         details = {this.props.question.question_details}/>
-        <h5>Answers </h5>
-        <AnswerDisplay/>
-        <AnswerDisplay/>
-        <AnswerDisplay/>
+        <AnswerContainer
+        history = {this.props.history}
+        answers = {this.props.question.answers}/>
+
       </div>
     )
   }

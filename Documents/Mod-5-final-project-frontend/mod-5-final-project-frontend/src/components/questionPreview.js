@@ -3,6 +3,7 @@ import React from 'react'
 class QuestionPreview extends React.Component{
 
   render(){
+    
     return(
     <div className = "question-preview">
       <h5 onClick ={this.handleClick}>

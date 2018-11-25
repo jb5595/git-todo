@@ -1,9 +1,14 @@
 import React, { Component } from 'react';
+import HomePage from "./containers/HomePage"
 import ExpertProfile from "./containers/ExpertProfile"
 import UserProfile from "./containers/UserProfile"
 import NavBar from "./components/NavBar"
 import QuestionShowPage from "./containers/questionShowPage"
-import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
+import CreateUserPage from "./containers/CreateUserPage"
+import { connect } from "react-redux"
+import * as actions from "./actions/BrowserPropsActions"
+
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import './App.css';
 
@@ -13,7 +18,7 @@ class App extends Component {
       <Router>
         <div className="App">
           <NavBar/>
-          <Route path="/" exact render = {props => <UserProfile {...props} />} />
+          <Route path="/" exact render = {props => <HomePage {...props} />} />
           <Route path='/users/:id' render={(props)=> {
             let userId = props.match.params.id
             return <UserProfile {...props} id = {userId}/>
@@ -24,7 +29,10 @@ class App extends Component {
           }}/>
           <Route path = "/questions/:id" render = {(props) =>{
             let questionId = props.match.params.id
-            return <QuestionShowPage id = {questionId}/>
+            return <QuestionShowPage {...props} id = {questionId}/>
+          }}/>
+          <Route path = "/create_user" render = {(props) =>{
+            return <CreateUserPage {...props} />
           }}/>
         </div>
       </Router>
@@ -46,4 +54,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default connect(null, {actions})(App);
