@@ -6,6 +6,7 @@ import NavBar from "./components/NavBar"
 import QuestionShowPage from "./containers/questionShowPage"
 import CreateUserPage from "./containers/CreateUserPage"
 import LoginPage from "./containers/LoginPage"
+import PostQuestionPage from "./containers/PostQuestionPage"
 import { connect } from "react-redux"
 import * as actions from "./actions/BrowserPropsActions"
 
@@ -28,6 +29,12 @@ class App extends Component {
             let expertId = props.match.params.id
             return <ExpertProfile {...props} id = {expertId}/>
           }}/>
+          <Route path = "/post/question" render = {(props) =>{
+            return <PostQuestionPage {...props} />
+          }}/>
+          <Route path = "/questions" render = {(props) =>{
+            return <PostQuestionPage {...props} />
+          }}/>
           <Route path = "/questions/:id" render = {(props) =>{
             let questionId = props.match.params.id
             return <QuestionShowPage {...props} id = {questionId}/>
@@ -39,6 +46,7 @@ class App extends Component {
             return <LoginPage {...props} />
           }}/>
         </div>
+
       </Router>
     );
   }

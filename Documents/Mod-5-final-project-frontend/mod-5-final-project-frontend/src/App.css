@@ -251,9 +251,31 @@
 .form-container{
   text-align: left;
 }
+.tag-results-display-container{
+  border: 1px solid grey;
+}
+.tag-results-display{
+  margin-left: 6px;
+  border-bottom: .5px solid grey;
+  padding: 5px;
+
+}
+.remove-tag{
+  padding-right: 4px;
+  margin-right: 1px;
+}
+.selected-tags{
+  padding: 8px;
+  min-height: 40px;
+  border: 1px solid grey;
+  border-radius: 15px;
+}
 
 
+.remove-tag:hover{
+  background-color: blue;
 
+}
 
 
 @keyframes App-logo-spin {

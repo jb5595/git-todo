@@ -15,7 +15,8 @@ class QuestionShowPage extends React.Component{
          <QuestionDisplay
         id = {this.props.question.id}
         question = {this.props.question.question}
-        details = {this.props.question.question_details}/>
+        details = {this.props.question.question_details}
+        tags = {this.props.question.tags}/>
         <AnswerContainer
         history = {this.props.history}
         answers = {this.props.question.answers}/>

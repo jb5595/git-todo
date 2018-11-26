@@ -15,6 +15,8 @@ class NavBar extends React.Component{
           <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
           <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
+        <Link to = "/questions">Browse Questions</Link>
+        <Link to = "/post/question">Ask an Expert</Link>
         <Link to = "/login"><button className = "btn btn-outline-success">Sign In</button></Link>
         <Link to = "/create_user"><button className = "btn btn-outline-success">Create User</button></Link>
       </nav>

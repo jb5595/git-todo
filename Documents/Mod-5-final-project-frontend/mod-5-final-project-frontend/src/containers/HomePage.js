@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from 'react-router-dom';
 
 class HomePage extends React.Component{
   render(){
@@ -9,7 +10,7 @@ class HomePage extends React.Component{
             <h1>Smart Business Decisions Start Here</h1>
             <div>
               <button className = "btn btn-primary">Find a Provider</button>
-              <button className = "btn btn-primary">Ask a Question</button>
+              <Link to = "/post/question"><button className = "btn btn-primary">Ask a Question</button></Link>
             </div>
           </div>
         </div>
@@ -25,7 +26,7 @@ class HomePage extends React.Component{
               />
             </div>
             <div className = "homepage-about-text offset-1 col-12 col-md-4">
-              <h2>Connect with Leading Experts</h2>
+              <h2>Lorem Ipsum</h2>
               <p> Proin aliquam, odio ut lacinia tempor, ex nisi fermentum lacus, eu auctor dolor magna et nibh. Nulla facilisi. Vivamus et massa enim. Morbi luctus nunc non fringilla lacinia. Cras condimentum rhoncus bibendum. Vivamus quis dapibus lorem, a volutpat lacus. Sed et lacus turpis. Vivamus ut sem ex. Maecenas scelerisque leo dui, sit amet eleifend eros consequat vel. Morbi vel posuere nunc. Sed ligula quam, ornare ac leo eu, faucibus suscipit lacus. Maecenas quis interdum odio. Nullam lacinia consequat. </p>
             </div>
           </div>

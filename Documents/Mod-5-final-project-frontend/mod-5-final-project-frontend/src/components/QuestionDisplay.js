@@ -16,7 +16,8 @@ class QuestionDisplay extends React.Component{
         <div className = "col-11">
           <h5>Q: {this.props.question}</h5>
           <p>{this.props.details}</p>
-          <div className = "expertise-tag">Tag</div><div className = "expertise-tag">Tag</div>
+          {this.props.tags? this.props.tags.map(tag =><div key = {tag.id} className = "expertise-tag">{tag.name}</div>) : null}
+
         </div>
         </div>
         </div>
