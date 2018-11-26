@@ -7,19 +7,33 @@ class NavBar extends React.Component{
 
   render(){
     return(
-      <nav className="navbar navbar-dark bg-dark">
-        <div className="navbar-nav">
-        <Link to = "/"> <IoIosContacts className = "navbar-icon"/> BizHub <span className="sr-only">(current)</span></Link>
-        </div>
-        <form className="form-inline">
-          <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
-          <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
-        <Link to = "/questions">Browse Questions</Link>
-        <Link to = "/post/question">Ask an Expert</Link>
-        <Link to = "/login"><button className = "btn btn-outline-success">Sign In</button></Link>
-        <Link to = "/create_user"><button className = "btn btn-outline-success">Create User</button></Link>
-      </nav>
+      <React.Fragment>
+        <nav className="navbar navbar-light bg-light">
+          <div className="navbar-nav">
+          <Link to = "/"> <IoIosContacts className = "navbar-icon"/> BizHub <span className="sr-only">(current)</span></Link>
+          </div>
+          <form className="col-6">
+            <input className="form-control" type="search" placeholder="Search BizHub..." aria-label="Search"/>
+            <div className = "navbar-search-results-preview-container">
+              <div className = "nav-bar-search-result-title">
+                Q&A
+              </div>
+              <div className = "nav-bar-search-result">
+                Result
+              </div>
+            </div>
+          </form>
+          <div>
+            <Link to = "/create_user"><button className = "create-user-button">Create User</button></Link>
+            <Link to = "/login" className = "sign-in-button">Sign In</Link>
+
+          </div>
+        </nav>
+          <nav className="navbar sub-nav navbar-dark bg-dark">
+              <Link to = "/questions">Browse Questions</Link>
+              <Link to = "/post/question">Ask an Expert</Link>
+          </nav>
+      </React.Fragment>
     )
   }
 

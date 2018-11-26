@@ -7,6 +7,7 @@ import QuestionShowPage from "./containers/questionShowPage"
 import CreateUserPage from "./containers/CreateUserPage"
 import LoginPage from "./containers/LoginPage"
 import PostQuestionPage from "./containers/PostQuestionPage"
+import QuestionIndexPage from "./containers/QuestionsIndexPage"
 import { connect } from "react-redux"
 import * as actions from "./actions/BrowserPropsActions"
 
@@ -32,8 +33,8 @@ class App extends Component {
           <Route path = "/post/question" render = {(props) =>{
             return <PostQuestionPage {...props} />
           }}/>
-          <Route path = "/questions" render = {(props) =>{
-            return <PostQuestionPage {...props} />
+          <Route path = "/questions" exact render = {(props) =>{
+            return <QuestionIndexPage {...props} />
           }}/>
           <Route path = "/questions/:id" render = {(props) =>{
             let questionId = props.match.params.id
