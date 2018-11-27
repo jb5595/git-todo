@@ -4,7 +4,7 @@ import ExpertPreview from "../components/ExpertPreview"
 class ExpertPreviewContainer extends React.Component {
   render(){
     return(
-      <div className = "expert-index-preview-container col-8 offset-2">
+      <div className = "expert-index-preview-container">
         {this.props.experts.map(expert =>
           <ExpertPreview expert= {expert}/>
         )}

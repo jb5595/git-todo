@@ -22,9 +22,9 @@ class NavBar extends React.Component{
           </div>
         </nav>
         <nav className="navbar sub-nav navbar-dark bg-dark">
-          <Link to = "/questions">Browse Questions</Link>
           <Link to = "/experts">Find an Expert</Link>
-
+          <Link to = "/questions">Browse Questions</Link>
+          <Link to = ""> Create Expert Account</Link>
         </nav>
       </React.Fragment>
     )

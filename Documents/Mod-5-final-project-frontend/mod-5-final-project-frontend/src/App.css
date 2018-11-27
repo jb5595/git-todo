@@ -372,6 +372,10 @@
 .expertise-header{
   text-align: center;
 }
+
+.filter-buttons{
+  margin-left: 2vw;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
