@@ -9,8 +9,8 @@ class HomePage extends React.Component{
           <div className="hero-text">
             <h1>Smart Business Decisions Start Here</h1>
             <div>
-              <button className = "btn btn-primary">Find a Provider</button>
-              <Link to = "/post/question"><button className = "btn btn-primary">Ask a Question</button></Link>
+              <Link to = "/experts"><button className = "btn btn-primary">Browse Experts</button></Link>
+              <Link to = "/questions"><button className = "btn btn-primary">Browse Questions</button></Link>
             </div>
           </div>
         </div>

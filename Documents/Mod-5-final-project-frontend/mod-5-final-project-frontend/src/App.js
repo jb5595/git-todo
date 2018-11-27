@@ -8,6 +8,7 @@ import CreateUserPage from "./containers/CreateUserPage"
 import LoginPage from "./containers/LoginPage"
 import PostQuestionPage from "./containers/PostQuestionPage"
 import QuestionIndexPage from "./containers/QuestionsIndexPage"
+import ExpertIndex from "./containers/ExpertIndex"
 import { connect } from "react-redux"
 import * as actions from "./actions/BrowserPropsActions"
 
@@ -20,12 +21,15 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          <NavBar/>
+          <Route path = "/" render = {props => <NavBar {...props}/>}/>
           <Route path="/" exact render = {props => <HomePage {...props} />} />
           <Route path='/users/:id' render={(props)=> {
             let userId = props.match.params.id
             return <UserProfile {...props} id = {userId}/>
           }} />
+          <Route path = "/experts" exact render = {(props) => {
+            return <ExpertIndex {...props} />}}
+            />
           <Route path = "/experts/:id" render = {(props) =>{
             let expertId = props.match.params.id
             return <ExpertProfile {...props} id = {expertId}/>

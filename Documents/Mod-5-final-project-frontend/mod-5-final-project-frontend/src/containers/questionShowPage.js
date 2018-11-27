@@ -10,6 +10,7 @@ class QuestionShowPage extends React.Component{
     this.props.loadQuestion(this.props.id)
   }
   render(){
+    this.reloadQuestionIfNeeded()
     return(
       <div>
          <QuestionDisplay
@@ -23,6 +24,11 @@ class QuestionShowPage extends React.Component{
 
       </div>
     )
+  }
+  reloadQuestionIfNeeded(){
+    if (parseInt(this.props.question.id) !== parseInt(this.props.id) ){
+      this.props.loadQuestion(this.props.id)
+    }
   }
 }
 
