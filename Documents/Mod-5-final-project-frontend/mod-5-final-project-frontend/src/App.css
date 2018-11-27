@@ -342,7 +342,6 @@
   z-index: 1;
   position: absolute;
   width: 91.5%;
-  height:50px;
 }
 .expert-search-result{
   margin-left: 0px;
@@ -375,6 +374,19 @@
 
 .filter-buttons{
   margin-left: 2vw;
+}
+.sub-nav a{
+  color:white;
+  font-weight: bold;
+}
+.feed-top-bar{
+  border-bottom: .1px solid grey;
+  margin-left: 18%;
+  width: 63%;
+}
+.top-bar-item{
+  margin-right: 10px;
+  font-weight: bold;
 }
 @keyframes App-logo-spin {
   from {

@@ -9,6 +9,8 @@ import LoginPage from "./containers/LoginPage"
 import PostQuestionPage from "./containers/PostQuestionPage"
 import QuestionIndexPage from "./containers/QuestionsIndexPage"
 import ExpertIndex from "./containers/ExpertIndex"
+import SiteWideSearchResults from './containers/SiteWideSearchResults'
+
 import { connect } from "react-redux"
 import * as actions from "./actions/BrowserPropsActions"
 
@@ -50,25 +52,17 @@ class App extends Component {
           <Route path = "/login" render = {(props) =>{
             return <LoginPage {...props} />
           }}/>
+          <Route path = "/search/:search_term" render = {(props =>{
+            let searchTerm = props.match.params.search_term
+            return <SiteWideSearchResults {...props} searchTerm = {searchTerm}/>
+          })}/>
+
         </div>
 
       </Router>
     );
   }
-  renderComponent(){
-    if (true){
-      return(
-        <UserProfile/>
 
-      )
-    }
-    else{
-      return(
-        <ExpertProfile/>
-
-      )
-    }
-  }
 }
 
 export default connect(null, {actions})(App);
