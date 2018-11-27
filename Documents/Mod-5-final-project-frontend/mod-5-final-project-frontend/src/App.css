@@ -359,8 +359,19 @@
 .search-result-link:hover{
   text-decoration: underline;
 }
-
-
+.index-profile-picture{
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  margin-right: 20px;
+}
+.expert-index-preview{
+  margin-top: 20px;
+  border-bottom: 1px solid black;
+}
+.expertise-header{
+  text-align: center;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

@@ -1,5 +1,6 @@
 
 import React from "react"
+import ExpertPreviewContainer from "./ExpertPreviewContainer"
 const ExpertsURL = "http://localhost:3000/experts/"
 
 class ExpertIndex extends React.Component{
@@ -18,7 +19,7 @@ class ExpertIndex extends React.Component{
   render(){
     return(
       <div>
-        This is the Expert Index Page
+        {this.state.experts ? <ExpertPreviewContainer experts = {this.state.experts}/> : null}
       </div>
     )
 
