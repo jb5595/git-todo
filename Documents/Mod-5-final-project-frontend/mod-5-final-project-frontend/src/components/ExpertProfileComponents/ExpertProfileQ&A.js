@@ -1,12 +1,13 @@
 import React from "react"
+import QuestionDisplayContainer from "../../containers/QuestionDisplayContainer"
 
-const ExpertProfileQAINFO = (props) =>{
+const ExpertProfileQAInfo = (props) =>{
   return(
-    <React.Fragment>
-        Q&A Information
-    </React.Fragment>
+    <div className = "col-8 offset-2">
+        <QuestionDisplayContainer history = {props.history} questions = {props.questions}/>
+    </div>
   )
 }
 
 
-export default ExpertProfileQAINFO
+export default ExpertProfileQAInfo

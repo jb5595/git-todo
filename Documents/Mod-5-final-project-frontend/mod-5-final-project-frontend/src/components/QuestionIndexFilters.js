@@ -14,6 +14,7 @@ class QuestionIndexFilters extends React.Component{
               <div className="btn-group" role="group" aria-label="Basic example">
                 <button type="button" className="btn btn-secondary">Most Recent</button>
                 <button type="button" className="btn btn-secondary">Votes</button>
+                <button type="button" className="btn btn-secondary">Unanswered</button>
               </div>
             </div>
           </div>

@@ -3,6 +3,8 @@ import { IoIosContacts } from "react-icons/io";
 import { Link } from 'react-router-dom';
 import NavbarSearch from "./NavbarComponents/NavbarSearch"
 import NavBarPreloginButtons from "./NavbarComponents/NavbarPreloginButtons"
+import NavBarPostloginButtons from "./NavbarComponents/NavbarPostLoginButtons"
+
 import { connect } from "react-redux"
 
 
@@ -18,13 +20,13 @@ class NavBar extends React.Component{
           <NavbarSearch history = {this.props.history}/>
 
           <div>
-            {this.props.currentUser ?<Link to = "/post/question"><button className = "navbar-button">Ask an Expert</button></Link>:<NavBarPreloginButtons/>}
+            {this.props.currentUser ?<NavBarPostloginButtons history = {this.props.history}/>:<NavBarPreloginButtons/>}
           </div>
         </nav>
         <nav className="navbar sub-nav navbar-dark bg-dark">
           <Link to = "/experts">Find an Expert</Link>
           <Link to = "/questions">Browse Questions</Link>
-          <Link to = ""> Create Expert Account</Link>
+          <Link to = "/create_expert_profile"> Create Expert Account</Link>
         </nav>
       </React.Fragment>
     )

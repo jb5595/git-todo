@@ -1,10 +1,14 @@
 import React from "react"
 import { FaStar } from "react-icons/fa";
+import { FaEdit } from "react-icons/fa";
 
 const ProfileTopInfo = (props) =>{
   return(
     <React.Fragment>
     <div className = "row">
+      <div onClick = {props.handleEdit} className = "edit-top-info-button">
+        <FaEdit/>
+      </div>
       <div className = "profile-picture-container offset-2">
         <img className = "profile-picture" alt = "profile" src = "https://via.placeholder.com/150/0000FF/808080 ?Text=Digital.com"/>
       </div>

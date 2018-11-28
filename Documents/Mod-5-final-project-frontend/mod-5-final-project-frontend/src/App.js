@@ -10,7 +10,7 @@ import PostQuestionPage from "./containers/PostQuestionPage"
 import QuestionIndexPage from "./containers/QuestionsIndexPage"
 import ExpertIndex from "./containers/ExpertIndex"
 import SiteWideSearchResults from './containers/SiteWideSearchResults'
-
+import CreateExpertAccountPage from "./containers/CreateExpertAccountPage"
 import { connect } from "react-redux"
 import * as actions from "./actions/BrowserPropsActions"
 
@@ -60,10 +60,13 @@ class App extends Component {
             let searchTerm = props.match.params.search_term
             return <SiteWideSearchResults {...props} display = {'Questions'} searchTerm = {searchTerm}/>
           })}/>
-          <Route path = "/search/experts/:search_term" render = {(props =>{
+          <Route path = "/search/experts/:search_term" render = {props =>{
             let searchTerm = props.match.params.search_term
             return <SiteWideSearchResults {...props} display = {'Experts'} searchTerm = {searchTerm}/>
-          })}/>
+          }}/>
+          <Route path = "/create_expert_profile" render = {(props) =>{
+            return <CreateExpertAccountPage {...props} />
+          }}/>
 
 
         </div>

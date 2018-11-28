@@ -6,7 +6,7 @@ class ExpertPreviewContainer extends React.Component {
     return(
       <div className = "expert-index-preview-container">
         {this.props.experts.map(expert =>
-          <ExpertPreview expert= {expert}/>
+          <ExpertPreview key = {expert.id} expert= {expert}/>
         )}
       </div>
     )

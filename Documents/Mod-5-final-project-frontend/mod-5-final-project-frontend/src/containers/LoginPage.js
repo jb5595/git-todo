@@ -65,8 +65,16 @@ class LoginPage extends React.Component{
         })
       }
       else{
-        this.props.SetCurrentUser(data.user, data.jwt)
-        this.props.history.push("/")
+        if (data.user){
+          this.props.SetCurrentUser(data.user, data.jwt)
+          this.props.history.push("/")
+        }
+        else{
+          this.props.SetCurrentExpert(data.expert, data.jwt)
+          this.props.history.push("/")
+
+        }
+
       }
     }
   )

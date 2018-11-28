@@ -1,6 +1,7 @@
 import React from "react"
 
-const AccountAnalyticsOverview = (props) =>{
+class AccountAnalyticsOverview extends React.Component{
+  render(){
   return(
     <React.Fragment>
       <h5 className = "profile-section-header" >BizHub Overview</h5>
@@ -10,23 +11,15 @@ const AccountAnalyticsOverview = (props) =>{
             Expert Answers:
           </div>
           <div className = "bizhub-overview-info">
-            100
+            {this.props.answeredQuestions ? this.props.answeredQuestions.length : null}
           </div>
         </div>
-        <div className= "col-10 offset-md-0 offset-1 col-md-2 ">
-          <div className = "bizhub-overview-header">
-            Top Expertise:
-          </div>
-          <div className = "bizhub-overview-info">
-            Legal, Business Law, Corporate Structure
-          </div>
-        </div>
-        <div className= "col-10 offset-md-0 offset-1 col-md-2">
+        <div className= "col-10 offset-md-0 offset-1 col-md-4">
           <div className = "bizhub-overview-header">
             Top Tags:
           </div>
           <div className = "bizhub-overview-info">
-            Funding, Mediation, Employment
+          {this.props.topTags ? this.props.topTags.map(tag => <div key = {tag.id}>{tag.name}</div>) : null}
           </div>
         </div>
         <div className= "col-10 offset-md-0 offset-1 col-md-2 ">
@@ -40,6 +33,7 @@ const AccountAnalyticsOverview = (props) =>{
       </div>
     </React.Fragment>
   )
+}
 }
 
 
