@@ -39,7 +39,7 @@ class NavBarSearch extends React.Component{
 
     return(
       <div className="col-6">
-      <form>
+      <form onSubmit ={this.handleSearchReRoute}>
         <input onChange ={this.handleChange} name ="searchTerm"
         value = {this.state.searchTerm} className="form-control"
          type="search" placeholder="Search BizHub..." />
@@ -59,7 +59,7 @@ class NavBarSearch extends React.Component{
           <div>
             Q&A
           </div>
-          <div className = "offset-lg-9 col-lg-2 offset-6">
+          <div onClick = {this.handleQuestionSearchReRoute} className = "offset-lg-9 see-all-button col-lg-2 offset-6">
             See All
           </div>
         </div>
@@ -77,7 +77,7 @@ class NavBarSearch extends React.Component{
           <div>
             Experts
           </div>
-          <div className = "offset-lg-9 col-lg-2 offset-5">
+          <div onClick = {this.handleExpertSearchReRoute} className = "see-all-button offset-lg-9 col-lg-2 offset-5">
             See All
           </div>
         </div>
@@ -100,22 +100,36 @@ class NavBarSearch extends React.Component{
       </React.Fragment>
     )
   }
+handleSearchReRoute = (e) =>{
+  e.preventDefault()
+  this.resetState()
+  this.props.history.push(`/search/${this.state.searchTerm}`)
+}
+handleQuestionSearchReRoute = () =>{
+  this.resetState()
+  this.props.history.push(`/search/questions/${this.state.searchTerm}`)
+}
+handleExpertSearchReRoute = (e) =>{
+  this.resetState()
+  this.props.history.push(`/search/experts/${this.state.searchTerm}`)
+}
+
+
 handleExpertReRoute = (e) => {
-  this.setState({
-    qaResults: [],
-    expertResults: [],
-    searchTerm: ""
-  })
+  this.resetState()
   this.props.history.push(`/experts/${e.target.dataset.id}`)
 }
 
   handleQuestionReRoute = (e) =>{
+    this.resetState()
+    this.props.history.push(`/questions/${e.target.dataset.id}`)
+  }
+  resetState(){
     this.setState({
       qaResults: [],
       expertResults: [],
       searchTerm: ""
     })
-    this.props.history.push(`/questions/${e.target.dataset.id}`)
   }
 }
 

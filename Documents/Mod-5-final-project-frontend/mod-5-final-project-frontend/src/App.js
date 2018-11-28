@@ -52,10 +52,19 @@ class App extends Component {
           <Route path = "/login" render = {(props) =>{
             return <LoginPage {...props} />
           }}/>
-          <Route path = "/search/:search_term" render = {(props =>{
+          <Route path = "/search/:search_term/" exact render = {(props =>{
             let searchTerm = props.match.params.search_term
             return <SiteWideSearchResults {...props} searchTerm = {searchTerm}/>
           })}/>
+          <Route path = "/search/questions/:search_term" render = {(props =>{
+            let searchTerm = props.match.params.search_term
+            return <SiteWideSearchResults {...props} display = {'Questions'} searchTerm = {searchTerm}/>
+          })}/>
+          <Route path = "/search/experts/:search_term" render = {(props =>{
+            let searchTerm = props.match.params.search_term
+            return <SiteWideSearchResults {...props} display = {'Experts'} searchTerm = {searchTerm}/>
+          })}/>
+
 
         </div>
 
