@@ -11,10 +11,15 @@ class AnswerContainer extends React.Component{
     )
   }
   renderAnswers(){
+    if (this.props.answers.length > 0){
     return this.props.answers.map(answer =>
       <AnswerDisplay key = {answer.id} content = {answer.content}
       upvotes = {answer.upvotes} expert = {answer.expert}
       handleClick = {this.reRouteToExpertPage}/>)
+    }
+    else {
+      return <div>There aren't any answers for this question yet!</div>
+    }
 
   }
   reRouteToExpertPage = (expertId) =>{

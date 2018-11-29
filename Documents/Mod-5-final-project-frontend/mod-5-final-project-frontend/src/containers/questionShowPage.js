@@ -3,7 +3,7 @@ import QuestionDisplay from "../components/QuestionDisplay"
 import * as actions from "../actions/questionShowPageActions"
 import { connect } from "react-redux"
 import AnswerContainer from "./AnswerContainer"
-
+import AnswerForm from "../components/AnswerForm"
 class QuestionShowPage extends React.Component{
 
   componentDidMount(){
@@ -21,7 +21,7 @@ class QuestionShowPage extends React.Component{
         <AnswerContainer
         history = {this.props.history}
         answers = {this.props.question.answers}/>
-
+        {this.props.CurrentUserIsExpert ? <AnswerForm expertId = {this.props.currentUser.id} questionId = {this.props.question.id}/>: null}
       </div>
     )
   }
@@ -34,6 +34,9 @@ class QuestionShowPage extends React.Component{
 
 const mapStateToProps = (state) =>{
   return{
+    jwt:state.userSession.jwt,
+    currentUser:state.userSession.currentUser,
+    CurrentUserIsExpert: state.userSession.expert,
     question: state.questionShow.questionObject
   }
 }
