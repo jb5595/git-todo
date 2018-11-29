@@ -15,7 +15,10 @@ class ExpertProfileAbout extends React.Component{
           <div className= "work-experience-container">
             {this.props.workExperience ? this.renderWorkExperience() :  <GridLoader sizeUnit={"px"} size={50} color={'#123abc'} loading={this.props.workExperience}/>}
           </div>
-          <h5 className = "offset-2 col-8">Education <span className = "add-work-experience-button"><FaPlusSquare/></span></h5>
+          <h5 className = "offset-2 col-8">Education
+           <span onClick = {this.props.addEducation}
+           className = "add-work-experience-button">
+            <FaPlusSquare/></span></h5>
           <div className= "work-experience-container">
             {this.props.educations ? this.renderEducation() :  <GridLoader sizeUnit={"px"} size={50} color={'#123abc'} loading={this.props.educations}/>}
           </div>
@@ -28,10 +31,10 @@ class ExpertProfileAbout extends React.Component{
       return(
         <div key={job.id} className = "offset-2 col-8">
           {this.props.canEdit ?  <div  className = "work-experiences-buttons">
-              <span className = "edit-work-experiences-button" data-id ={job.id} onClick = {this.handleEdit}>
+              <span className = "edit-work-experiences-button" data-id ={job.id} onClick = {this.handleEditWorkExperience}>
                 <FaEdit/>
               </span>
-              <span data-id = {job.id} onClick = {this.handleDelete}>
+              <span data-id = {job.id} onClick = {this.handleDeleteWorkExperience}>
                 <FaTrash/>
               </span>
             </div>: null }
@@ -45,11 +48,11 @@ class ExpertProfileAbout extends React.Component{
       )
     })
     }
-    handleEdit = (e) => {
+    handleEditWorkExperience = (e) => {
       let workExperience = this.props.workExperience.find(job => job.id == e.currentTarget.dataset.id)
       this.props.editWorkExperience(workExperience)
     }
-    handleDelete = (e) =>{
+    handleDeleteWorkExperience = (e) =>{
       this.props.deleteWorkExperience(e.currentTarget.dataset.id)
     }
     renderEducation(){
