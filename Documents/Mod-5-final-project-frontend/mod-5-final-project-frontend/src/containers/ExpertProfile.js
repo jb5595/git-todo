@@ -8,16 +8,16 @@ import ExpertProfileQA from "../components/ExpertProfileComponents/ExpertProfile
 import ExpertProfileReviews from "../components/ExpertProfileComponents/ExpertProfileReviews"
 import EditTopInfoModal from "../components/ExpertProfileComponents/editTopInfoModal"
 import EditContactInfoModal from  "../components/ExpertProfileComponents/EditContactInfoModal"
+import AddWorkExperienceModal from "../components/ExpertProfileComponents/AddWorkExperienceModal"
+import EditWorkExperienceModal from "../components/ExpertProfileComponents/EditWorkExperienceModal"
 import EditTagsModal from "../components/ExpertProfileComponents/EditTagsModal"
 import { GridLoader } from 'react-spinners';
 import { connect } from "react-redux"
-import { FaEdit } from "react-icons/fa";
 import * as actions from "../actions/expertProfileActions"
 import * as sessionActions from "../actions/CurrentUserActions"
 
 
 const BaseExpertURL = "http://localhost:3000/experts/"
-
 class ExpertProfile extends React.Component{
   constructor(props){
     super(props)
@@ -31,9 +31,10 @@ class ExpertProfile extends React.Component{
       canEdit = false
     }
     this.state = {
-      editing: null,
+      modal: null,
       selectedSubPage: "About",
-      canEdit: true
+      canEdit: true,
+      workExperienceToEdit: null
     }
   }
   componentDidMount(){
@@ -60,7 +61,7 @@ class ExpertProfile extends React.Component{
     }
     return(
       <div>
-        {this.state.editing === "topInfo" ?
+        {this.state.modal === "topInfo" ?
         <EditTopInfoModal handleEdits = {this.handleEdits}
                           handleClose = {this.closeModal}
                           fullName ={this.props.expert.full_name}
@@ -68,16 +69,23 @@ class ExpertProfile extends React.Component{
                           company ={this.props.expert.company}
                           about = {this.props.expert.about}
         /> : null}
-        {this.state.editing === "contactInfo" ?
+        {this.state.modal === "contactInfo" ?
         <EditContactInfoModal address = {this.props.expert.address}
         city  = {this.props.expert.city} state = {this.props.expert.state}
         phone  = {this.props.expert.phone} email = {this.props.expert.email}
         zipcode = {this.props.expert.zip_code} website  = {this.props.expert.website_url}
         handleClose = {this.closeModal} handleEdits = {this.handleEdits}
         />:null}
-        {this.state.editing === "tags" ?
+        {this.state.modal === "tags" ?
         <EditTagsModal  handleEdits = {this.handleEdits} handleClose = {this.closeModal} tags = {this.props.expert.tags}/>:null
         }
+        {this.state.modal === "addWorkExperience" ?
+        <AddWorkExperienceModal addWorkExperience = {this.addWorkExperience} handleClose = {this.closeModal}/>: null
+        }
+        {this.state.modal === "editWorkExperience" ?
+         <EditWorkExperienceModal handleEditWorkExperience = {this.handleEditWorkExperience}
+                                  workExperience = {this.state.workExperienceToEdit}
+                                  handleClose = {this.closeModal}/> :null}
         <img className = "banner-photo" alt = "banner" src = "https://via.placeholder.com/851x351?text=851x351+Banner%20+Photo"/>
         <div className = "container-fluid">
         <ProfileTopInfo handleEdit = {this.editTopInfo}
@@ -110,7 +118,6 @@ class ExpertProfile extends React.Component{
     )
   }
   handleEdits =(edits) =>{
-    debugger
     fetch(BaseExpertURL + this.props.currentUser.id,{
       method: "PATCH",
       headers: {
@@ -131,20 +138,91 @@ class ExpertProfile extends React.Component{
   })
 
   }
+  deleteWorkExperience = (workExperienceId) =>{
+    fetch(BaseExpertURL + `${this.props.currentUser.id}/work_experiences/${workExperienceId}`,{
+      method: "DELETE",
+      headers: {
+          Authorization: `Bearer ${this.props.jwt}`,
+        }
+      }
+    ).then(resp => resp.json())
+    .then(data =>{
+
+    this.props.UpdateCurrentUser(data)
+    this.props.history.push(`/experts/`)
+    this.props.history.push(`/experts/${data.id}`)
+
+    })
+
+
+  }
+  handleEditWorkExperience = (workExperience) => {
+    fetch(BaseExpertURL + `${this.props.currentUser.id}/work_experiences/${workExperience.id}`,{
+      method: "PATCH",
+      headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${this.props.jwt}`,
+          Accept: "application/json"
+        },
+        body: JSON.stringify(workExperience)
+      }
+    ).then(resp => resp.json())
+    .then(data =>{
+
+    this.props.UpdateCurrentUser(data)
+    this.props.history.push(`/experts/`)
+    this.props.history.push(`/experts/${data.id}`)
+
+    })
+
+  }
+  addWorkExperience = (workExperience) =>{
+
+    fetch(BaseExpertURL + `${this.props.currentUser.id}/work_experiences`,{
+      method: "POST",
+      headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${this.props.jwt}`,
+          Accept: "application/json"
+        },
+        body: JSON.stringify(workExperience)
+      }
+  ).then(resp => resp.json())
+  .then(data =>{
+
+    this.props.UpdateCurrentUser(data)
+    this.props.history.push(`/experts/`)
+    this.props.history.push(`/experts/${data.id}`)
+
+    })
+  }
   // Controls for opening and closing Modals
   editTopInfo = (e) =>{
     this.setState({
-      editing: "topInfo"
+      modal: "topInfo"
     })
   }
   editContactInfo = (e) =>{
     this.setState({
-      editing: "contactInfo"
+      modal: "contactInfo"
     })
   }
   editTags = (e)=>{
     this.setState({
-      editing: "tags"
+      modal: "tags"
+    })
+  }
+
+  openAddWorkExperienceModal = (e) => {
+    this.setState({
+      modal: "addWorkExperience"
+    })
+  }
+  openEditWorkExperiencesModal = (work_experience) =>{
+    this.setState({
+      modal: "editWorkExperience",
+      workExperienceToEdit: work_experience
+
     })
   }
 
@@ -152,7 +230,8 @@ class ExpertProfile extends React.Component{
   closeModal = (e) =>{
     if (e.target.id === "closeModal"){
       this.setState({
-        editing: null
+        modal: null,
+        workExperienceToEdit: null
       })
     }
   }
@@ -163,7 +242,12 @@ class ExpertProfile extends React.Component{
       case "Q&A":
         return <ExpertProfileQA history = {this.props.history} questions = {this.props.expert.answered_questions}/>
       default:
-        return <ExpertProfileAbout educations = {this.props.expert.educations} workExperience = {this.props.expert.work_experiences}/>
+        return <ExpertProfileAbout canEdit = {this.state.canEdit}
+                                  editWorkExperience = {this.openEditWorkExperiencesModal}
+                                  addWorkExperience = {this.openAddWorkExperienceModal}
+                                  educations = {this.props.expert.educations}
+                                  workExperience = {this.props.expert.work_experiences}
+                                  deleteWorkExperience = {this.deleteWorkExperience}/>
 
     }
   }

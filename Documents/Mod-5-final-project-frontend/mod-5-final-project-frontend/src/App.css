@@ -434,6 +434,7 @@
 /* Modal Content */
 .modal-content {
     position: relative;
+    top: 5%;
     background-color: #fefefe;
     margin: auto;
     padding: 0;
@@ -484,6 +485,24 @@
 }
 .tag-modal{
   text-align: left;
+}
+.work-experiences-buttons{
+  text-align: right;
+  color: #133e5b;
+  margin-bottom: -30px;
+}
+
+.add-work-experience-button{
+  color: #133e5b;
+  float: right;
+}
+.delete-work-experiences-button{
+  color: #133e5b;
+  text-align: right;
+  margin-top: 25px;
+}
+.edit-work-experiences-button{
+  margin-right: 15px;
 }
 @keyframes App-logo-spin {
   from {
