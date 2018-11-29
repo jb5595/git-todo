@@ -5,6 +5,7 @@ import AddWorkExperienceModal from "../components/ExpertProfileComponents/Expert
 import EditWorkExperienceModal from "../components/ExpertProfileComponents/ExpertProfileModals/EditWorkExperienceModal"
 import AddEducationModal from "../components/ExpertProfileComponents/ExpertProfileModals/AddEducationModal"
 import EditTagsModal from "../components/ExpertProfileComponents/ExpertProfileModals/EditTagsModal"
+import EditEducationModal from "../components/ExpertProfileComponents/ExpertProfileModals/EditEducationModal"
 import * as actions from "../actions/expertProfileActions"
 import * as sessionActions from "../actions/CurrentUserActions"
 import { connect } from "react-redux"
@@ -59,7 +60,11 @@ class ExpertProfileModalContainer extends React.Component{
                 handleClose = {this.props.closeModal}/>
 
         )
-
+      case "editEducation":
+      return( <EditEducationModal
+              handleEditEducation = {this.handleEditEducation}
+              education = {this.props.educationToEdit}
+              handleClose = {this.props.closeModal}/>)
       default:
         return null
 
@@ -108,6 +113,7 @@ class ExpertProfileModalContainer extends React.Component{
     })
 
   }
+
   addWorkExperience = (workExperience) =>{
 
     fetch(BaseExpertURL + `${this.props.currentUser.id}/work_experiences`,{
@@ -129,6 +135,7 @@ class ExpertProfileModalContainer extends React.Component{
     })
   }
 
+
   addEducation = (education) =>{
         fetch(BaseExpertURL + `${this.props.currentUser.id}/educations`,{
           method: "POST",
@@ -147,6 +154,26 @@ class ExpertProfileModalContainer extends React.Component{
         this.props.history.push(`/experts/${data.id}`)
 
         })
+      }
+      handleEditEducation = (education) => {
+        fetch(BaseExpertURL + `${this.props.currentUser.id}/educations/${education.id}`,{
+          method: "PATCH",
+          headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${this.props.jwt}`,
+              Accept: "application/json"
+            },
+            body: JSON.stringify(education)
+          }
+        ).then(resp => resp.json())
+        .then(data =>{
+
+        this.props.UpdateCurrentUser(data)
+        this.props.history.push(`/experts/`)
+        this.props.history.push(`/experts/${data.id}`)
+
+        })
+
       }
 
 }

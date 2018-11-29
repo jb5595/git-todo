@@ -30,7 +30,8 @@ class ExpertProfile extends React.Component{
       modal: null,
       selectedSubPage: "About",
       canEdit: true,
-      workExperienceToEdit: null
+      workExperienceToEdit: null,
+      educationToEdit: null
     }
   }
   componentDidMount(){
@@ -57,7 +58,13 @@ class ExpertProfile extends React.Component{
     }
     return(
       <div>
-        {this.state.modal ? <ExpertProfileModalContainer history ={this.props.history} workExperienceToEdit = {this.state.workExperienceToEdit} closeModal = {this.closeModal} modal = {this.state.modal}/> : null}
+        {this.state.modal ? <ExpertProfileModalContainer
+                              history ={this.props.history}
+                              workExperienceToEdit = {this.state.workExperienceToEdit}
+                              closeModal = {this.closeModal}
+                              modal = {this.state.modal}
+                              educationToEdit = {this.state.educationToEdit}
+                              /> : null}
         <img className = "banner-photo" alt = "banner" src = "https://via.placeholder.com/851x351?text=851x351+Banner%20+Photo"/>
         <div className = "container-fluid">
         <ProfileTopInfo handleEdit = {this.editTopInfo}
@@ -121,7 +128,14 @@ class ExpertProfile extends React.Component{
   }
   openAddEducationExperienceModal = (e) => {
     this.setState({
-      modal: "addEducation", 
+      modal: "addEducation",
+    })
+  }
+  openEditEducationModal = (education) =>{
+    this.setState({
+      modal: "editEducation",
+      educationToEdit: education
+
     })
   }
 
@@ -130,7 +144,8 @@ class ExpertProfile extends React.Component{
     if (e.target.id === "closeModal"){
       this.setState({
         modal: null,
-        workExperienceToEdit: null
+        workExperienceToEdit: null,
+        educationToEdit: null
       })
     }
   }
@@ -151,6 +166,23 @@ class ExpertProfile extends React.Component{
 
     })
   }
+  deleteEducation = (educationId) => {
+    fetch(BaseExpertURL + `${this.props.currentUser.id}/educations/${educationId}`,{
+      method: "DELETE",
+      headers: {
+          Authorization: `Bearer ${this.props.jwt}`,
+        }
+      }
+    ).then(resp => resp.json())
+    .then(data =>{
+
+    this.props.UpdateCurrentUser(data)
+    this.props.history.push(`/experts/`)
+    this.props.history.push(`/experts/${data.id}`)
+
+    })
+
+  }
   renderSubInformation(){
     switch (this.state.selectedSubPage) {
       case "Reviews":
@@ -161,9 +193,11 @@ class ExpertProfile extends React.Component{
         return <ExpertProfileAbout canEdit = {this.state.canEdit}
                                   editWorkExperience = {this.openEditWorkExperiencesModal}
                                   addWorkExperience = {this.openAddWorkExperienceModal}
+                                  editEducation = {this.openEditEducationModal}
                                   addEducation = {this.openAddEducationExperienceModal}
                                   educations = {this.props.expert.educations}
                                   workExperience = {this.props.expert.work_experiences}
+                                  deleteEducation = {this.deleteEducation}
                                   deleteWorkExperience = {this.deleteWorkExperience}/>
 
     }

@@ -59,17 +59,30 @@ class ExpertProfileAbout extends React.Component{
       return this.props.educations.map(education => {
         return(
           <div key={education.id} className = "offset-2 col-8">
-              <div onClick = {this.handleEdit} className = "work-experiences-buttons">
-                  <FaEdit/>
-              </div>
+              {this.props.canEdit ?  <div  className = "work-experiences-buttons">
+                  <span className = "edit-work-experiences-button" data-id ={education.id} onClick = {this.handleEditEducation}>
+                    <FaEdit/>
+                  </span>
+                  <span data-id = {education.id} onClick = {this.handleDeleteEducation}>
+                    <FaTrash/>
+                  </span>
+                </div>: null }
               <h5 className = "job-title">{education.school}</h5>
-              <div className = "company">{education.degree}, {education.field_of_strufy}</div>
+              <div className = "company">{education.degree}, {education.field_of_study}</div>
               <div className = "work-dates">{education.start_year} - {education.end_year ? `${education.end_year}` : "Present"}</div>
               <div className = "description">{education.description}</div>
           </div>
 
         )
       })
+    }
+    handleEditEducation = (e) => {
+      let education = this.props.educations.find(education => education.id == e.currentTarget.dataset.id)
+      this.props.editEducation(education)
+    }
+
+    handleDeleteEducation = (e) =>{
+      this.props.deleteEducation(e.currentTarget.dataset.id)
     }
 }
 
