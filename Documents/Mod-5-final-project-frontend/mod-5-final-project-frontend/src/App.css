@@ -470,7 +470,21 @@
 .edit-top-info-text-inputs{
   text-align: left;
 }
-
+.top-tags-preview{
+  margin-top: -20px;
+  text-align: left;
+  margin-left: 120px;
+}
+.edit-expert-tags-button{
+  width: 75%;
+  text-align: right;
+  color: #133e5b;
+  margin-top: -45px;
+  margin-bottom: 15px;
+}
+.tag-modal{
+  text-align: left;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

@@ -7,10 +7,13 @@ import ExpertProfileAbout from "../components/ExpertProfileComponents/ExpertProf
 import ExpertProfileQA from "../components/ExpertProfileComponents/ExpertProfileQ&A"
 import ExpertProfileReviews from "../components/ExpertProfileComponents/ExpertProfileReviews"
 import EditTopInfoModal from "../components/ExpertProfileComponents/editTopInfoModal"
+import EditContactInfoModal from  "../components/ExpertProfileComponents/EditContactInfoModal"
+import EditTagsModal from "../components/ExpertProfileComponents/EditTagsModal"
 import { GridLoader } from 'react-spinners';
 import { connect } from "react-redux"
 import { FaEdit } from "react-icons/fa";
 import * as actions from "../actions/expertProfileActions"
+import * as sessionActions from "../actions/CurrentUserActions"
 
 
 const BaseExpertURL = "http://localhost:3000/experts/"
@@ -19,8 +22,6 @@ class ExpertProfile extends React.Component{
   constructor(props){
     super(props)
     let canEdit
-    console.log(this.props.currentUser)
-    console.log(this.props.expert)
     if (this.props.currentUser
       && this.props.currentUser.id == this.props.expert.id
       && this.props.CurrentUserIsExpert){
@@ -67,6 +68,16 @@ class ExpertProfile extends React.Component{
                           company ={this.props.expert.company}
                           about = {this.props.expert.about}
         /> : null}
+        {this.state.editing === "contactInfo" ?
+        <EditContactInfoModal address = {this.props.expert.address}
+        city  = {this.props.expert.city} state = {this.props.expert.state}
+        phone  = {this.props.expert.phone} email = {this.props.expert.email}
+        zipcode = {this.props.expert.zip_code} website  = {this.props.expert.website_url}
+        handleClose = {this.closeModal} handleEdits = {this.handleEdits}
+        />:null}
+        {this.state.editing === "tags" ?
+        <EditTagsModal  handleEdits = {this.handleEdits} handleClose = {this.closeModal} tags = {this.props.expert.tags}/>:null
+        }
         <img className = "banner-photo" alt = "banner" src = "https://via.placeholder.com/851x351?text=851x351+Banner%20+Photo"/>
         <div className = "container-fluid">
         <ProfileTopInfo handleEdit = {this.editTopInfo}
@@ -75,12 +86,13 @@ class ExpertProfile extends React.Component{
                         company ={this.props.expert.company}
                         about = {this.props.expert.about}
                         canEdit = {this.state.canEdit}/>
-        <ContactInfo address = {this.props.expert.address}
+        <ContactInfo handleEdit = {this.editContactInfo}
+                     address = {this.props.expert.address}
                      city  = {this.props.expert.city} state = {this.props.expert.state}
                      phone  = {this.props.expert.phone} email = {this.props.expert.email}
                      zipcode = {this.props.expert.zip_code} website  = {this.props.expert.website_url}/>
         {this.props.expert ? <AccountAnalyticsOverview topTags = {this.props.expert.top_tags} answeredQuestions = {this.props.expert.answered_questions}/>: null}
-        <ExpertiseInfo/>
+        <ExpertiseInfo handleEdit = {this.editTags} canEdit = {this.state.canEdit} tags = {this.props.expert.tags}/>
         <div className = "row profile-info-menu">
             <div onClick = {this.menuSelector} className = {this.state.selectedSubPage === "Reviews" ? "profile-menu-option active-menu-option":"profile-menu-option"}>
               Reviews
@@ -109,7 +121,14 @@ class ExpertProfile extends React.Component{
         body: JSON.stringify(edits)
       }
   ).then(resp => resp.json())
-  .then(data => console.log(data))
+  .then(data =>{
+
+    this.props.UpdateCurrentUser(data)
+    this.props.history.push(`/experts/`)
+    this.props.history.push(`/experts/${data.id}`)
+
+
+  })
 
   }
   // Controls for opening and closing Modals
@@ -118,6 +137,18 @@ class ExpertProfile extends React.Component{
       editing: "topInfo"
     })
   }
+  editContactInfo = (e) =>{
+    this.setState({
+      editing: "contactInfo"
+    })
+  }
+  editTags = (e)=>{
+    this.setState({
+      editing: "tags"
+    })
+  }
+
+
   closeModal = (e) =>{
     if (e.target.id === "closeModal"){
       this.setState({
@@ -147,4 +178,4 @@ const mapStateToProps = (state) =>{
         }
 }
 
-export default connect(mapStateToProps, actions)(ExpertProfile)
+export default connect(mapStateToProps, {...actions, ...sessionActions })(ExpertProfile)

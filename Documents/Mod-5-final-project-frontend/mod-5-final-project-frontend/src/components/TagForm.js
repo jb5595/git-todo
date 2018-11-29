@@ -9,6 +9,7 @@ class TagForm extends React.Component{
     }
   }
   render(){
+    console.log(this.props.tags)
     return(
       <div>
         <form onSubmit = {this.handleSubmit}>

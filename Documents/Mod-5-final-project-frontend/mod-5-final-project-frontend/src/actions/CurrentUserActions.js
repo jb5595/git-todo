@@ -14,6 +14,14 @@ export function SetCurrentExpert(currentUser, jwt){
 
 }
 
+export function UpdateCurrentUser(currentUser){
+
+  return (dispatch) => {
+    return dispatch( {type:"UPDATE_CURRENT_USER", currentUser});
+  }
+
+}
+
 export function logout(){
 
   return (dispatch) => {

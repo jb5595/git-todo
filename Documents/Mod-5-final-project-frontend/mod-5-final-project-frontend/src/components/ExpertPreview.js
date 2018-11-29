@@ -29,15 +29,14 @@ class ExpertPreview extends React.Component{
               {this.props.expert.job_title} @ {this.props.expert.company}
             </div>
           </div>
-          <div className = "row">
-            <div className = "top-tags">
-              <div className = "expertise-tag">tag</div>
-              <div className = "expertise-tag">tag</div>
-              <div className = "expertise-tag">tag</div>
-            </div>
-          </div>
         </div>
-
+      </div>
+      <div className = "row">
+        <div className = "top-tags-preview">
+        {this.props.expert.top_tags.length !== 0 ? <div>Top Tags</div> : null}
+        {this.props.expert.top_tags ? this.props.expert.top_tags.map(tag =>
+          <div className = "expertise-tag" key = {tag.id}>{tag.name}</div>) : null}
+        </div>
       </div>
       <div className = "row center-text">
       <div className = "offset-3 col-7">
