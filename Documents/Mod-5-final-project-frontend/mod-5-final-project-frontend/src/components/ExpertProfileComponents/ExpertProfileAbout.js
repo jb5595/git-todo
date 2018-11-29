@@ -8,17 +8,17 @@ class ExpertProfileAbout extends React.Component{
     return(
       <div className = "profile-subinfo">
           <h5 className = "offset-2 col-8">Work Experience
-            <span onClick = {this.props.addWorkExperience}
+            {this.props.canEdit ? <span onClick = {this.props.addWorkExperience}
             className = "add-work-experience-button">
                 <FaPlusSquare/>
-            </span></h5>
+            </span>:null}</h5>
           <div className= "work-experience-container">
             {this.props.workExperience ? this.renderWorkExperience() :  <GridLoader sizeUnit={"px"} size={50} color={'#123abc'} loading={this.props.workExperience}/>}
           </div>
           <h5 className = "offset-2 col-8">Education
-           <span onClick = {this.props.addEducation}
+           {this.props.canEdit ? <span onClick = {this.props.addEducation}
            className = "add-work-experience-button">
-            <FaPlusSquare/></span></h5>
+            <FaPlusSquare/></span> :null}</h5>
           <div className= "work-experience-container">
             {this.props.educations ? this.renderEducation() :  <GridLoader sizeUnit={"px"} size={50} color={'#123abc'} loading={this.props.educations}/>}
           </div>

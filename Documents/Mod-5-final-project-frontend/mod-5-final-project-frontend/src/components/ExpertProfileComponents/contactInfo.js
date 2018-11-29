@@ -4,9 +4,9 @@ import { FaEdit } from "react-icons/fa";
 const ContactInfo = (props) =>{
   return(
     <React.Fragment>
-    <div onClick = {props.handleEdit} className = "edit-top-info-button">
+    {props.canEdit ?<div onClick = {props.handleEdit} className = "edit-top-info-button">
       <FaEdit/>
-    </div>
+    </div>:null}
     <h5 className = "profile-section-header" >Connect</h5>
     <div className = "contact-info-container row">
         <div className = "col-5 offset-2">

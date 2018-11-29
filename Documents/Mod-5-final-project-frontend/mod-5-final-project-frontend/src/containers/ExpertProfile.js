@@ -29,7 +29,7 @@ class ExpertProfile extends React.Component{
     this.state = {
       modal: null,
       selectedSubPage: "About",
-      canEdit: true,
+      canEdit: canEdit,
       workExperienceToEdit: null,
       educationToEdit: null
     }
@@ -58,7 +58,7 @@ class ExpertProfile extends React.Component{
     }
     return(
       <div>
-        {this.state.modal ? <ExpertProfileModalContainer
+        {this.state.modal && this.state.canEdit ? <ExpertProfileModalContainer
                               history ={this.props.history}
                               workExperienceToEdit = {this.state.workExperienceToEdit}
                               closeModal = {this.closeModal}
@@ -74,7 +74,7 @@ class ExpertProfile extends React.Component{
                         about = {this.props.expert.about}
                         canEdit = {this.state.canEdit}/>
         <ContactInfo handleEdit = {this.editContactInfo}
-                     address = {this.props.expert.address}
+                     address = {this.props.expert.address} canEdit = {this.state.canEdit}
                      city  = {this.props.expert.city} state = {this.props.expert.state}
                      phone  = {this.props.expert.phone} email = {this.props.expert.email}
                      zipcode = {this.props.expert.zip_code} website  = {this.props.expert.website_url}/>
@@ -95,6 +95,26 @@ class ExpertProfile extends React.Component{
         </div>
       </div>
     )
+  }
+
+  renderSubInformation(){
+    switch (this.state.selectedSubPage) {
+      case "Reviews":
+        return <ExpertProfileReviews/>
+      case "Q&A":
+        return <ExpertProfileQA history = {this.props.history} questions = {this.props.expert.answered_questions}/>
+      default:
+        return <ExpertProfileAbout canEdit = {this.state.canEdit}
+                                  editWorkExperience = {this.openEditWorkExperiencesModal}
+                                  addWorkExperience = {this.openAddWorkExperienceModal}
+                                  editEducation = {this.openEditEducationModal}
+                                  addEducation = {this.openAddEducationExperienceModal}
+                                  educations = {this.props.expert.educations}
+                                  workExperience = {this.props.expert.work_experiences}
+                                  deleteEducation = {this.deleteEducation}
+                                  deleteWorkExperience = {this.deleteWorkExperience}/>
+
+    }
   }
 
   // Controls for opening and closing Modals
@@ -183,25 +203,7 @@ class ExpertProfile extends React.Component{
     })
 
   }
-  renderSubInformation(){
-    switch (this.state.selectedSubPage) {
-      case "Reviews":
-        return <ExpertProfileReviews/>
-      case "Q&A":
-        return <ExpertProfileQA history = {this.props.history} questions = {this.props.expert.answered_questions}/>
-      default:
-        return <ExpertProfileAbout canEdit = {this.state.canEdit}
-                                  editWorkExperience = {this.openEditWorkExperiencesModal}
-                                  addWorkExperience = {this.openAddWorkExperienceModal}
-                                  editEducation = {this.openEditEducationModal}
-                                  addEducation = {this.openAddEducationExperienceModal}
-                                  educations = {this.props.expert.educations}
-                                  workExperience = {this.props.expert.work_experiences}
-                                  deleteEducation = {this.deleteEducation}
-                                  deleteWorkExperience = {this.deleteWorkExperience}/>
 
-    }
-  }
 }
 const mapStateToProps = (state) =>{
   return {
