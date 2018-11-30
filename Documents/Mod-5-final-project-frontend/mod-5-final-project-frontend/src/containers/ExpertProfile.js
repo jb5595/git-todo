@@ -19,7 +19,7 @@ class ExpertProfile extends React.Component{
     super(props)
     let canEdit
     if (this.props.currentUser
-      && this.props.currentUser.id == this.props.expert.id
+      && this.props.currentUser.id == this.props.id
       && this.props.CurrentUserIsExpert){
       canEdit = true
     }
@@ -212,6 +212,7 @@ const mapStateToProps = (state) =>{
           CurrentUserIsExpert: state.userSession.expert,
           expert: state.expertProfile.expertObject,
           profileLoading: state.expertProfile.profileLoading
+
         }
 }
 

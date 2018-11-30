@@ -6,6 +6,7 @@ import AnswerContainer from "./AnswerContainer"
 import AnswerForm from "../components/AnswerForm"
 class QuestionShowPage extends React.Component{
 
+
   componentDidMount(){
     this.props.loadQuestion(this.props.id)
   }
@@ -21,12 +22,14 @@ class QuestionShowPage extends React.Component{
         <AnswerContainer
         history = {this.props.history}
         answers = {this.props.question.answers}/>
-        {this.props.CurrentUserIsExpert ? <AnswerForm expertId = {this.props.currentUser.id} questionId = {this.props.question.id}/>: null}
+        {this.props.CurrentUserIsExpert ? <AnswerForm
+            reloadQuestion = {this.reloadQuestionIfNeeded} jwt = {this.props.jwt}
+           expertId = {this.props.currentUser.id} questionId = {this.props.question.id}/>: null}
       </div>
     )
   }
-  reloadQuestionIfNeeded(){
-    if (parseInt(this.props.question.id) !== parseInt(this.props.id) ){
+  reloadQuestionIfNeeded = (forceReload = false) =>{
+    if (forceReload || parseInt(this.props.question.id) !== parseInt(this.props.id) ){
       this.props.loadQuestion(this.props.id)
     }
   }

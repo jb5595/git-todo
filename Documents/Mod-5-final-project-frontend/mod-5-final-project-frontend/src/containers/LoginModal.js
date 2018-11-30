@@ -83,7 +83,6 @@ class LoginModal extends React.Component{
         else{
           this.props.SetCurrentExpert(data.expert, data.jwt)
           // close modal
-          this.props.handleClose(null, true)
 
         }
 

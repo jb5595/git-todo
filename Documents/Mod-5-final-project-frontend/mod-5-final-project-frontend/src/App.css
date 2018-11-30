@@ -182,11 +182,11 @@
 }
 
 .vote-container{
-  font-size: 3.5vw;
+  font-size: 30px;
   margin: auto;
 }
 .vote-score{
-  margin-left: 4px;
+  margin-left: 6px;
 }
 .upvote-icon{
   color:#007bff;
@@ -421,7 +421,9 @@
 /* Modal Header */
 .modal-header {
     padding: 2px 16px;
-    color: black;
+    color: white;
+    background-color: #133e5b;
+
     text-align: left;
 }
 
