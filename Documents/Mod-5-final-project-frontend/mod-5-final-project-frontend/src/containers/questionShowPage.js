@@ -25,6 +25,10 @@ class QuestionShowPage extends React.Component{
         upvotes = {this.props.question.question_upvotes}
         /> : null}
         <AnswerContainer
+        jwt = {this.props.jwt}
+        currentUser = {this.props.currentUser}
+        currentUserIsExpert = {this.props.CurrentUserIsExpert}
+        questionId ={this.props.question.id}
         history = {this.props.history}
         answers = {this.props.question.answers}/>
         {this.props.CurrentUserIsExpert ? <AnswerForm
