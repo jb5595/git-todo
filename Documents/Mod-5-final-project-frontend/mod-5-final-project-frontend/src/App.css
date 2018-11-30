@@ -177,19 +177,34 @@
   margin-bottom: 4px;
 }
 .question-preview-header:hover{
-  border-bottom: 1px solid #007bff;
-  color: #007bff;
+  border-bottom: 1px solid #133e5b;
+  color: #133e5b;
 }
 
 .vote-container{
-  font-size: 30px;
+  font-size: 20px;
   margin: auto;
 }
 .vote-score{
   margin-left: 6px;
+  margin-right: 6px;
+
+  font-size: 18px;
+}
+.vote-score-subtitle{
+  font-size: 15px;
+  color: dark-grey;
 }
 .upvote-icon{
-  color:#007bff;
+  color:#133e5b;
+}
+.upvote-icon:hover{
+  color:#258493;
+
+}
+.active-upvote-icon{
+  color:#258493;
+
 }
 .expert-preview-details{
   margin-left: 16px;

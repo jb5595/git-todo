@@ -14,11 +14,16 @@ class QuestionShowPage extends React.Component{
     this.reloadQuestionIfNeeded()
     return(
       <div>
-         <QuestionDisplay
+         {!this.props.questionLoading ? <QuestionDisplay
+        jwt = {this.props.jwt}
+        currentUser = {this.props.currentUser}
+        currentUserIsExpert ={this.props.CurrentUserIsExpert}
         id = {this.props.question.id}
         question = {this.props.question.question}
         details = {this.props.question.question_details}
-        tags = {this.props.question.tags}/>
+        tags = {this.props.question.tags}
+        upvotes = {this.props.question.question_upvotes}
+        /> : null}
         <AnswerContainer
         history = {this.props.history}
         answers = {this.props.question.answers}/>
@@ -40,7 +45,8 @@ const mapStateToProps = (state) =>{
     jwt:state.userSession.jwt,
     currentUser:state.userSession.currentUser,
     CurrentUserIsExpert: state.userSession.expert,
-    question: state.questionShow.questionObject
+    question: state.questionShow.questionObject,
+    questionLoading: state.questionShow.questionLoading
   }
 }
 

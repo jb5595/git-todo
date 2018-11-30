@@ -1,6 +1,5 @@
 import React from 'react'
-import {IoMdArrowDropdownCircle, IoMdArrowDropupCircle } from "react-icons/io"
-
+import QuestionUpvoteContainer from "../containers/QuestionUpvoteContainer"
 class QuestionDisplay extends React.Component{
   render(){
     return(
@@ -8,14 +7,19 @@ class QuestionDisplay extends React.Component{
       <div>
         <div className = "col-8 offset-2 question-preview">
         <div className = "row">
-        <div className = "col-1 vote-container">
-        <IoMdArrowDropupCircle className ="upvote-icon"/>
-        <span className = "vote-score">0</span>
-         <IoMdArrowDropdownCircle className ="upvote-icon"/>
-        </div>
-        <div className = "col-11">
+
+
+        <div>
           <h5>Q: {this.props.question}</h5>
           <p>{this.props.details}</p>
+          {this.props.upvotes?<QuestionUpvoteContainer
+                  jwt = {this.props.jwt}
+                  question_id = {this.props.id}
+                  currentUser = {this.props.currentUser}
+                  currentUserIsExpert ={this.props.currentUserIsExpert}
+                  upvotes = {this.props.upvotes}/>:null}
+          <br/>
+
           {this.props.tags? this.props.tags.map(tag =><div key = {tag.id} className = "expertise-tag">{tag.name}</div>) : null}
 
         </div>

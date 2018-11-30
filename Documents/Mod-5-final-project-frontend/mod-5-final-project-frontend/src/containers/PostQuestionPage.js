@@ -71,6 +71,7 @@ class PostQuestionPage extends React.Component{
   }
   postQuestion = () =>{
     let body = {question:this.state.question}
+    
     fetch(QuestionURL, {
     method: "POST",
     headers: {
