@@ -1,9 +1,7 @@
 
 import React from "react"
 import {IoMdArrowDropdownCircle, IoMdArrowDropupCircle } from "react-icons/io"
-import * as actions from "../actions/questionShowPageActions"
 import { connect } from "react-redux"
-
 
 const UpvoteUrl = "http://localhost:3000/answer_upvotes"
 
@@ -12,9 +10,10 @@ class AnswerUpvoteContainer extends React.Component {
     super(props)
     let hasUpvoted = this.hasUpvoted()
     this.state = {
-      hasUpvoted:hasUpvoted
+      hasUpvoted:hasUpvoted,
     }
   }
+
   render(){
     return(
       <div className = "vote-container">
@@ -44,7 +43,19 @@ class AnswerUpvoteContainer extends React.Component {
       body: JSON.stringify(body)
         })
     .then(resp => resp.json())
-    .then(data => this.props.loadQuestion(this.props.questionId))
+    .then(data =>{
+      if (data.upvote.score === 1){
+        this.setState({
+          hasUpvoted: "upvote"
+        })
+      }
+      else{
+        this.setState({
+          hasUpvoted: "downvote"
+        })
+      }
+      this.props.reloadUpvotes()
+    })
 
   }
 }
@@ -78,5 +89,12 @@ class AnswerUpvoteContainer extends React.Component {
     }
   }
 }
+const mapStateToProps = (state) =>{
+  return{
+    jwt:state.userSession.jwt,
+    currentUser:state.userSession.currentUser,
+    currentUserIsExpert: state.userSession.expert,
+  }
+}
 
-export default connect(null, actions)(AnswerUpvoteContainer)
+export default connect(mapStateToProps)(AnswerUpvoteContainer)

@@ -97,15 +97,11 @@ class QuestionUpvoteContainer extends React.Component {
 
 const mapStateToProps = (state) =>{
   return{
-    upvotesLoaded: state.questionShow.upvotesLoading,
     upvotes: state.questionShow.upvotes,
     upvoteScore: state.questionShow.upvoteScore,
     jwt:state.userSession.jwt,
     currentUser:state.userSession.currentUser,
     currentUserIsExpert: state.userSession.expert,
-
-
-
   }
 }
 

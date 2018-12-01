@@ -13,12 +13,10 @@ class AnswerContainer extends React.Component{
   renderAnswers(){
     if (this.props.answers.length > 0){
     return this.props.answers.map(answer =>
-      <AnswerDisplay currentUser = {this.props.currentUser}
-      jwt = {this.props.jwt}
+      <AnswerDisplay 
       upvoteScore = {answer.upvote_score}
       answerId = {answer.id}
       questionId = {this.props.questionId}
-      currentUserIsExpert = {this.props.currentUserIsExpert}
       key = {answer.id} content = {answer.content}
       upvotes = {answer.answer_upvotes} expert = {answer.expert}
       handleClick = {this.reRouteToExpertPage}/>)

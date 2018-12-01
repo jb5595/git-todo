@@ -21,9 +21,6 @@ class QuestionShowPage extends React.Component{
         tags = {this.props.question.tags}
         /> : null}
         <AnswerContainer
-        jwt = {this.props.jwt}
-        currentUser = {this.props.currentUser}
-        currentUserIsExpert = {this.props.CurrentUserIsExpert}
         questionId ={this.props.question.id}
         history = {this.props.history}
         answers = {this.props.question.answers}/>
