@@ -15,6 +15,7 @@ class AnswerContainer extends React.Component{
     return this.props.answers.map(answer =>
       <AnswerDisplay currentUser = {this.props.currentUser}
       jwt = {this.props.jwt}
+      upvoteScore = {answer.upvote_score}
       answerId = {answer.id}
       questionId = {this.props.questionId}
       currentUserIsExpert = {this.props.currentUserIsExpert}

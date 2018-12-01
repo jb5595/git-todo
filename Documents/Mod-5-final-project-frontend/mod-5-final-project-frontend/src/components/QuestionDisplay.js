@@ -13,6 +13,7 @@ class QuestionDisplay extends React.Component{
           <h5>Q: {this.props.question}</h5>
           <p>{this.props.details}</p>
           {this.props.upvotes?<QuestionUpvoteContainer
+                  upvoteScore = {this.props.upvoteScore}
                   jwt = {this.props.jwt}
                   question_id = {this.props.id}
                   currentUser = {this.props.currentUser}

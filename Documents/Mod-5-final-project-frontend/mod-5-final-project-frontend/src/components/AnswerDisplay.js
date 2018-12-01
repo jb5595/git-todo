@@ -14,7 +14,7 @@ class AnswerDisplay extends React.Component{
             <AnswerUpvoteContainer currentUser= {this.props.currentUser}
             jwt = {this.props.jwt} currentUserIsExpert = {this.props.currentUserIsExpert}
             answerId= {this.props.answerId} questionId = {this.props.questionId}
-            upvotes = {this.props.upvotes}/>
+            upvotes = {this.props.upvotes} upvoteScore = {this.props.upvoteScore}/>
             <div className = "offset-0 offset-lg-6 row">
               <div className ="col-1 col-lg-2">
                 <img className = "profile-picture-thumbnail" alt = "profile" src = "https://via.placeholder.com/150/0000FF/808080 ?Text=Digital.com"/>

@@ -23,6 +23,7 @@ class QuestionShowPage extends React.Component{
         details = {this.props.question.question_details}
         tags = {this.props.question.tags}
         upvotes = {this.props.question.question_upvotes}
+        upvoteScore = {this.props.question.upvote_score}
         /> : null}
         <AnswerContainer
         jwt = {this.props.jwt}

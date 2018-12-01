@@ -20,7 +20,7 @@ class QuestionUpvoteContainer extends React.Component {
     return(
       <div className = "vote-container">
       <IoMdArrowDropupCircle data-type = "upvote" onClick = {this.handleVote} className ={this.state.hasUpvoted === "upvote" ?"active-upvote-icon" :"upvote-icon"} />
-      <span className = "vote-score">{this.props.upvotes.length}</span>
+      <span className = "vote-score">{this.props.upvoteScore}</span>
       <IoMdArrowDropdownCircle data-type = "downvote" onClick = {this.handleVote} className ={this.state.hasUpvoted === "downvote" ?"active-upvote-icon" :"upvote-icon"}/>
       </div>
     )
