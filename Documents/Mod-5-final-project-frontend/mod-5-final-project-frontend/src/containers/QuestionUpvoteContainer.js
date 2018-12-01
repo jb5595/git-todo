@@ -11,17 +11,21 @@ class QuestionUpvoteContainer extends React.Component {
   constructor(props){
     super(props)
     let hasUpvoted = this.hasUpvoted()
-
     this.state = {
       hasUpvoted:hasUpvoted
     }
   }
+  componentDidMount(){
+    this.props.loadUpvotes(this.props.question_id)
+  }
   render(){
     return(
       <div className = "vote-container">
+      <div>
       <IoMdArrowDropupCircle data-type = "upvote" onClick = {this.handleVote} className ={this.state.hasUpvoted === "upvote" ?"active-upvote-icon" :"upvote-icon"} />
       <span className = "vote-score">{this.props.upvoteScore}</span>
       <IoMdArrowDropdownCircle data-type = "downvote" onClick = {this.handleVote} className ={this.state.hasUpvoted === "downvote" ?"active-upvote-icon" :"upvote-icon"}/>
+      </div>
       </div>
     )
   }
@@ -45,7 +49,18 @@ class QuestionUpvoteContainer extends React.Component {
       body: JSON.stringify(body)
         })
     .then(resp => resp.json())
-    .then(data => this.props.loadQuestion(this.props.question_id))
+    .then(data => {
+      this.props.loadUpvotes(this.props.question_id)
+      if(data.score === 1){
+        this.setState({hasUpvoted:"upvote"})
+      }
+      else{
+        this.setState({hasUpvoted:"downvote"})
+
+      }
+
+
+    })
 
   }
 }
@@ -80,4 +95,18 @@ class QuestionUpvoteContainer extends React.Component {
   }
 }
 
-export default connect(null, actions)(QuestionUpvoteContainer)
+const mapStateToProps = (state) =>{
+  return{
+    upvotesLoaded: state.questionShow.upvotesLoading,
+    upvotes: state.questionShow.upvotes,
+    upvoteScore: state.questionShow.upvoteScore,
+    jwt:state.userSession.jwt,
+    currentUser:state.userSession.currentUser,
+    currentUserIsExpert: state.userSession.expert,
+
+
+
+  }
+}
+
+export default connect(mapStateToProps, actions)(QuestionUpvoteContainer)

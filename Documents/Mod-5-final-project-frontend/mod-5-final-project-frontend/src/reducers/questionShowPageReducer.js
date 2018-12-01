@@ -1,5 +1,5 @@
 export default function questionShowPageReducer(state =
-  { questionLoading: false, questionObject: {}, upvotesLoading:false, upvote: [], answers: [] }
+  { questionLoading: false, questionObject: {}, upvotesLoading:false, upvotes: [], upvoteScore: 0 }
   ,action) {
   switch (action.type) {
     case "LOADING_QUESTION":
@@ -9,7 +9,9 @@ export default function questionShowPageReducer(state =
     case "LOADING_UPVOTES":
     return {...state, upvotesLoading:true }
     case "FETCH_UPVOTES":
-    return {...state, upvotes:action.upvotes  }
+    return {...state,upvotesLoading:false,
+            upvotes:action.upvotesObject.upvotes,
+            upvoteScore:action.upvotesObject.upvoteScore  }
 
     default:
     return state

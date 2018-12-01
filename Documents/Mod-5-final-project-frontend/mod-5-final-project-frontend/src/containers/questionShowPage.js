@@ -15,15 +15,10 @@ class QuestionShowPage extends React.Component{
     return(
       <div>
          {!this.props.questionLoading ? <QuestionDisplay
-        jwt = {this.props.jwt}
-        currentUser = {this.props.currentUser}
-        currentUserIsExpert ={this.props.CurrentUserIsExpert}
         id = {this.props.question.id}
         question = {this.props.question.question}
         details = {this.props.question.question_details}
         tags = {this.props.question.tags}
-        upvotes = {this.props.question.question_upvotes}
-        upvoteScore = {this.props.question.upvote_score}
         /> : null}
         <AnswerContainer
         jwt = {this.props.jwt}
