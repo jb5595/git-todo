@@ -1,4 +1,4 @@
-export default function userProfileReducer(state = { userLoading: false, questionsLoading:false, userObject: {}, userQuestions: [] }, action) {
+export default function userProfileReducer(state = { userLoading: false, questionsLoading:false, userObject: {}, userQuestions: null }, action) {
   switch (action.type) {
     case "LOADING_USER":
     return {...state, userLoading:true }

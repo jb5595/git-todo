@@ -13,13 +13,23 @@ import SiteWideSearchResults from './containers/SiteWideSearchResults'
 import CreateExpertAccountPage from "./containers/CreateExpertAccountPage"
 import ReviewForm from "./containers/ReviewForm"
 import { connect } from "react-redux"
-import * as actions from "./actions/BrowserPropsActions"
+import * as actions from "./actions/CurrentUserActions"
 
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import './App.css';
 
 class App extends Component {
+
+  componentDidMount(){
+    if (localStorage.getItem("userId")){
+      let id = localStorage.getItem("userId")
+      let jwt = localStorage.getItem("jwt")
+      let userType = localStorage.getItem("userType")
+      userType === "Expert" ? this.props.loginExpertFromLocalStorage(id, jwt) :
+      this.props.loginUserFromLocalStorage(id, jwt)
+    }
+  }
   render() {
     return (
       <Router>
@@ -82,4 +92,4 @@ class App extends Component {
 
 }
 
-export default connect(null, {actions})(App);
+export default connect(null, actions)(App);

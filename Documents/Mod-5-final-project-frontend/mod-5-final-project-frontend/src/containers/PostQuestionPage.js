@@ -71,7 +71,7 @@ class PostQuestionPage extends React.Component{
   }
   postQuestion = () =>{
     let body = {question:this.state.question}
-    
+
     fetch(QuestionURL, {
     method: "POST",
     headers: {
@@ -82,7 +82,9 @@ class PostQuestionPage extends React.Component{
       body: JSON.stringify(body)
     }
 ).then(resp => resp.json())
-.then(data => this.props.history.push(`/questions/${data.id}`))
+.then(data => {
+  
+  this.props.history.push(`/questions/${data.id}`)})
   }
 }
 

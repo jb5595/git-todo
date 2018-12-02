@@ -15,13 +15,13 @@ class UserProfileQuestionsContainer extends React.Component{
       <div className = "questions-container">
         <h5>Questions</h5>
         <div className = "col-8 offset-2">
-        {this.props.questions[0] ? this.renderQuestions():<div style = {{marginLeft:"45vw"}}><GridLoader sizeUnit={"px"} size={25} color={'#123abc'} loading={true}/></div>}
+        {this.props.questions ? this.renderQuestions():<div style = {{marginLeft:"45vw"}}><GridLoader sizeUnit={"px"} size={25} color={'#123abc'} loading={true}/></div>}
         </div>
       </div>
     )
   }
   renderQuestions(){
-    
+
     return this.props.questions.map(question =>
        <QuestionPreview key ={question.id} question = {question.question}
         details = {question.question_details} history = {this.props.history}
