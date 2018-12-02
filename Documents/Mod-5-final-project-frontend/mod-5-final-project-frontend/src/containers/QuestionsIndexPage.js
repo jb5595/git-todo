@@ -47,12 +47,34 @@ class QuestionIndexPage extends React.Component{
     })
 
   }
+  handleFilterButtonClick = (e) =>{
+    let fileredResults
+    switch (e.target.innerHTML) {
+      case "Most Recent":
+        fileredResults = this.state.displayQuestions.sort((a, b) => new Date(b.created_at) - new Date(a.created_at) )
+        break
+      case "Votes":
+      fileredResults = this.state.displayQuestions.sort((a, b) => b.upvote_score - a.upvote_score )
+      break
+      case "Unanswered":
+      fileredResults = this.state.displayQuestions.filter(question => question.answers.length ===0)
+      break
+      default:
+        fileredResults = this.state.displayQuestions
+    }
+    this.setState({
+      displayQuestions: fileredResults
+    })
+
+  }
   render(){
 
     return(
       <div className = "questions-index-page-container col-8 offset-2">
         <br/><br/>
-        <QuestionIndexFilters handleSubmit={this.filterSearchResults} handleChange = {this.handleFilterTextChange} filterText = {this.state.filterText}/>
+        <QuestionIndexFilters handleFilterButtonClick = {this.handleFilterButtonClick}
+        handleSubmit={this.filterSearchResults} handleChange = {this.handleFilterTextChange}
+        filterText = {this.state.filterText}/>
         {this.state.displayQuestions.length === 0 ?
           <div><br/><br/>There Doesn't Appear to Be Anything Here. Try a different search term or
            <Link to = "/post/question"> posting a question of your own </Link></div>  :

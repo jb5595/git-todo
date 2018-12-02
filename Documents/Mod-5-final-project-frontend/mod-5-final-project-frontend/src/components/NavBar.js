@@ -26,7 +26,7 @@ class NavBar extends React.Component{
         <nav className="navbar sub-nav navbar-dark bg-dark">
           <Link to = "/experts">Find an Expert</Link>
           <Link to = "/questions">Browse Questions</Link>
-          {this.props.currentUser? <Link to = "/post/question">Post Question</Link> :
+          {this.props.currentUser? null :
           <Link to = "/create_expert_profile"> Create Expert Account</Link>}
         </nav>
       </React.Fragment>

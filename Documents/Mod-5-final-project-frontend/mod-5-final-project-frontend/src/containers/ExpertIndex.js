@@ -22,6 +22,23 @@ class ExpertIndex extends React.Component{
       displayExperts: data
       }))
   }
+  handleFilterButtonClick = (e) =>{
+    let fileredResults
+    switch (e.target.innerHTML) {
+      case "Rating":
+        fileredResults = this.state.displayExperts.sort((a, b) => b.average_rating - a.average_rating )
+        break
+      case "Votes":
+      fileredResults = this.state.displayExperts.sort((a, b) => b.total_upvotes - a.total_upvotes )
+      break
+      default:
+        fileredResults = this.state.displayExperts
+    }
+    this.setState({
+      displayExperts: fileredResults
+    })
+
+  }
   handleFilterTextChange = (e) =>{
     this.setState({
       filterText: e.target.value
@@ -77,7 +94,8 @@ class ExpertIndex extends React.Component{
   render(){
     return(
       <div className = "col-8 offset-2">
-        <ExpertIndexFilters handleSubmit = {this.filterSearchResults} handleChange = {this.handleFilterTextChange} filterText = {this.state.filterText}/>
+        <ExpertIndexFilters handleFilterButtonClick = {this.handleFilterButtonClick}
+        handleSubmit = {this.filterSearchResults} handleChange = {this.handleFilterTextChange} filterText = {this.state.filterText}/>
         {this.state.displayExperts.length !== 0 ? <ExpertPreviewContainer experts = {this.state.displayExperts}/> : <div><br/><br/>There Doesn't Appear to Be Anything Here. Try a different search term</div>}
       </div>
     )

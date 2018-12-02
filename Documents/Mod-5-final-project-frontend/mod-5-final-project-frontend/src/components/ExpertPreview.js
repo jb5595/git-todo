@@ -1,6 +1,7 @@
 import React from "react"
 import { Link } from 'react-router-dom';
-import {IoIosStar, IoIosStarOutline } from "react-icons/io";
+import {IoIosStar } from "react-icons/io";
+const uuid = require('uuid/v1');
 
 
 class ExpertPreview extends React.Component{
@@ -50,7 +51,7 @@ class ExpertPreview extends React.Component{
   renderRating(){
     let stars = []
     for(let i = 0; i < this.props.expert.average_rating; i++){
-      stars.push(<IoIosStar/>)
+      stars.push(<IoIosStar key = {uuid()}/>)
     }
     return stars
   }

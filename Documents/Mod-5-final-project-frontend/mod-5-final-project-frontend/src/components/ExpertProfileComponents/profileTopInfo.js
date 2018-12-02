@@ -1,6 +1,7 @@
 import React from "react"
 import { FaEdit } from "react-icons/fa";
-import {IoIosStar, IoIosStarOutline } from "react-icons/io";
+import {IoIosStar } from "react-icons/io";
+const uuid = require('uuid/v1');
 
 class ProfileTopInfo extends React.Component{
   render(){
@@ -44,7 +45,7 @@ class ProfileTopInfo extends React.Component{
   renderRating(){
     let stars = []
     for(let i = 0; i < this.props.averageRating; i++){
-      stars.push(<IoIosStar/>)
+      stars.push(<IoIosStar key ={uuid()}/>)
     }
     return stars
   }
