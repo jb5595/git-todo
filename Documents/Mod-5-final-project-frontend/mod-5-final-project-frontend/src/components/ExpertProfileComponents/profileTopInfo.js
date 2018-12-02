@@ -1,12 +1,13 @@
 import React from "react"
-import { FaStar } from "react-icons/fa";
 import { FaEdit } from "react-icons/fa";
+import {IoIosStar, IoIosStarOutline } from "react-icons/io";
 
-const ProfileTopInfo = (props) =>{
-  return(
+class ProfileTopInfo extends React.Component{
+  render(){
+    return(
     <React.Fragment>
     <div className = "row">
-      {props.canEdit ? <div onClick = {props.handleEdit} className = "edit-top-info-button">
+      {this.props.canEdit ? <div onClick = {this.props.handleEdit} className = "edit-top-info-button">
         <FaEdit/>
       </div>:null}
       <div className = "profile-picture-container offset-2">
@@ -15,17 +16,17 @@ const ProfileTopInfo = (props) =>{
       <div className = "profile-header-info">
         <div className = "row">
           <div className = "">
-            <span className = "rating"><FaStar/><FaStar/><FaStar/><FaStar/><FaStar/></span> From X Reviews
+            <span className = "rating">{this.renderRating()}</span>
           </div>
         </div>
         <div className = "row">
           <div className = "profile-name" >
-            <h4>{props.fullName}</h4>
+            <h4>{this.props.fullName}</h4>
           </div>
         </div>
         <div className = "row">
           <div className = "profile-subtitle">
-            {props.jobTitle} @ {props.company}
+            {this.props.jobTitle} @ {this.props.company}
           </div>
         </div>
       </div>
@@ -33,12 +34,20 @@ const ProfileTopInfo = (props) =>{
     </div>
     <div className = "row center-text">
       <div className = "offset-2 col-7">
-        {props.about}
+        {this.props.about}
       </div>
     </div>
 
     </React.Fragment>
   )
+}
+  renderRating(){
+    let stars = []
+    for(let i = 0; i < this.props.averageRating; i++){
+      stars.push(<IoIosStar/>)
+    }
+    return stars
+  }
 }
 
 

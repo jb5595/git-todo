@@ -69,6 +69,7 @@ class ExpertProfile extends React.Component{
         <div className = "container-fluid">
         <ProfileTopInfo handleEdit = {this.editTopInfo}
                         fullName ={this.props.expert.full_name}
+                        averageRating = {this.props.expert.average_rating}
                         jobTitle = {this.props.expert.job_title}
                         company ={this.props.expert.company}
                         about = {this.props.expert.about}
@@ -94,6 +95,7 @@ class ExpertProfile extends React.Component{
             </div>
         </div>
         {this.renderSubInformation()}
+        <br/><br/>
         </div>
       </div>
     )

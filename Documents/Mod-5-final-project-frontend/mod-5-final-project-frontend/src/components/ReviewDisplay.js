@@ -1,5 +1,4 @@
 import React from "react"
-import {FaStar, FaRegStar} from "react-icons/fa";
 import {IoIosStar, IoIosStarOutline } from "react-icons/io";
 
 class ReviewDisplay extends React.Component{

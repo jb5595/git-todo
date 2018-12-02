@@ -1,6 +1,6 @@
 import React from "react"
 import { Link } from 'react-router-dom';
-import { FaStar } from "react-icons/fa";
+import {IoIosStar, IoIosStarOutline } from "react-icons/io";
 
 
 class ExpertPreview extends React.Component{
@@ -16,7 +16,7 @@ class ExpertPreview extends React.Component{
         <div className = "profile-header-info">
           <div className = "row">
             <div className = "">
-              <span className = "rating"><FaStar/><FaStar/><FaStar/><FaStar/><FaStar/></span> From X Reviews
+              <span className = "rating">{this.renderRating()}</span>
             </div>
           </div>
           <div className = "row">
@@ -46,6 +46,13 @@ class ExpertPreview extends React.Component{
       </div>
      </div>
     )
+  }
+  renderRating(){
+    let stars = []
+    for(let i = 0; i < this.props.expert.average_rating; i++){
+      stars.push(<IoIosStar/>)
+    }
+    return stars
   }
 }
 
