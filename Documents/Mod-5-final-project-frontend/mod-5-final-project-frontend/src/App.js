@@ -11,6 +11,7 @@ import QuestionIndexPage from "./containers/QuestionsIndexPage"
 import ExpertIndex from "./containers/ExpertIndex"
 import SiteWideSearchResults from './containers/SiteWideSearchResults'
 import CreateExpertAccountPage from "./containers/CreateExpertAccountPage"
+import ReviewForm from "./containers/ReviewForm"
 import { connect } from "react-redux"
 import * as actions from "./actions/BrowserPropsActions"
 
@@ -66,6 +67,10 @@ class App extends Component {
           }}/>
           <Route path = "/create_expert_profile" render = {(props) =>{
             return <CreateExpertAccountPage {...props} />
+          }}/>
+          <Route path ="/post/review/:expert_id" render = {(props) =>{
+            let expert_id = props.match.params.expert_id
+            return <ReviewForm {...props} expert_id = {expert_id} />
           }}/>
 
 

@@ -78,7 +78,9 @@ class ExpertProfile extends React.Component{
                      city  = {this.props.expert.city} state = {this.props.expert.state}
                      phone  = {this.props.expert.phone} email = {this.props.expert.email}
                      zipcode = {this.props.expert.zip_code} website  = {this.props.expert.website_url}/>
-        {this.props.expert ? <AccountAnalyticsOverview topTags = {this.props.expert.top_tags} answeredQuestions = {this.props.expert.answered_questions}/>: null}
+        {this.props.expert ? <AccountAnalyticsOverview total_upvotes = {this.props.expert.total_upvotes}
+                              topTags = {this.props.expert.top_tags}
+                              answeredQuestions = {this.props.expert.answered_questions}/>: null}
         <ExpertiseInfo handleEdit = {this.editTags} canEdit = {this.state.canEdit} tags = {this.props.expert.tags}/>
         <div className = "row profile-info-menu">
             <div onClick = {this.menuSelector} className = {this.state.selectedSubPage === "Reviews" ? "profile-menu-option active-menu-option":"profile-menu-option"}>
@@ -100,7 +102,8 @@ class ExpertProfile extends React.Component{
   renderSubInformation(){
     switch (this.state.selectedSubPage) {
       case "Reviews":
-        return <ExpertProfileReviews/>
+        return <ExpertProfileReviews history = {this.props.history}
+        expert ={this.props.expert} expert_id = {this.props.expert.id}/>
       case "Q&A":
         return <ExpertProfileQA history = {this.props.history} questions = {this.props.expert.answered_questions}/>
       default:

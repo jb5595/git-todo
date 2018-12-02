@@ -1,12 +1,45 @@
 import React from "react"
+import StarRatingComponent from 'react-star-rating-component';
+import { connect } from "react-redux"
+import * as actions from "../../actions/expertProfileActions"
+import ReviewDisplay from "../ReviewDisplay"
 
-const ExpertProfileReviews = (props) =>{
-  return(
-    <React.Fragment>
-        Expert Reviews Information
-    </React.Fragment>
+class ExpertProfileReviews extends React.Component{
+
+  componentDidMount(){
+    this.props.loadReviews(this.props.expert_id)
+  }
+  render(){
+    return(
+    <div className ="col-8 offset-2 review-container">
+    <br/>
+      <div>
+      <div><b>Review {this.props.expert.full_name}</b></div>
+      <StarRatingComponent name = "redirect"
+       className = "rating-icon-form" starColor={"#258493"}
+       onStarClick={this.redirectToPostReviewPage}/>
+       <br/>
+       <small>Have you worked with {this.props.expert.full_name}?  </small>
+       <small className ="start-review"><b> Start Your Review</b></small>
+       <br/><br/>
+       <h5>Reviews</h5>
+       {this.props.reviews.map(review=><ReviewDisplay review={review} key = {review.id}/>)}
+      </div>
+    </div>
   )
+}
+  redirectToPostReviewPage = (e) =>{
+    this.props.history.push(`/post/review/${this.props.expert_id}`)
+  }
+}
+const mapStateToProps = (state) =>{
+  return {
+          reviews: state.expertProfile.reviews,
+          reviewsLoading: state.expertProfile.reviewsLoading
+        }
 }
 
 
-export default ExpertProfileReviews
+
+
+export default connect(mapStateToProps, actions)(ExpertProfileReviews)

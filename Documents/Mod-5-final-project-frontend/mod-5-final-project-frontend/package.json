@@ -16,6 +16,7 @@
     "react-router-modal": "^1.5.2",
     "react-scripts": "2.1.1",
     "react-spinners": "^0.4.7",
+    "react-star-rating-component": "^1.4.1",
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0",
     "semantic-ui-react": "^0.83.0"

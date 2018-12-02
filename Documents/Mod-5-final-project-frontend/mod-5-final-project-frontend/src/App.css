@@ -537,6 +537,27 @@
     animation-name: animatetop;
     animation-duration: 0.4s
 }
+.reviews-form{
+  text-align: left;
+}
+.rating-icon-form{
+  font-size: 30px;
+  margin-bottom: -20px;
+}
+.review-container{
+  text-align: left;
+}
+.start-review{
+  color: #258493;
+}
+.review-score{
+  color: #258493;
+  font-size: 20px;
+}
+.review-username{
+  margin-top: -10px;
+  color: grey;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

@@ -27,7 +27,7 @@ class AccountAnalyticsOverview extends React.Component{
             Upvotes:
           </div>
           <div className = "bizhub-overview-info">
-            100
+            {this.props.total_upvotes}
           </div>
         </div>
       </div>

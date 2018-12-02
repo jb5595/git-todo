@@ -12,3 +12,15 @@ export function loadProfile(expertID){
   })
   }
 }
+
+export function loadReviews(expertID){
+
+  return (dispatch) => {
+    dispatch( {type:"LOADING_REVIEWS"});
+    return fetch(BASEEXPERTURL + `${expertID}/reviews`).then(response => {
+      return response.json()
+    }).then(reviews => {
+      dispatch({type: "FETCH_REVIEWS", reviews})
+  })
+  }
+}
