@@ -11,7 +11,6 @@ class CreateUserPage extends React.Component{
         user_name: null,
         email: null,
         password: null,
-        revenue_range: "< 500K",
         size_range: "1-25",
         location: null
       },
@@ -48,18 +47,7 @@ class CreateUserPage extends React.Component{
             <input onChange = {this.handleChange} type="text" name = "location" className="form-control" placeholder="ex: Washington, DC"/>
             <small className="form-text text-muted">This will help ensure you are connnected with the right expert to answer your question</small>
           </div>
-          <div className="form-group">
-            <label htmlFor="revenue_range">Revenue Range</label>
-            <select onChange = {this.handleChange} className="form-control" name = "revenue_range">
-              <option>{'< 500K'}</option>
-              <option>{'500k – 1MM'}</option>
-              <option>{"1MM – 2.5MM"}</option>
-              <option>{"2.5MM – 5MM"}</option>
-              <option>{"5MM – 10MM"}</option>
-              <option>{"10MM+"}</option>
-            </select>
-            <small className="form-text text-muted">This will help ensure you are connnected with the right expert to answer your question</small>
-          </div>
+
           <div className="form-group">
             <label htmlFor="size-range">Size Range</label>
             <select onChange = {this.handleChange} className="form-control" name = "size_range">

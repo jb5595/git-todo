@@ -9,7 +9,7 @@ class HomePage extends React.Component{
           <div className="hero-text">
             <h1>Smart Business Decisions Start Here</h1>
             <div>
-              <Link to = "/experts"><button className = "btn btn-primary">Browse Experts</button></Link>
+              <Link to = "/experts"><button className = "btn btn-primary">Find a Service Provider</button></Link>
               <Link to = "/questions"><button className = "btn btn-primary">Browse Questions</button></Link>
             </div>
           </div>
@@ -17,6 +17,16 @@ class HomePage extends React.Component{
         <div className = "grey-top-bar">
         </div>
         <div className = "about-subsection">
+        <div className = "row">
+          <div className = "offset-3" >
+            Use Bizhub to make the right decisons to grow your business and connect with leading Business Services Providers.
+            <br/>
+            Want to post a question? <Link className = "homepage-link" to = "/create_user">Create an Account </Link> or
+            <Link className = "homepage-link" to = "/login"> Sign In </Link>
+            <br/><br/><br/>
+
+          </div>
+        </div>
           <div className = "row">
             <div className = "offset-3 offset-md-1" >
               <img

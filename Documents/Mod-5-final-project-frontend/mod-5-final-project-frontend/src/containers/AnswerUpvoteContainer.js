@@ -9,8 +9,6 @@ class AnswerUpvoteContainer extends React.Component {
   constructor(props){
     super(props)
     let hasUpvoted = this.hasUpvoted()
-
-    console.log(hasUpvoted)
     this.state = {
       hasUpvoted:hasUpvoted,
     }

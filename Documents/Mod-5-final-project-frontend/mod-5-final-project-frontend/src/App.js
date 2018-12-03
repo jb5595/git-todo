@@ -12,6 +12,7 @@ import ExpertIndex from "./containers/ExpertIndex"
 import SiteWideSearchResults from './containers/SiteWideSearchResults'
 import CreateExpertAccountPage from "./containers/CreateExpertAccountPage"
 import ReviewForm from "./containers/ReviewForm"
+import ServiceProviderLanding from "./containers/ServiceProviderLanding"
 import { connect } from "react-redux"
 import * as actions from "./actions/CurrentUserActions"
 
@@ -81,6 +82,9 @@ class App extends Component {
           <Route path ="/post/review/:expert_id" render = {(props) =>{
             let expert_id = props.match.params.expert_id
             return <ReviewForm {...props} expert_id = {expert_id} />
+          }}/>
+          <Route path = "/service_providers" render = { (props) =>{
+            return <ServiceProviderLanding/>
           }}/>
 
 

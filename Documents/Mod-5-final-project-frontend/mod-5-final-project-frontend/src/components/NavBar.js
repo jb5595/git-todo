@@ -24,10 +24,10 @@ class NavBar extends React.Component{
           </div>
         </nav>
         <nav className="navbar sub-nav navbar-dark bg-dark">
-          <Link to = "/experts">Find an Expert</Link>
+          <Link to = "/experts">Find a Service Provider</Link>
           <Link to = "/questions">Browse Questions</Link>
           {this.props.currentUser? null :
-          <Link to = "/create_expert_profile"> Create Expert Account</Link>}
+          <Link to = "/service_providers"> For Service Providers</Link>}
         </nav>
       </React.Fragment>
     )
