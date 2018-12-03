@@ -17,33 +17,37 @@ const BaseExpertURL = "http://localhost:3000/experts/"
 class ExpertProfile extends React.Component{
   constructor(props){
     super(props)
-    let canEdit
-    if (this.props.currentUser
-      && this.props.currentUser.id == this.props.id
-      && this.props.CurrentUserIsExpert){
-      canEdit = true
-    }
-    else{
-      canEdit = false
-    }
     this.state = {
       modal: null,
       selectedSubPage: "About",
-      canEdit: canEdit,
+      canEdit: false,
       workExperienceToEdit: null,
       educationToEdit: null
     }
   }
   componentDidMount(){
     this.props.loadProfile(this.props.id)
+    console.log("mounting")
+
   }
   menuSelector = (e) =>{
     this.setState({
       selectedSubPage: e.target.innerText
     })
    }
+   renderEditButtonsifCanEdit(){
+     if (this.props.currentUser
+       && parseInt(this.props.currentUser.id) === parseInt(this.props.id)
+       && this.props.CurrentUserIsExpert && !this.state.canEdit){
+         this.setState({canEdit:true})
+       }
+   }
+   componentDidUpdate(){
+     this.renderEditButtonsifCanEdit()
+   }
 
   render(){
+
     if (this.props.profileLoading){
       return (
         <div className = "loading-spinner offset-5">
