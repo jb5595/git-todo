@@ -1,6 +1,6 @@
 
 import React from 'react'
-
+import {connect} from "react-redux"
 import AnswerUpvoteContainer from "../containers/AnswerUpvoteContainer"
 const AnswerURL = "http://localhost:3000/answers/"
 
@@ -25,13 +25,14 @@ class AnswerDisplay extends React.Component{
     }))
   }
   render(){
+
     return(
       <div>
         <div className = "col-8 offset-2 question-preview">
         <div className = "row">
           <div>
             <p>{this.props.content}</p>
-            {this.state.upvotes ? <AnswerUpvoteContainer
+            {this.state.upvotes && this.props.currentUser ? <AnswerUpvoteContainer
             answerId= {this.props.answerId} questionId = {this.props.questionId}
             upvotes = {this.state.upvotes} reloadUpvotes = {this.loadUpvotes} upvoteScore = {this.state.upvoteScore}/> : null}
             <div className = "offset-0 offset-lg-6 row">
@@ -53,4 +54,14 @@ class AnswerDisplay extends React.Component{
     )
   }
 }
-export default AnswerDisplay
+
+const mapStateToProps = (state) =>{
+  return{
+    currentUser: state.userSession.currentUser,
+    currentUserLoading: state.userSession.currentUserLoading,
+    question: state.questionShow.questionObject,
+    questionLoading: state.questionShow.questionLoading
+  }
+}
+
+export default connect(mapStateToProps)(AnswerDisplay)

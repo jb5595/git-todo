@@ -23,10 +23,10 @@ class QuestionShowPage extends React.Component{
         tags = {this.props.question.tags}
         /> : null}
         <AnswerContainer
-        questionId ={this.props.question.id}
+        questionId ={this.props.id}
         history = {this.props.history}
         answers = {this.props.question.answers}/>
-        {this.props.CurrentUserIsExpert ? <AnswerForm
+        {this.props.currentUserIsExpert ? <AnswerForm
             reloadQuestion = {this.reloadQuestionIfNeeded} jwt = {this.props.jwt}
            expertId = {this.props.currentUser.id} questionId = {this.props.question.id}/>: null}
       </div>
@@ -43,7 +43,8 @@ const mapStateToProps = (state) =>{
   return{
     jwt:state.userSession.jwt,
     currentUser:state.userSession.currentUser,
-    CurrentUserIsExpert: state.userSession.expert,
+    currentUserIsExpert: state.userSession.expert,
+    currentUserLoading: state.userSession.currentUserLoading,
     question: state.questionShow.questionObject,
     questionLoading: state.questionShow.questionLoading
   }

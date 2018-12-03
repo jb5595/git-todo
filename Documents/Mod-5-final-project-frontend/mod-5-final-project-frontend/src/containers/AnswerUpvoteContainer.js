@@ -9,6 +9,8 @@ class AnswerUpvoteContainer extends React.Component {
   constructor(props){
     super(props)
     let hasUpvoted = this.hasUpvoted()
+
+    console.log(hasUpvoted)
     this.state = {
       hasUpvoted:hasUpvoted,
     }
@@ -63,10 +65,10 @@ class AnswerUpvoteContainer extends React.Component {
   hasUpvoted(){
     // if the current user is an expert check for matching upvote of type "expert"
     if ((this.props.currentUser && this.props.currentUserIsExpert &&
-      this.props.upvotes.find(upvote => upvote.upvoter_id === this.props.currentUser.id && upvote.upvoter_type == "Expert"))
+      this.props.upvotes.find(upvote => upvote.upvoter_id === this.props.currentUser.id && upvote.upvoter_type === "Expert"))
     ){
       // Check whether upvote or down vote
-      if(this.props.upvotes.find(upvote => upvote.upvoter_type == "Expert" && upvote.upvoter_id === this.props.currentUser.id).score == "1"){
+      if(this.props.upvotes.find(upvote => upvote.upvoter_type === "Expert" && upvote.upvoter_id === this.props.currentUser.id).score === 1){
         return "upvote"
       }
       else{
@@ -75,8 +77,8 @@ class AnswerUpvoteContainer extends React.Component {
     }
     // if current expert is user check for matching upvote of type "user"
       else if ((this.props.currentUser && !this.props.currentUserIsExpert &&
-        this.props.upvotes.find(upvote => upvote.upvoter_id === this.props.currentUser.id && upvote.upvoter_type == "User"))) {
-          if(this.props.upvotes.find(upvote => upvote.upvoter_type == "User" && upvote.upvoter_id === this.props.currentUser.id).score == "1"){
+        this.props.upvotes.find(upvote => upvote.upvoter_id === this.props.currentUser.id && upvote.upvoter_type === "User"))) {
+          if(this.props.upvotes.find(upvote => upvote.upvoter_type === "User" && upvote.upvoter_id === this.props.currentUser.id).score === 1){
             return "upvote"
           }
           else{
