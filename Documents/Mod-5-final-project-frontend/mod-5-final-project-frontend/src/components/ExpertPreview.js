@@ -12,7 +12,7 @@ class ExpertPreview extends React.Component{
       <div className = "row ">
 
         <div className = "profile-picture-container ">
-          <img className = "index-profile-picture" alt = "profile" src = "https://via.placeholder.com/150/0000FF/808080 ?Text=Digital.com"/>
+          <img className = "index-profile-picture" alt = "profile" src = {this.props.expert.profile_picture_url}/>
         </div>
         <div className = "profile-header-info">
           <div className = "row">

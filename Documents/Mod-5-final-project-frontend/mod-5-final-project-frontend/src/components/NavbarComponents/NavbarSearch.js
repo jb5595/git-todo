@@ -20,7 +20,7 @@ class NavBarSearch extends React.Component{
     this.setState({
       searchTerm: e.target.value
     })
-  if (e.target.value !== ""){
+  if (e.target.value !== "" && e.target.value !== " "){
     fetch(QuestionsSearchPreviewURL + e.target.value)
     .then(resp => resp.json())
     .then(data => this.setState({qaResults: data}))
@@ -44,15 +44,15 @@ class NavBarSearch extends React.Component{
         value = {this.state.searchTerm} className="form-control"
          type="search" placeholder="Search BizHub..." />
         <div className = "navbar-search-results-preview-container">
-          {this.state.quaResults || this.state.qaResults.length === 0 ? null :  this.renderQaResults()}
-          {!this.state.expertResults || this.state.expertResults.length === 0 ? null :  this.renderExpertResults()}
+          {this.state.qaResults && this.state.qaResults.length !== 0 ?  this.renderQaResults() : null}
+          {this.state.expertResults && this.state.expertResults.length !== 0 ? this.renderExpertResults() : null }
         </div>
       </form>
     </div>
     )
   }
 
-  renderQaResults(){
+  renderQaResults = () =>{
     return(
       <React.Fragment>
         <div className = "nav-bar-search-result-title row">
@@ -70,7 +70,7 @@ class NavBarSearch extends React.Component{
       </React.Fragment>
     )
   }
-  renderExpertResults(){
+  renderExpertResults =() =>{
     return(
       <React.Fragment>
         <div className = "nav-bar-search-result-title row">
@@ -84,14 +84,14 @@ class NavBarSearch extends React.Component{
         {this.state.expertResults.map(expert =>
           <div key = {expert.id} className = "nav-bar-search-result">
           <div className = "row expert-search-result">
-          <img className = "search-picture-thumbnail" alt = "profile" src = "https://via.placeholder.com/150/0000FF/808080 ?Text=Digital.com"/>
+          <img className = "search-picture-thumbnail" alt = "profile" src = {expert.profile_picture_url}/>
           <div className = "col-6">
             <div className = "col-12">
               <b><span  data-id = {expert.id} className = "search-result-link"
                onClick = {this.handleExpertReRoute}>{expert.full_name}</span></b>
             </div>
             <div className = "col-12">
-            <small> Job Title @ Company </small>
+            <small> {expert.job_title} @ {expert.company} </small>
             </div>
           </div>
           </div>

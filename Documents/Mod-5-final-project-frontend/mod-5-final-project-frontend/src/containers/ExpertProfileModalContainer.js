@@ -25,7 +25,9 @@ class ExpertProfileModalContainer extends React.Component{
   renderModal(){
     switch (this.props.modal) {
       case "topInfo":
-        return (<EditTopInfoModal handleEdits = {this.handleEdits}
+        return (<EditTopInfoModal handleEdits = {this.handleTopInfoEdits}
+                profile_picture_url = {this.props.expert.profile_picture_url}
+                cover_photo_url = {this.props.expert.cover_photo_url}
                 handleClose = {this.props.closeModal}
                 fullName ={this.props.expert.full_name}
                 jobTitle = {this.props.expert.job_title}
@@ -70,8 +72,41 @@ class ExpertProfileModalContainer extends React.Component{
 
     }
   }
+// Function to handle sending image data ov
+  handleTopInfoEdits = (edits) =>{
+    const body = new FormData()
+    body.append("full_name", edits.full_name)
+    body.append("job_title", edits.job_title)
+    body.append("company", edits.company)
+    body.append("about", edits.about)
+    if (edits.profile_picture){
+      body.append("profile_picture", edits.profile_picture)
+    }
+    if (edits.cover_photo){
+      body.append("cover_photo", edits.cover_photo)
+    }
+
+    fetch(BaseExpertURL + this.props.currentUser.id,{
+      method: "PATCH",
+      headers: {
+          Authorization: `Bearer ${this.props.jwt}`,
+          Accept: "application/json"
+        },
+        body: body
+      }
+  ).then(resp => resp.json())
+  .then(data =>{
+
+    this.props.UpdateCurrentUser(data)
+    this.props.history.push(`/experts/`)
+    this.props.history.push(`/experts/${data.id}`)
+
+
+  })
+  }
 
   handleEdits =(edits) =>{
+
     fetch(BaseExpertURL + this.props.currentUser.id,{
       method: "PATCH",
       headers: {

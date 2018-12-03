@@ -65,11 +65,12 @@ class ExpertProfile extends React.Component{
                               modal = {this.state.modal}
                               educationToEdit = {this.state.educationToEdit}
                               /> : null}
-        <img className = "banner-photo" alt = "banner" src = "https://via.placeholder.com/851x351?text=851x351+Banner%20+Photo"/>
+        <img className = "banner-photo" alt = "banner" src = {this.props.expert.cover_photo_url}/>
         <div className = "container-fluid">
         <ProfileTopInfo handleEdit = {this.editTopInfo}
                         fullName ={this.props.expert.full_name}
                         averageRating = {this.props.expert.average_rating}
+                        profilePictureUrl = {this.props.expert.profile_picture_url}
                         jobTitle = {this.props.expert.job_title}
                         company ={this.props.expert.company}
                         about = {this.props.expert.about}

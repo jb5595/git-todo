@@ -14,6 +14,7 @@ class UserProfile extends React.Component{
     return(
       <div>
         <UserProfileTopInfo userName = {this.props.user.user_name}
+        numberOfQuestions = {this.props.user.number_of_questions}
         email = {this.props.user.email} revenueRange = {this.props.user.revenue_range}
         sizeRange = {this.props.user.size_range} location = {this.props.user.location}/>
         {this.props.user.id ? <UserProfileQuestionsContainer history ={this.props.history} userID = {this.props.user.id}/> : null }

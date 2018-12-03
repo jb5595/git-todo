@@ -12,7 +12,7 @@ class ProfileTopInfo extends React.Component{
         <FaEdit/>
       </div>:null}
       <div className = "profile-picture-container offset-2">
-        <img className = "profile-picture" alt = "profile" src = "https://via.placeholder.com/150/0000FF/808080 ?Text=Digital.com"/>
+        <img className = "profile-picture" alt = "profile" src = {this.props.profilePictureUrl}/>
       </div>
       <div className = "profile-header-info">
         <div className = "row">

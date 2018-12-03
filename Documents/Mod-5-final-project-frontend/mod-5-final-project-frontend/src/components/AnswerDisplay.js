@@ -36,7 +36,7 @@ class AnswerDisplay extends React.Component{
             upvotes = {this.state.upvotes} reloadUpvotes = {this.loadUpvotes} upvoteScore = {this.state.upvoteScore}/> : null}
             <div className = "offset-0 offset-lg-6 row">
               <div className ="col-1 col-lg-2">
-                <img className = "profile-picture-thumbnail" alt = "profile" src = "https://via.placeholder.com/150/0000FF/808080 ?Text=Digital.com"/>
+                <img className = "profile-picture-thumbnail" alt = "profile" src = {this.props.expert.profile_picture_url}/>
               </div>
               <div className = "expert-preview-details col-9">
                 <p onClick = {() => this.props.handleClick(this.props.expert.id)}>

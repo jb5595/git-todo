@@ -25,11 +25,6 @@ class UserProfileTopInfo extends React.Component{
           </div>
           <div className = "row">
             <div className = "profile-subtitle">
-                <FaMoneyBillWave/> {this.props.revenueRange}
-            </div>
-          </div>
-          <div className = "row">
-            <div className = "profile-subtitle">
               <FaMapMarkedAlt/> {this.props.location}
             </div>
           </div>
@@ -40,7 +35,7 @@ class UserProfileTopInfo extends React.Component{
           </div>
           <div className = "row">
             <div className = "profile-subtitle">
-              <FaQuestion/>100 Questions
+              <FaQuestion/>{this.props.numberOfQuestions} Questions
             </div>
           </div>
         </div>
