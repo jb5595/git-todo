@@ -8,7 +8,7 @@ class ProfileTopInfo extends React.Component{
     return(
     <React.Fragment>
     <div className = "row">
-      {this.props.canEdit ? <div onClick = {this.props.handleEdit} className = "edit-top-info-button">
+      {this.props.canEdit ? <div onClick = {this.props.handleModal} className = "edit-top-info-button">
         <FaEdit/>
       </div>:null}
       <div className = "profile-picture-container offset-2">

@@ -11,6 +11,8 @@ class QuestionDisplayContainer extends React.Component {
         id = {question.id}
         history = {this.props.history}
         question = {question.question}
+        user = {question.user}
+        upvote_score = {question.upvote_score}
         details = {question.question_details}
         tags = {question.tags} /> )  }
       </div>

@@ -16,12 +16,14 @@ class QuestionShowPage extends React.Component{
     this.reloadQuestionIfNeeded()
     return(
       <div>
-         {!this.props.questionLoading ? <QuestionDisplay
+         {this.props.questionLoading || this.currentUserLoading ? null : <QuestionDisplay
         id = {this.props.id}
+        history = {this.props.history}
         question = {this.props.question.question}
         details = {this.props.question.question_details}
         tags = {this.props.question.tags}
-        /> : null}
+        user = {this.props.question.user}
+        />}
         <AnswerContainer
         questionId ={this.props.id}
         history = {this.props.history}

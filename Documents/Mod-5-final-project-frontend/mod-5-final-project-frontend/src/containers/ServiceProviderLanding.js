@@ -16,12 +16,9 @@ class ServiceProviderLanding extends React.Component{
         </div>
         <div className = "about-subsection">
         <div className = "row">
-          <div className = "offset-3" >
+          <div className = "offset-3 col-6" >
             Get your company in front of our users in 20 minutes or less and start growing your client-base.
-
-            <br/><br/>
-            <br/><br/><br/>
-
+            Demonstrate your expertise and build your reputation by answering user posted questions in your areas of expertise.
           </div>
         </div>
 

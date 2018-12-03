@@ -1,14 +1,30 @@
 import React from "react"
 import { IoIosPeople } from "react-icons/io";
-import { FaMoneyBillWave, FaQuestion, FaMapMarkedAlt, FaIndustry } from "react-icons/fa";
-
+import {  FaEdit, FaQuestion, FaMapMarkedAlt, FaIndustry } from "react-icons/fa";
+import {connect } from 'react-redux'
 
 class UserProfileTopInfo extends React.Component{
+  constructor(props){
+    super(props)
+    let canEdit
+    if (this.props.currentUser && this.props.currentUser.id === this.props.user.id && !this.props.currentUserIsExpert){
+      canEdit = true
+    }
+    else{
+      canEdit =false
+    }
+    this.state  = {
+      canEdit: canEdit
+    }
+  }
 
   render(){
     return(
       <div className = "user-profile-top-info-container">
       <div className = "row">
+      {this.state.canEdit ? <div onClick = {this.props.handleModal} className = "edit-top-info-button">
+        <FaEdit/>
+      </div>:null}
         <div className = "user-profile-picture-container offset-2">
           <img className = "user-profile-picture" alt = "profile" src = "https://via.placeholder.com/150/0000FF/808080 ?Text=Digital.com"/>
         </div>
@@ -30,7 +46,7 @@ class UserProfileTopInfo extends React.Component{
           </div>
           <div className = "row">
             <div className = "profile-subtitle">
-              <FaIndustry/> Industries: tech, finance
+              <FaIndustry/> Industries: {this.props.industry}
             </div>
           </div>
           <div className = "row">
@@ -47,5 +63,13 @@ class UserProfileTopInfo extends React.Component{
     )
   }
 }
+const mapStateToProps = (state) =>{
+  return {
+          user: state.userProfile.userObject,
+          profileLoading: state.userProfile.userLoading,
+          currentUser:state.userSession.currentUser,
+          currentUserIsExpert: state.userSession.expert,        }
+}
 
-export default UserProfileTopInfo
+
+export default connect(mapStateToProps)(UserProfileTopInfo)

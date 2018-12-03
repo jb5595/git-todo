@@ -567,6 +567,14 @@
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://images.unsplash.com/photo-1518600506278-4e8ef466b810?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=858391bd28bf4aadaa5b3e0750edb485&auto=format&fit=crop&w=993&q=80");
 
 }
+.username-preview{
+  margin-left: 7px;
+  margin-right: 7px;
+  text-decoration: underline;
+}
+.username-preview:hover{
+  color:blue;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

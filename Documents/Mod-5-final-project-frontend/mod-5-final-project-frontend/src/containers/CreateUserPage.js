@@ -8,11 +8,12 @@ class CreateUserPage extends React.Component{
     super()
     this.state = {
       user: {
-        user_name: null,
-        email: null,
-        password: null,
+        user_name: "",
+        email: "",
+        password: "",
         size_range: "1-25",
-        location: null
+        location: "",
+        industry: "",
       },
       errors: null
     }
@@ -30,27 +31,32 @@ class CreateUserPage extends React.Component{
         <form onSubmit = {this.handleSubmit} className = "col-6 offset-3">
           <div className="form-group">
             <label htmlFor="email">Email address</label>
-            <input onChange = {this.handleChange} type="email" className="form-control" name = "email" placeholder="Enter email"/>
+            <input value = {this.state.email} onChange = {this.handleChange} type="email" className="form-control" name = "email" placeholder="Enter email"/>
             <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
           </div>
           <div className="form-group">
             <label htmlFor="user_name">Username</label>
-            <input onChange = {this.handleChange} type="text" name = "user_name" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"/>
+            <input value = {this.state.user_name} onChange = {this.handleChange} type="text" name = "user_name" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"/>
             <small id="emailHelp" className="form-text text-muted">This will be your display name on the website choose something that will let you stay anonymous </small>
           </div>
           <div className="form-group">
             <label htmlFor="exampleInputPassword1">Password</label>
-            <input onChange = {this.handleChange} type="password" name = "password" className="form-control" placeholder="Password"/>
+            <input value = {this.state.password}  onChange = {this.handleChange} type="password" name = "password" className="form-control" placeholder="Password"/>
           </div>
           <div className="form-group">
             <label htmlFor="exampleInputPassword1">Location</label>
-            <input onChange = {this.handleChange} type="text" name = "location" className="form-control" placeholder="ex: Washington, DC"/>
+            <input value = {this.state.location}  onChange = {this.handleChange} type="text" name = "location" className="form-control" placeholder="ex: Washington, DC"/>
+            <small className="form-text text-muted">This will help ensure you are connnected with the right expert to answer your question</small>
+          </div>
+          <div className="form-group">
+            <label htmlFor="industry">Industry(s)</label>
+            <input value = {this.state.industry}  onChange = {this.handleChange} type="text" name = "industry" className="form-control" placeholder="ex: Manufacturing, Retail"/>
             <small className="form-text text-muted">This will help ensure you are connnected with the right expert to answer your question</small>
           </div>
 
           <div className="form-group">
             <label htmlFor="size-range">Size Range</label>
-            <select onChange = {this.handleChange} className="form-control" name = "size_range">
+            <select value = {this.state.size_range} onChange = {this.handleChange} className="form-control" name = "size_range">
               <option>{'1-25'}</option>
               <option>{'25-75'}</option>
               <option>{"75-150"}</option>

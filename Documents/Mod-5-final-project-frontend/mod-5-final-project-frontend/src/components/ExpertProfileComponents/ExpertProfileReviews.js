@@ -14,17 +14,20 @@ class ExpertProfileReviews extends React.Component{
     <div className ="col-8 offset-2 review-container">
     <br/>
       <div>
-      <div><b>Review {this.props.expert.full_name}</b></div>
-      <StarRatingComponent name = "redirect"
-       className = "rating-icon-form" starColor={"#258493"}
-       onStarClick={this.redirectToPostReviewPage}/>
-       <br/>
-       <small>Have you worked with {this.props.expert.full_name}?  </small>
-       <small className ="start-review"><b> Start Your Review</b></small>
-       <br/><br/>
+      {this.props.currentUser && !this.props.currentUserIsExpert ?
+        <div>
+          <div><b>Review {this.props.expert.full_name}</b></div>
+            <StarRatingComponent name = "redirect"
+             className = "rating-icon-form" starColor={"#258493"}
+             onStarClick={this.redirectToPostReviewPage}/>
+             <br/>
+             <small>Have you worked with {this.props.expert.full_name}?  </small>
+             <small className ="start-review"><b> Start Your Review</b></small>
+             <br/><br/> </div> : null}
+
        <h5>Reviews</h5>
        {this.props.reviews.map(review=><ReviewDisplay review={review} key = {review.id}/>)}
-      </div>
+     </div>
     </div>
   )
 }
@@ -34,6 +37,8 @@ class ExpertProfileReviews extends React.Component{
 }
 const mapStateToProps = (state) =>{
   return {
+          currentUser: state.userSession.currentUser,
+          currentUserIsExpert : state.userSession.expert,
           reviews: state.expertProfile.reviews,
           reviewsLoading: state.expertProfile.reviewsLoading
         }
