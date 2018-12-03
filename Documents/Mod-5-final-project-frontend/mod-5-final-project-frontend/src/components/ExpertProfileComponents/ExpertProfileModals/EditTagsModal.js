@@ -85,7 +85,7 @@ removeTag = (e)=>{
   }
   submitEdits = (e) =>{
     let payload = this.state.tags.map(tag => tag.name)
-    this.props.handleEdits({expert:{tags:payload}})
+    this.props.handleEdits({tags:payload})
   }
 
 

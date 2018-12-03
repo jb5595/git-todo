@@ -106,7 +106,9 @@ class ExpertProfileModalContainer extends React.Component{
   }
 
   handleEdits =(edits) =>{
-
+    console.log(this.props.currentUser.id)
+    console.log(edits)
+    debugger
     fetch(BaseExpertURL + this.props.currentUser.id,{
       method: "PATCH",
       headers: {
@@ -118,7 +120,7 @@ class ExpertProfileModalContainer extends React.Component{
       }
   ).then(resp => resp.json())
   .then(data =>{
-
+    debugger
     this.props.UpdateCurrentUser(data)
     this.props.history.push(`/experts/`)
     this.props.history.push(`/experts/${data.id}`)

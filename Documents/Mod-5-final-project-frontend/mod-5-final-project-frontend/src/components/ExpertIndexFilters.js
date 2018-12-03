@@ -17,6 +17,8 @@ class ExpertIndexFilters extends React.Component{
                 type="button" className="btn btn-secondary">Rating</button>
                 <button  onClick ={this.props.handleFilterButtonClick}
                  type="button" className="btn btn-secondary">Votes</button>
+               <button  onClick ={this.props.handleFilterButtonClick}
+                type="button" className="btn btn-secondary">Most Active</button>
               </div>
             </div>
           </div>

@@ -30,6 +30,9 @@ class ExpertIndex extends React.Component{
         break
       case "Votes":
       fileredResults = this.state.displayExperts.sort((a, b) => b.total_upvotes - a.total_upvotes )
+        break
+      case "Most Active":
+      fileredResults = this.state.displayExperts.sort((a, b) => b.answered_questions.length - a.answered_questions.length )
       break
       default:
         fileredResults = this.state.displayExperts
