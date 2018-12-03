@@ -26,6 +26,7 @@ export function UpdateCurrentUser(currentUser){
 
 export function loginExpertFromLocalStorage(expertId, jwt){
     return (dispatch) => {
+      dispatch( {type:"LOADING_CURRENT_USER"});
       return fetch(BASEEXPERTURL + expertId).then(response => {
         return response.json()
       }).then(currentUser => {
@@ -36,6 +37,7 @@ export function loginExpertFromLocalStorage(expertId, jwt){
 
 export function loginUserFromLocalStorage(userId, jwt){
     return (dispatch) => {
+      dispatch( {type:"LOADING_CURRENT_USER"});
       return fetch( BaseUserURl + userId).then(response => {
         return response.json()
       }).then(currentUser => {

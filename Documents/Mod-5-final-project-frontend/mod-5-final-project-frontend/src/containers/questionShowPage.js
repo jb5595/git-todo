@@ -9,13 +9,15 @@ class QuestionShowPage extends React.Component{
 
   componentDidMount(){
     this.props.loadQuestion(this.props.id)
+    this.props.loadUpvotes(this.props.id)
+
   }
   render(){
     this.reloadQuestionIfNeeded()
     return(
       <div>
          {!this.props.questionLoading ? <QuestionDisplay
-        id = {this.props.question.id}
+        id = {this.props.id}
         question = {this.props.question.question}
         details = {this.props.question.question_details}
         tags = {this.props.question.tags}
