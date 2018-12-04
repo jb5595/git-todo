@@ -79,7 +79,7 @@ class ExpertProfile extends React.Component{
                         company ={this.props.expert.company}
                         about = {this.props.expert.about}
                         canEdit = {this.state.canEdit}/>
-        <ContactInfo handleEdit = {this.editContactInfo}
+        <ContactInfo handleEdit = {this.editContactInfo} id = {this.props.expert.id}
                      address = {this.props.expert.address} canEdit = {this.state.canEdit}
                      city  = {this.props.expert.city} state = {this.props.expert.state}
                      phone  = {this.props.expert.phone} email = {this.props.expert.email}
