@@ -15,7 +15,7 @@ class QuestionShowPage extends React.Component{
   render(){
     this.reloadQuestionIfNeeded()
     return(
-      <div>
+      <div className = "col-8 offset-2">
          {this.props.questionLoading || this.currentUserLoading ? null : <QuestionDisplay
         id = {this.props.id}
         history = {this.props.history}

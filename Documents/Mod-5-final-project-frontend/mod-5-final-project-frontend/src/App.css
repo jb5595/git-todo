@@ -52,6 +52,17 @@
   border-radius: 50% !important;
   border: 4px solid #FFFFFF;
 }
+.dashboard-profile-picture{
+  margin-top: -4vw;
+  width: 12vw;
+  height: 12vw;
+  min-width: 100px;
+  min-height: 100px;
+  -webkit-border-radius: 50% !important;
+  -moz-border-radius: 50% !important;
+  border-radius: 50% !important;
+  border: 4px solid #FFFFFF;
+}
 
 
 .profile-header-info{
@@ -621,6 +632,17 @@
 }
 .suggested-questions-top{
   margin-left: -15px;
+}
+.tag-results-display-container{
+  background-color: white;
+  max-height: 150px;
+  overflow-y: scroll;
+}
+.increase{
+  color:green
+}
+.decrease{
+  color:red
 }
 @keyframes App-logo-spin {
   from {

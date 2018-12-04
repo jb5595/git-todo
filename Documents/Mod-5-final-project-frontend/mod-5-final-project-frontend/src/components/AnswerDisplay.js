@@ -28,7 +28,7 @@ class AnswerDisplay extends React.Component{
 
     return(
       <div>
-        <div className = "col-8 offset-2 question-preview">
+        <div className = "question-preview">
         <div className = "row">
           <div>
             <p>{this.props.content}</p>

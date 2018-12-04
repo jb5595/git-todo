@@ -19,7 +19,7 @@ class HomePage extends React.Component{
         <div className = "about-subsection">
         <div className = "row">
           <div className = "offset-3" >
-          
+
 
           </div>
         </div>
@@ -53,7 +53,7 @@ class HomePage extends React.Component{
               <img
               className = "homepage-about-image"
               alt = "hand-shake"
-              src = "https://images.unsplash.com/photo-1519120126473-8be7aedcd6c6?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a55332dfc236b13f118ef77a36b4052f&auto=format&fit=crop&w=1050&q=80"
+              src = "https://images.unsplash.com/photo-1526541081349-3ee69702354c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
               />
             </div>
           </div>

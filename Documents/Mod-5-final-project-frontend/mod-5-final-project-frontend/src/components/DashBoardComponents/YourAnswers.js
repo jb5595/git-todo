@@ -2,6 +2,27 @@ import React from "react"
 import QuestionDisplayContainer from "../../containers/QuestionDisplayContainer"
 
 class YourAnswers extends React.Component{
+  constructor(props){
+    super(props)
+    if(this.props.answers_overview.answers_last_month ===0){
+      if(this.props.answers_overview.answers_this_month >0){
+        this.state = {
+          answerPercentDifference: 100.0
+        }
+      }
+      else {
+        this.state = {
+          answerPercentDifference: 0.0
+        }
+      }
+    }
+    else{
+      this.state = {
+        answerPercentDifference: ((this.props.answers_overview.answers_this_month-this.props.answers_overview.answers_last_month)/this.props.answers_overview.answers_last_month).toFixed(2),
+
+      }
+    }
+  }
 
   render(){
     return(
@@ -27,6 +48,7 @@ class YourAnswers extends React.Component{
                 <div>
                 {this.props.answers_overview.answers_this_month}
                 </div>
+                {this.state.answerPercentDifference > 0.0 ? <small className = "increase">+{this.state.answerPercentDifference}%</small> : <small className = "decrease">({this.state.answerPercentDifference}%)</small> }
               </div>
               <div className = "analytics-header">
                 <div>

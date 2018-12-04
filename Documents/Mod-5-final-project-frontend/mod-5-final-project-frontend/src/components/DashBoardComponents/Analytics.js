@@ -1,6 +1,14 @@
 import React from "react"
 
 class Analytics extends React.Component{
+  constructor(props){
+    super(props)
+    this.state = {
+      viewPercentDifference: (((this.props.profile_views.views_this_month-this.props.profile_views.views_last_month)/this.props.profile_views.views_last_month)*100).toFixed(2),
+      clickPercentDifference: (((this.props.website_clicks.clicks_this_month-this.props.website_clicks.clicks_last_month)/this.props.website_clicks.clicks_last_month)*100).toFixed(2)
+
+    }
+  }
   render(){
     return(
       <div>
@@ -27,6 +35,8 @@ class Analytics extends React.Component{
                 <div>
                   {this.props.profile_views.views_this_month}
                 </div>
+                {this.state.viewPercentDifference > 0 ? <small className = "increase">+{this.state.viewPercentDifference}%</small> : <small className = "decrease">({this.state.viewPercentDifference}%)</small> }
+
               </div>
               <div className = "analytics-header">
                 <div>
@@ -58,6 +68,8 @@ class Analytics extends React.Component{
                 <div>
                   {this.props.website_clicks.clicks_this_month}
                 </div>
+                {this.state.clickPercentDifference > 0 ? <small className = "increase">+{this.state.clickPercentDifference}%</small> : <small className = "decrease">({this.state.clickPercentDifference}%)</small> }
+
               </div>
               <div className = "analytics-header">
                 <div>

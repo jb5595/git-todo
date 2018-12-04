@@ -14,7 +14,7 @@ class AnswerForm extends React.Component{
   }
   render(){
     return(
-      <div  className ="col-8 offset-2 answer-question-form">
+      <div  className ="answer-question-form">
       <br/>
 
         <h5>Your Answer</h5>
