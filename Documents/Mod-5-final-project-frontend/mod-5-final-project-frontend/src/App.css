@@ -1,7 +1,7 @@
 
  html, body, #root, .App{
   min-height: 100% !important;
-  background-color: #f8f9fa;
+  background-color: rgb(232,232,232);
 }
 .btn-primary{
   background-color: #133e5b;
@@ -169,6 +169,8 @@
   text-align: left;
   margin-bottom: 37px;
   margin-top: 25px;
+  margin-left: -15px;
+  margin-right: -15px;
   padding-bottom: 12px;
   border-bottom: 1px solid black;
 
@@ -587,6 +589,38 @@
 }
 .suggested_questions{
   text-align: left;
+}
+.analytics{
+  margin-top: 20px;
+  text-align: left;
+  margin-left: 8%;
+  width: 85%;
+}
+.profile_views{
+  margin-top: 20px;
+  border-radius: 10px;
+  background-color: white;
+  padding: 10px;
+
+}
+.analytics-header{
+  margin: auto;
+  text-align: center;
+}
+.dashboard-question-preview{
+  padding: 8px;
+}
+.view-all-answers-button{
+  text-align: right;
+  color: #133e5b;
+  text-decoration: underline;
+}
+.suggested_questions{
+  background-color: white;
+  border-radius: 5px;
+}
+.suggested-questions-top{
+  margin-left: -15px;
 }
 @keyframes App-logo-spin {
   from {

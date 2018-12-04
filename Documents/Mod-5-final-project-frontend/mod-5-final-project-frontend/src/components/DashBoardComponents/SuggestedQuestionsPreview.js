@@ -1,10 +1,9 @@
 import React from "react"
 import QuestionDisplayContainer from "../../containers/QuestionDisplayContainer"
 
-class SuggestedQuestions extends React.Component{
+class SuggestedQuestionsPreview extends React.Component{
   render(){
     return(
-
       <div>
         <div className = "analytics">
         <h4>Suggested Questions</h4>
@@ -13,7 +12,9 @@ class SuggestedQuestions extends React.Component{
 
           <div className = "dashboard-question-preview">
           <QuestionDisplayContainer history = {this.props.history} questions ={this.props.questions}/>
-          
+            <div onClick ={this.props.handleClick} className = "view-all-answers-button">
+              View All Suggested Questions
+            </div>
             </div>
           </div>
 
@@ -24,4 +25,4 @@ class SuggestedQuestions extends React.Component{
   }
 }
 
-export default SuggestedQuestions
+export default SuggestedQuestionsPreview

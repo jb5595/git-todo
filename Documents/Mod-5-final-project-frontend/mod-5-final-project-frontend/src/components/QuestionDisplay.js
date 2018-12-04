@@ -8,7 +8,6 @@ import {  FaUserAlt, FaIndustry } from "react-icons/fa";
 class QuestionDisplay extends React.Component{
 
   render(){
-    console.log(this.props.user)
     return(
       <div>
       <div>
