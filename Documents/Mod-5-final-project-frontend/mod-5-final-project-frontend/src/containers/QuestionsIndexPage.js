@@ -57,7 +57,7 @@ class QuestionIndexPage extends React.Component{
       fileredResults = this.state.displayQuestions.sort((a, b) => b.upvote_score - a.upvote_score )
       break
       case "Unanswered":
-      fileredResults = this.state.displayQuestions.filter(question => question.answers.length ===0)
+      fileredResults = this.state.displayQuestions.filter(question => question.number_of_answers ===0)
       break
       default:
         fileredResults = this.state.displayQuestions

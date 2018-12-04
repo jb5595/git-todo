@@ -229,7 +229,7 @@
 }
 .hero-image {
     /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://images.unsplash.com/photo-1527153818091-1a9638521e2a?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=5fce4ce8856a711cc50a14e03e58783a&auto=format&fit=crop&w=500&q=60");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://images.unsplash.com/photo-1531901783755-825e82c0d762?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=19af5a39cc536680ad7308090699ed07&auto=format&fit=crop&w=1062&q=80");
 
     /* Set a specific height */
     height: 450px;
@@ -574,6 +574,19 @@
 }
 .username-preview:hover{
   color:blue;
+}
+.dashboard-top-info{
+  margin-top: 50px;
+  text-align: left;
+}
+
+.dashboard-info-menu{
+  margin-top: 30px;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+}
+.suggested_questions{
+  text-align: left;
 }
 @keyframes App-logo-spin {
   from {

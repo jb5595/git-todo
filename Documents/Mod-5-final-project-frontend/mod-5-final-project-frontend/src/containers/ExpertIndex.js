@@ -54,12 +54,20 @@ class ExpertIndex extends React.Component{
       this.fullNameIncludeSearchTerm(expert,searchTerm)||
       this.jobTitleIncludeSearchTerm(expert, searchTerm)||
       this.aboutIncludesSearchTerm(expert, searchTerm)||
-      this.companyIncludeSearchTerm(expert, searchTerm))
+      this.companyIncludeSearchTerm(expert, searchTerm)||
+      this.tagsIncludeSearchTerm(expert, searchTerm) ||
+      this.topTagsIncludeSearchTerm(expert, searchTerm))
 
     this.setState({
       displayExperts: displayExperts,
       filterText: ""
     })
+  }
+  tagsIncludeSearchTerm(expert,searchTerm){
+    return expert.tags.find(tag => tag.name.toLowerCase().includes(searchTerm))
+  }
+  topTagsIncludeSearchTerm(expert,searchTerm){
+    return expert.top_tags.find(tag => tag.name.toLowerCase().includes(searchTerm))
   }
   fullNameIncludeSearchTerm(expert, searchTerm){
     if (expert.full_name){

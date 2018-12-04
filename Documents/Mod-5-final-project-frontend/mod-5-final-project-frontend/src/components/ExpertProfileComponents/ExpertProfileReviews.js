@@ -11,7 +11,7 @@ class ExpertProfileReviews extends React.Component{
   }
   render(){
     return(
-    <div className ="col-8 offset-2 review-container">
+    <div className ="review-container">
     <br/>
       <div>
       {this.props.currentUser && !this.props.currentUserIsExpert ?

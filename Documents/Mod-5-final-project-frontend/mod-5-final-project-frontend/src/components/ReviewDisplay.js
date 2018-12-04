@@ -1,5 +1,6 @@
 import React from "react"
 import {IoIosStar, IoIosStarOutline } from "react-icons/io";
+const uuid = require('uuid/v1');
 
 class ReviewDisplay extends React.Component{
   render(){
@@ -20,10 +21,10 @@ class ReviewDisplay extends React.Component{
   renderRating(){
     let stars = []
     for(let i = 0; i < this.props.review.score; i++){
-      stars.push(<IoIosStar/>)
+      stars.push(<IoIosStar key = {uuid()}/>)
     }
     for(let i = this.props.review.score; i < 5; i++){
-      stars.push(<IoIosStarOutline/>)
+      stars.push(<IoIosStarOutline key = {uuid()}/>)
     }
     return stars
   }

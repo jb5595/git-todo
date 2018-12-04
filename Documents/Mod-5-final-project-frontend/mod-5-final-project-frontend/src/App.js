@@ -13,12 +13,13 @@ import SiteWideSearchResults from './containers/SiteWideSearchResults'
 import CreateExpertAccountPage from "./containers/CreateExpertAccountPage"
 import ReviewForm from "./containers/ReviewForm"
 import ServiceProviderLanding from "./containers/ServiceProviderLanding"
+import Dashboard from "./containers/Dashboard"
 import { connect } from "react-redux"
 import * as actions from "./actions/CurrentUserActions"
-
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-
 import './App.css';
+
+const ProfileViewURl = "http://localhost:3000/experts/"
 
 class App extends Component {
 
@@ -30,6 +31,18 @@ class App extends Component {
       userType === "Expert" ? this.props.loginExpertFromLocalStorage(id, jwt) :
       this.props.loginUserFromLocalStorage(id, jwt)
     }
+  }
+  postProfileView(expertId){
+    fetch(ProfileViewURl + expertId  + "/profile_views",{
+      method: "POST",
+      headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${this.props.jwt}`,
+            Accept: "application/json"
+          },
+      body: JSON.stringify(expertId)
+    })
+
   }
   render() {
     return (
@@ -46,6 +59,7 @@ class App extends Component {
             />
           <Route path = "/experts/:id" render = {(props) =>{
             let expertId = props.match.params.id
+            this.postProfileView(expertId)
             return <ExpertProfile {...props} id = {expertId}/>
           }}/>
           <Route path = "/post/question" render = {(props) =>{
@@ -85,6 +99,10 @@ class App extends Component {
           }}/>
           <Route path = "/service_providers" render = { (props) =>{
             return <ServiceProviderLanding/>
+          }}/>
+          <Route path = "/dashboard/:expert_id" render = { (props) =>{
+            let expert_id = props.match.params.expert_id
+            return <Dashboard {...props} expert_id = {expert_id}/>
           }}/>
 
 

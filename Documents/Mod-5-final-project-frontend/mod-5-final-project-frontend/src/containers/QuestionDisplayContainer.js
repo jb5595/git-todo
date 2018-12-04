@@ -1,5 +1,6 @@
 import React from "react"
 import QuestionPreview from "../components/questionPreview"
+const uuid = require('uuid/v1');
 
 class QuestionDisplayContainer extends React.Component {
 
@@ -7,7 +8,7 @@ class QuestionDisplayContainer extends React.Component {
     return(
       <div>
         {this.props.questions.map(question => <QuestionPreview
-        key = {question.id}
+        key = {uuid()}
         id = {question.id}
         history = {this.props.history}
         question = {question.question}

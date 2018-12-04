@@ -19,11 +19,7 @@ class HomePage extends React.Component{
         <div className = "about-subsection">
         <div className = "row">
           <div className = "offset-3" >
-            Use Bizhub to make the right decisons to grow your business and connect with leading Business Services Providers.
-            <br/>
-            Want to post a question? <Link className = "homepage-link" to = "/create_user">Create an Account </Link> or
-            <Link className = "homepage-link" to = "/login"> Sign In </Link>
-            <br/><br/><br/>
+          
 
           </div>
         </div>
@@ -36,14 +32,22 @@ class HomePage extends React.Component{
               />
             </div>
             <div className = "homepage-about-text offset-1 col-12 col-md-4">
-              <h2>Lorem Ipsum</h2>
-              <p> Proin aliquam, odio ut lacinia tempor, ex nisi fermentum lacus, eu auctor dolor magna et nibh. Nulla facilisi. Vivamus et massa enim. Morbi luctus nunc non fringilla lacinia. Cras condimentum rhoncus bibendum. Vivamus quis dapibus lorem, a volutpat lacus. Sed et lacus turpis. Vivamus ut sem ex. Maecenas scelerisque leo dui, sit amet eleifend eros consequat vel. Morbi vel posuere nunc. Sed ligula quam, ornare ac leo eu, faucibus suscipit lacus. Maecenas quis interdum odio. Nullam lacinia consequat. </p>
+              <h2>Business Owners/Entreprenuers</h2>
+              <ul>
+                <li>Post a business related question, tag it, and get answers from qualified business services professionals </li>
+                <li>Browse previosly posted questions </li>
+                <li>Find and connect with qualifed business services professionals </li>
+
+              </ul>
+              <p>  Want to post a question? <Link className = "homepage-link" to = "/create_user">Create an Account </Link> or
+                <Link className = "homepage-link" to = "/login"> Sign In </Link> </p>
             </div>
           </div>
           <div className = "row about-subsection ">
             <div className = " homepage-about-text offset-1 col-md-4 offset-md-1 col-md-5">
-              <h2>Connect with Leading Experts</h2>
-              <p> Proin aliquam, odio ut lacinia tempor, ex nisi fermentum lacus, eu auctor dolor magna et nibh. Nulla facilisi. Vivamus et massa enim. Morbi luctus nunc non fringilla lacinia. Cras condimentum rhoncus bibendum. Vivamus quis dapibus lorem, a volutpat lacus. Sed et lacus turpis. Vivamus ut sem ex. Maecenas scelerisque leo dui, sit amet eleifend eros consequat vel. Morbi vel posuere nunc. Sed ligula quam, ornare ac leo eu, faucibus suscipit lacus. Maecenas quis interdum odio. Nullam lacinia consequat. </p>
+            <h2>Service Providers</h2>
+            <p> Get your company in front of our users in 20 minutes or less and start growing your client-base. Demonstrate your expertise and build your reputation by answering user posted questions in your areas of expertise. <Link to = "/create_expert_profile" className = "homepage-link"> Create Your Account</Link> </p>
+
             </div>
             <div className = "offset-3 offset-md-1" >
               <img

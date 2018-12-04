@@ -109,8 +109,8 @@ class ExpertProfile extends React.Component{
   renderSubInformation(){
     switch (this.state.selectedSubPage) {
       case "Reviews":
-        return <ExpertProfileReviews history = {this.props.history}
-        expert ={this.props.expert} expert_id = {this.props.expert.id}/>
+        return <div className = "col-8 offset-2 "><ExpertProfileReviews history = {this.props.history}
+        expert ={this.props.expert} expert_id = {this.props.expert.id}/> </div>
       case "Q&A":
         return <ExpertProfileQA history = {this.props.history} questions = {this.props.expert.answered_questions}/>
       default:
