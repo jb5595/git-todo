@@ -1,7 +1,7 @@
-const USERSURL = 'http://localhost:3000/api/v1/users';
+const USERSURL = 'https://metrorider-api.herokuapp.com/api/v1/users';
 const APIKEY = '066f898b49e149789dfae7ae404ed976';
 const ROUTEURL = 'https://api.wmata.com/Rail.svc/json/jSrcStationToDstStationInfo?';
-const TRIPSURL = 'http://localhost:3000/api/v1/trips';
+const TRIPSURL = 'https://metrorider-api.herokuapp.com/api/v1/trips';
 
 class Adapter {
 
@@ -19,7 +19,7 @@ class Adapter {
     return fetch(url, {headers: {api_key: APIKEY}})
     .then(res => res.json())
    }
-   
+
   // USERS
 
   static getUsers() {
